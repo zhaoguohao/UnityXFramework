@@ -36,14 +36,14 @@
     <ImplicitlyExpandDesignTimeFacades>false</ImplicitlyExpandDesignTimeFacades>
   </PropertyGroup>
   <ItemGroup>
-     <Compile Include="Assets\Plugins\LitJson\JsonMapper.cs" />
-     <Compile Include="Assets\Plugins\LitJson\IJsonWrapper.cs" />
-     <Compile Include="Assets\Plugins\LitJson\JsonReader.cs" />
      <Compile Include="Assets\Plugins\LitJson\JsonWriter.cs" />
-     <Compile Include="Assets\Plugins\LitJson\JsonMockWrapper.cs" />
      <Compile Include="Assets\Plugins\LitJson\JsonData.cs" />
      <Compile Include="Assets\Plugins\LitJson\JsonException.cs" />
      <Compile Include="Assets\Plugins\LitJson\ParserToken.cs" />
+     <Compile Include="Assets\Plugins\LitJson\JsonMapper.cs" />
+     <Compile Include="Assets\Plugins\LitJson\IJsonWrapper.cs" />
+     <Compile Include="Assets\Plugins\LitJson\JsonReader.cs" />
+     <Compile Include="Assets\Plugins\LitJson\JsonMockWrapper.cs" />
      <Compile Include="Assets\Plugins\LitJson\Lexer.cs" />
      <None Include="Assets\Plugins\HOTween\HOTween_License.txt" />
     <Reference Include="UnityEngine">
@@ -280,11 +280,11 @@
     <Reference Include="Unity.VisualScripting.Antlr3.Runtime">
         <HintPath>E:/GitHub/UnityXFramework/Library/PackageCache/com.unity.visualscripting@1.6.1/Runtime/VisualScripting.Flow/Dependencies/NCalc/Unity.VisualScripting.Antlr3.Runtime.dll</HintPath>
     </Reference>
-    <Reference Include="Newtonsoft.Json">
-        <HintPath>E:/GitHub/UnityXFramework/Library/PackageCache/com.unity.nuget.newtonsoft-json@2.0.0/Runtime/Newtonsoft.Json.dll</HintPath>
-    </Reference>
     <Reference Include="Debugger">
         <HintPath>E:/GitHub/UnityXFramework/Assets/Plugins/Debugger.dll</HintPath>
+    </Reference>
+    <Reference Include="Newtonsoft.Json">
+        <HintPath>E:/GitHub/UnityXFramework/Library/PackageCache/com.unity.nuget.newtonsoft-json@2.0.0/Runtime/Newtonsoft.Json.dll</HintPath>
     </Reference>
     <Reference Include="HOTween">
         <HintPath>E:/GitHub/UnityXFramework/Assets/Plugins/HOTween/HOTween.dll</HintPath>

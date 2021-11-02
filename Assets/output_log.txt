@@ -2325,3 +2325,280 @@ RemoteConnection:Close () (at Assets/Scripts/Framework/Network/RemoteConnection.
 ClientNet:OnDestroy () (at Assets/Scripts/Framework/Network/ClientNet.cs:104)
 
 
+11-02 15:51:10 Logger Start
+UnityEngine.Debug:Log (object,UnityEngine.Object)
+GameLogger:Log (object,UnityEngine.Object) (at Assets/Scripts/Framework/Debug/GameLogger.cs:73)
+Logger:InitLogger (string) (at Assets/Scripts/Framework/Logger/Logger.cs:58)
+Logger:Init () (at Assets/Scripts/Framework/Logger/Logger.cs:19)
+StartUp:Awake () (at Assets/Scripts/StartUp.cs:16)
+
+
+11-02 15:51:10 appVersion: 1.0.0.1, resVersion: 1.0.0.1
+UnityEngine.Debug:Log (object,UnityEngine.Object)
+GameLogger:Log (object,UnityEngine.Object) (at Assets/Scripts/Framework/Debug/GameLogger.cs:73)
+VersionMgr:Init () (at Assets/Scripts/Framework/Version/VersionMgr.cs:23)
+StartUp:Awake () (at Assets/Scripts/StartUp.cs:24)
+
+
+11-02 15:51:10 15:51:10.600-0: Register lua type cost time: 0.2391772
+UnityEngine.Debug:Log (object)
+LuaInterface.Debugger:Log (string)
+LuaInterface.Debugger:Log (string,object)
+LuaBinder:Bind (LuaInterface.LuaState) (at Assets/LuaFramework/ToLua/Source/Generate/LuaBinder.cs:132)
+LuaFramework.LuaManager:.ctor () (at Assets/LuaFramework/Scripts/Manager/LuaManager.cs:43)
+LuaFramework.LuaManager:GetInstance () (at Assets/LuaFramework/Scripts/Manager/LuaManager.cs:16)
+LuaFramework.AppFacade:StartUp (System.Action) (at Assets/LuaFramework/Scripts/Framework/AppFacade.cs:48)
+StartUp:StartGame () (at Assets/Scripts/StartUp.cs:41)
+StartUp:Awake () (at Assets/Scripts/StartUp.cs:35)
+
+
+11-02 15:51:11 Network.OnInit!!
+stack traceback:
+	[C]: in function 'traceback'
+	[string "Common/functions"]:7: in function 'log'
+	[string "Network/Network.lua"]:71: in function <[string "Network/Network.lua"]:70>
+UnityEngine.Debug:Log (object,UnityEngine.Object)
+GameLogger:Log (object,UnityEngine.Object) (at Assets/Scripts/Framework/Debug/GameLogger.cs:73)
+LuaFramework.Util:Log (string) (at Assets/LuaFramework/Scripts/Utility/Util.cs:242)
+LuaFramework_UtilWrap:Log (intptr) (at Assets/LuaFramework/ToLua/Source/Generate/LuaFramework_UtilWrap.cs:341)
+LuaInterface.LuaStatePtr:LuaPCall (int,int,int) (at Assets/LuaFramework/ToLua/Core/LuaStatePtr.cs:326)
+LuaInterface.LuaState:PCall (int,int) (at Assets/LuaFramework/ToLua/Core/LuaState.cs:687)
+LuaInterface.LuaFunction:PCall () (at Assets/LuaFramework/ToLua/Core/LuaFunction.cs:91)
+LuaInterface.LuaFunction:Call (object[]) (at Assets/LuaFramework/ToLua/Core/LuaFunction.cs:132)
+LuaFramework.LuaManager:CallFunction (string,object[]) (at Assets/LuaFramework/Scripts/Manager/LuaManager.cs:160)
+LuaCall:CallFunc (string,object[]) (at Assets/LuaFramework/Scripts/Manager/LuaManager.cs:226)
+LuaFramework.NetworkManager:CallMethod (string,object[]) (at Assets/LuaFramework/Scripts/Manager/NetworkManager.cs:129)
+LuaFramework.NetworkManager:OnInit () (at Assets/LuaFramework/Scripts/Manager/NetworkManager.cs:101)
+LuaFramework.AppFacade/<>c__DisplayClass7_0:<StartUp>b__0 () (at Assets/LuaFramework/Scripts/Framework/AppFacade.cs:50)
+LuaFramework.LuaManager/<>c__DisplayClass6_0:<InitStart>b__0 () (at Assets/LuaFramework/Scripts/Manager/LuaManager.cs:55)
+LuaFramework.LuaManager/<>c__DisplayClass8_1:<StartMain>b__0 (int) (at Assets/LuaFramework/Scripts/Manager/LuaManager.cs:88)
+WalkCoroutine/<CoFunc>d__2:MoveNext () (at Assets/Scripts/Framework/Common/Misc/WalkCoroutine.cs:27)
+UnityEngine.SetupCoroutine:InvokeMoveNext (System.Collections.IEnumerator,intptr)
+
+
+11-02 15:51:11 Lua Game.Init
+stack traceback:
+	[C]: in function 'traceback'
+	[string "Common/functions"]:7: in function 'log'
+	[string "Logic/Game.lua"]:9: in function <[string "Logic/Game.lua"]:8>
+UnityEngine.Debug:Log (object,UnityEngine.Object)
+GameLogger:Log (object,UnityEngine.Object) (at Assets/Scripts/Framework/Debug/GameLogger.cs:73)
+LuaFramework.Util:Log (string) (at Assets/LuaFramework/Scripts/Utility/Util.cs:242)
+LuaFramework_UtilWrap:Log (intptr) (at Assets/LuaFramework/ToLua/Source/Generate/LuaFramework_UtilWrap.cs:341)
+LuaInterface.LuaStatePtr:LuaPCall (int,int,int) (at Assets/LuaFramework/ToLua/Core/LuaStatePtr.cs:326)
+LuaInterface.LuaState:PCall (int,int) (at Assets/LuaFramework/ToLua/Core/LuaState.cs:687)
+LuaInterface.LuaFunction:PCall () (at Assets/LuaFramework/ToLua/Core/LuaFunction.cs:91)
+LuaInterface.LuaFunction:Call (object[]) (at Assets/LuaFramework/ToLua/Core/LuaFunction.cs:132)
+LuaFramework.LuaManager:CallFunction (string,object[]) (at Assets/LuaFramework/Scripts/Manager/LuaManager.cs:160)
+LuaCall:CallFunc (string,object[]) (at Assets/LuaFramework/Scripts/Manager/LuaManager.cs:226)
+StartUp/<>c:<StartGame>b__1_0 () (at Assets/Scripts/StartUp.cs:43)
+LuaFramework.AppFacade/<>c__DisplayClass7_0:<StartUp>b__0 () (at Assets/LuaFramework/Scripts/Framework/AppFacade.cs:52)
+LuaFramework.LuaManager/<>c__DisplayClass6_0:<InitStart>b__0 () (at Assets/LuaFramework/Scripts/Manager/LuaManager.cs:55)
+LuaFramework.LuaManager/<>c__DisplayClass8_1:<StartMain>b__0 (int) (at Assets/LuaFramework/Scripts/Manager/LuaManager.cs:88)
+WalkCoroutine/<CoFunc>d__2:MoveNext () (at Assets/Scripts/Framework/Common/Misc/WalkCoroutine.cs:27)
+UnityEngine.SetupCoroutine:InvokeMoveNext (System.Collections.IEnumerator,intptr)
+
+
+11-02 15:51:11 Lua Game.Start
+stack traceback:
+	[C]: in function 'traceback'
+	[string "Common/functions"]:7: in function 'log'
+	[string "Logic/Game.lua"]:14: in function <[string "Logic/Game.lua"]:13>
+UnityEngine.Debug:Log (object,UnityEngine.Object)
+GameLogger:Log (object,UnityEngine.Object) (at Assets/Scripts/Framework/Debug/GameLogger.cs:73)
+LuaFramework.Util:Log (string) (at Assets/LuaFramework/Scripts/Utility/Util.cs:242)
+LuaFramework_UtilWrap:Log (intptr) (at Assets/LuaFramework/ToLua/Source/Generate/LuaFramework_UtilWrap.cs:341)
+LuaInterface.LuaStatePtr:LuaPCall (int,int,int) (at Assets/LuaFramework/ToLua/Core/LuaStatePtr.cs:326)
+LuaInterface.LuaState:PCall (int,int) (at Assets/LuaFramework/ToLua/Core/LuaState.cs:687)
+LuaInterface.LuaFunction:PCall () (at Assets/LuaFramework/ToLua/Core/LuaFunction.cs:91)
+LuaInterface.LuaFunction:Call (object[]) (at Assets/LuaFramework/ToLua/Core/LuaFunction.cs:132)
+LuaFramework.LuaManager:CallFunction (string,object[]) (at Assets/LuaFramework/Scripts/Manager/LuaManager.cs:160)
+LuaCall:CallFunc (string,object[]) (at Assets/LuaFramework/Scripts/Manager/LuaManager.cs:226)
+StartUp/<>c:<StartGame>b__1_0 () (at Assets/Scripts/StartUp.cs:45)
+LuaFramework.AppFacade/<>c__DisplayClass7_0:<StartUp>b__0 () (at Assets/LuaFramework/Scripts/Framework/AppFacade.cs:52)
+LuaFramework.LuaManager/<>c__DisplayClass6_0:<InitStart>b__0 () (at Assets/LuaFramework/Scripts/Manager/LuaManager.cs:55)
+LuaFramework.LuaManager/<>c__DisplayClass8_1:<StartMain>b__0 (int) (at Assets/LuaFramework/Scripts/Manager/LuaManager.cs:88)
+WalkCoroutine/<CoFunc>d__2:MoveNext () (at Assets/Scripts/Framework/Common/Misc/WalkCoroutine.cs:27)
+UnityEngine.SetupCoroutine:InvokeMoveNext (System.Collections.IEnumerator,intptr)
+
+
+11-02 15:51:11 15:51:11.568-9: Type UnityEngine.RectTransform not wrap to lua, push as UnityEngine.Transform, the warning is only raised once
+UnityEngine.Debug:LogWarning (object)
+LuaInterface.Debugger:LogWarning (string)
+LuaInterface.Debugger:LogWarning (string,object,object)
+LuaInterface.LuaState:GetMissMetaReference (System.Type) (at Assets/LuaFramework/ToLua/Core/LuaState.cs:1783)
+LuaInterface.LuaStatic:GetMissMetaReference (intptr,System.Type) (at Assets/LuaFramework/ToLua/Core/LuaStatic.cs:39)
+LuaInterface.ToLua:PushPreLoadType (intptr,object,System.Type) (at Assets/LuaFramework/ToLua/Core/ToLua.cs:2134)
+LuaInterface.ToLua:PushUserObject (intptr,object) (at Assets/LuaFramework/ToLua/Core/ToLua.cs:2159)
+LuaInterface.ToLua:Push (intptr,UnityEngine.Object) (at Assets/LuaFramework/ToLua/Core/ToLua.cs:2171)
+GlobalObjsWrap:get_s_gamePanel (intptr) (at Assets/LuaFramework/ToLua/Source/Generate/GlobalObjsWrap.cs:76)
+LuaInterface.LuaStatePtr:LuaPCall (int,int,int) (at Assets/LuaFramework/ToLua/Core/LuaStatePtr.cs:326)
+LuaInterface.LuaState:PCall (int,int) (at Assets/LuaFramework/ToLua/Core/LuaState.cs:687)
+LuaInterface.LuaFunction:PCall () (at Assets/LuaFramework/ToLua/Core/LuaFunction.cs:91)
+LuaInterface.LuaFunction:Call (object[]) (at Assets/LuaFramework/ToLua/Core/LuaFunction.cs:132)
+LuaFramework.LuaManager:CallFunction (string,object[]) (at Assets/LuaFramework/Scripts/Manager/LuaManager.cs:160)
+LuaCall:CallFunc (string,object[]) (at Assets/LuaFramework/Scripts/Manager/LuaManager.cs:226)
+StartUp/<>c:<StartGame>b__1_0 () (at Assets/Scripts/StartUp.cs:45)
+LuaFramework.AppFacade/<>c__DisplayClass7_0:<StartUp>b__0 () (at Assets/LuaFramework/Scripts/Framework/AppFacade.cs:52)
+LuaFramework.LuaManager/<>c__DisplayClass6_0:<InitStart>b__0 () (at Assets/LuaFramework/Scripts/Manager/LuaManager.cs:55)
+LuaFramework.LuaManager/<>c__DisplayClass8_1:<StartMain>b__0 (int) (at Assets/LuaFramework/Scripts/Manager/LuaManager.cs:88)
+WalkCoroutine/<CoFunc>d__2:MoveNext () (at Assets/Scripts/Framework/Common/Misc/WalkCoroutine.cs:27)
+UnityEngine.SetupCoroutine:InvokeMoveNext (System.Collections.IEnumerator,intptr)
+
+
+11-02 15:51:11 LoginPanel.OnShow-----------
+stack traceback:
+	[C]: in function 'traceback'
+	[string "Common/functions"]:7: in function 'log'
+	[string "View/LoginPanel.lua"]:11: in function <[string "View/LoginPanel.lua"]:10>
+	[C]: in method 'ShowPanel'
+	[string "View/LoginPanel.lua"]:7: in field 'Show'
+	[string "Logic/Game.lua"]:17: in function <[string "Logic/Game.lua"]:13>
+UnityEngine.Debug:Log (object,UnityEngine.Object)
+GameLogger:Log (object,UnityEngine.Object) (at Assets/Scripts/Framework/Debug/GameLogger.cs:73)
+LuaFramework.Util:Log (string) (at Assets/LuaFramework/Scripts/Utility/Util.cs:242)
+LuaFramework_UtilWrap:Log (intptr) (at Assets/LuaFramework/ToLua/Source/Generate/LuaFramework_UtilWrap.cs:341)
+LuaInterface.LuaStatePtr:LuaPCall (int,int,int) (at Assets/LuaFramework/ToLua/Core/LuaStatePtr.cs:326)
+LuaInterface.LuaState:PCall (int,int) (at Assets/LuaFramework/ToLua/Core/LuaState.cs:687)
+LuaInterface.LuaFunction:PCall () (at Assets/LuaFramework/ToLua/Core/LuaFunction.cs:91)
+LuaInterface.LuaFunction:Call (object[]) (at Assets/LuaFramework/ToLua/Core/LuaFunction.cs:132)
+BasePanel:Show () (at Assets/Scripts/Framework/Panel/BasePanel.cs:42)
+PanelMgr:ShowPanel (int,string,UnityEngine.Transform) (at Assets/Scripts/Framework/Panel/PanelMgr.cs:34)
+PanelMgrWrap:ShowPanel (intptr) (at Assets/LuaFramework/ToLua/Source/Generate/PanelMgrWrap.cs:89)
+LuaInterface.LuaStatePtr:LuaPCall (int,int,int) (at Assets/LuaFramework/ToLua/Core/LuaStatePtr.cs:326)
+LuaInterface.LuaState:PCall (int,int) (at Assets/LuaFramework/ToLua/Core/LuaState.cs:687)
+LuaInterface.LuaFunction:PCall () (at Assets/LuaFramework/ToLua/Core/LuaFunction.cs:91)
+LuaInterface.LuaFunction:Call (object[]) (at Assets/LuaFramework/ToLua/Core/LuaFunction.cs:132)
+LuaFramework.LuaManager:CallFunction (string,object[]) (at Assets/LuaFramework/Scripts/Manager/LuaManager.cs:160)
+LuaCall:CallFunc (string,object[]) (at Assets/LuaFramework/Scripts/Manager/LuaManager.cs:226)
+StartUp/<>c:<StartGame>b__1_0 () (at Assets/Scripts/StartUp.cs:45)
+LuaFramework.AppFacade/<>c__DisplayClass7_0:<StartUp>b__0 () (at Assets/LuaFramework/Scripts/Framework/AppFacade.cs:52)
+LuaFramework.LuaManager/<>c__DisplayClass6_0:<InitStart>b__0 () (at Assets/LuaFramework/Scripts/Manager/LuaManager.cs:55)
+LuaFramework.LuaManager/<>c__DisplayClass8_1:<StartMain>b__0 (int) (at Assets/LuaFramework/Scripts/Manager/LuaManager.cs:88)
+WalkCoroutine/<CoFunc>d__2:MoveNext () (at Assets/Scripts/Framework/Common/Misc/WalkCoroutine.cs:27)
+UnityEngine.SetupCoroutine:InvokeMoveNext (System.Collections.IEnumerator,intptr)
+
+
+11-02 15:51:11 15:51:11.619-9: Type UnityEngine.UI.Button not wrap to lua, push as UnityEngine.MonoBehaviour, the warning is only raised once
+UnityEngine.Debug:LogWarning (object)
+LuaInterface.Debugger:LogWarning (string)
+LuaInterface.Debugger:LogWarning (string,object,object)
+LuaInterface.LuaState:GetMissMetaReference (System.Type) (at Assets/LuaFramework/ToLua/Core/LuaState.cs:1783)
+LuaInterface.LuaStatic:GetMissMetaReference (intptr,System.Type) (at Assets/LuaFramework/ToLua/Core/LuaStatic.cs:39)
+LuaInterface.ToLua:PushPreLoadType (intptr,object,System.Type) (at Assets/LuaFramework/ToLua/Core/ToLua.cs:2134)
+LuaInterface.ToLua:PushUserObject (intptr,object) (at Assets/LuaFramework/ToLua/Core/ToLua.cs:2159)
+LuaInterface.ToLua:Push (intptr,UnityEngine.Object) (at Assets/LuaFramework/ToLua/Core/ToLua.cs:2171)
+PrefabBinderWrap:SetButton (intptr) (at Assets/LuaFramework/ToLua/Source/Generate/PrefabBinderWrap.cs:78)
+LuaInterface.LuaStatePtr:LuaPCall (int,int,int) (at Assets/LuaFramework/ToLua/Core/LuaStatePtr.cs:326)
+LuaInterface.LuaState:PCall (int,int) (at Assets/LuaFramework/ToLua/Core/LuaState.cs:687)
+LuaInterface.LuaFunction:PCall () (at Assets/LuaFramework/ToLua/Core/LuaFunction.cs:91)
+LuaInterface.LuaFunction:Call (object[]) (at Assets/LuaFramework/ToLua/Core/LuaFunction.cs:132)
+BasePanel:Show () (at Assets/Scripts/Framework/Panel/BasePanel.cs:42)
+PanelMgr:ShowPanel (int,string,UnityEngine.Transform) (at Assets/Scripts/Framework/Panel/PanelMgr.cs:34)
+PanelMgrWrap:ShowPanel (intptr) (at Assets/LuaFramework/ToLua/Source/Generate/PanelMgrWrap.cs:89)
+LuaInterface.LuaStatePtr:LuaPCall (int,int,int) (at Assets/LuaFramework/ToLua/Core/LuaStatePtr.cs:326)
+LuaInterface.LuaState:PCall (int,int) (at Assets/LuaFramework/ToLua/Core/LuaState.cs:687)
+LuaInterface.LuaFunction:PCall () (at Assets/LuaFramework/ToLua/Core/LuaFunction.cs:91)
+LuaInterface.LuaFunction:Call (object[]) (at Assets/LuaFramework/ToLua/Core/LuaFunction.cs:132)
+LuaFramework.LuaManager:CallFunction (string,object[]) (at Assets/LuaFramework/Scripts/Manager/LuaManager.cs:160)
+LuaCall:CallFunc (string,object[]) (at Assets/LuaFramework/Scripts/Manager/LuaManager.cs:226)
+StartUp/<>c:<StartGame>b__1_0 () (at Assets/Scripts/StartUp.cs:45)
+LuaFramework.AppFacade/<>c__DisplayClass7_0:<StartUp>b__0 () (at Assets/LuaFramework/Scripts/Framework/AppFacade.cs:52)
+LuaFramework.LuaManager/<>c__DisplayClass6_0:<InitStart>b__0 () (at Assets/LuaFramework/Scripts/Manager/LuaManager.cs:55)
+LuaFramework.LuaManager/<>c__DisplayClass8_1:<StartMain>b__0 (int) (at Assets/LuaFramework/Scripts/Manager/LuaManager.cs:88)
+WalkCoroutine/<CoFunc>d__2:MoveNext () (at Assets/Scripts/Framework/Common/Misc/WalkCoroutine.cs:27)
+UnityEngine.SetupCoroutine:InvokeMoveNext (System.Collections.IEnumerator,intptr)
+
+
+11-02 15:51:11 15:51:11.621-9: Type UnityEngine.UI.Image not wrap to lua, push as UnityEngine.MonoBehaviour, the warning is only raised once
+UnityEngine.Debug:LogWarning (object)
+LuaInterface.Debugger:LogWarning (string)
+LuaInterface.Debugger:LogWarning (string,object,object)
+LuaInterface.LuaState:GetMissMetaReference (System.Type) (at Assets/LuaFramework/ToLua/Core/LuaState.cs:1783)
+LuaInterface.LuaStatic:GetMissMetaReference (intptr,System.Type) (at Assets/LuaFramework/ToLua/Core/LuaStatic.cs:39)
+LuaInterface.ToLua:PushPreLoadType (intptr,object,System.Type) (at Assets/LuaFramework/ToLua/Core/ToLua.cs:2134)
+LuaInterface.ToLua:PushUserObject (intptr,object) (at Assets/LuaFramework/ToLua/Core/ToLua.cs:2159)
+LuaInterface.ToLua:Push (intptr,UnityEngine.Object) (at Assets/LuaFramework/ToLua/Core/ToLua.cs:2171)
+PrefabBinderWrap:GetObj (intptr) (at Assets/LuaFramework/ToLua/Source/Generate/PrefabBinderWrap.cs:28)
+LuaInterface.LuaStatePtr:LuaPCall (int,int,int) (at Assets/LuaFramework/ToLua/Core/LuaStatePtr.cs:326)
+LuaInterface.LuaState:PCall (int,int) (at Assets/LuaFramework/ToLua/Core/LuaState.cs:687)
+LuaInterface.LuaFunction:PCall () (at Assets/LuaFramework/ToLua/Core/LuaFunction.cs:91)
+LuaInterface.LuaFunction:Call (object[]) (at Assets/LuaFramework/ToLua/Core/LuaFunction.cs:132)
+BasePanel:Show () (at Assets/Scripts/Framework/Panel/BasePanel.cs:42)
+PanelMgr:ShowPanel (int,string,UnityEngine.Transform) (at Assets/Scripts/Framework/Panel/PanelMgr.cs:34)
+PanelMgrWrap:ShowPanel (intptr) (at Assets/LuaFramework/ToLua/Source/Generate/PanelMgrWrap.cs:89)
+LuaInterface.LuaStatePtr:LuaPCall (int,int,int) (at Assets/LuaFramework/ToLua/Core/LuaStatePtr.cs:326)
+LuaInterface.LuaState:PCall (int,int) (at Assets/LuaFramework/ToLua/Core/LuaState.cs:687)
+LuaInterface.LuaFunction:PCall () (at Assets/LuaFramework/ToLua/Core/LuaFunction.cs:91)
+LuaInterface.LuaFunction:Call (object[]) (at Assets/LuaFramework/ToLua/Core/LuaFunction.cs:132)
+LuaFramework.LuaManager:CallFunction (string,object[]) (at Assets/LuaFramework/Scripts/Manager/LuaManager.cs:160)
+LuaCall:CallFunc (string,object[]) (at Assets/LuaFramework/Scripts/Manager/LuaManager.cs:226)
+StartUp/<>c:<StartGame>b__1_0 () (at Assets/Scripts/StartUp.cs:45)
+LuaFramework.AppFacade/<>c__DisplayClass7_0:<StartUp>b__0 () (at Assets/LuaFramework/Scripts/Framework/AppFacade.cs:52)
+LuaFramework.LuaManager/<>c__DisplayClass6_0:<InitStart>b__0 () (at Assets/LuaFramework/Scripts/Manager/LuaManager.cs:55)
+LuaFramework.LuaManager/<>c__DisplayClass8_1:<StartMain>b__0 (int) (at Assets/LuaFramework/Scripts/Manager/LuaManager.cs:88)
+WalkCoroutine/<CoFunc>d__2:MoveNext () (at Assets/Scripts/Framework/Common/Misc/WalkCoroutine.cs:27)
+UnityEngine.SetupCoroutine:InvokeMoveNext (System.Collections.IEnumerator,intptr)
+
+
+11-02 15:51:11 ClientNet, connect: 127.0.0.1 port: 8888 handle: 4560
+UnityEngine.Debug:Log (object,UnityEngine.Object)
+GameLogger:Log (object,UnityEngine.Object) (at Assets/Scripts/Framework/Debug/GameLogger.cs:73)
+RemoteConnection:Connect (string,int,bool) (at Assets/Scripts/Framework/Network/RemoteConnection.cs:75)
+ClientNet:Connect (string,int,bool) (at Assets/Scripts/Framework/Network/ClientNet.cs:33)
+Test:Start () (at Assets/Scripts/Test.cs:15)
+
+
+11-02 15:51:11 <color=#00ff00>你好Unity，我是I18</color>
+UnityEngine.Debug:Log (object,UnityEngine.Object)
+GameLogger:LogGreen (object,UnityEngine.Object) (at Assets/Scripts/Framework/Debug/GameLogger.cs:114)
+Test:Start () (at Assets/Scripts/Test.cs:20)
+
+
+11-02 15:51:11 网络状态更新: ConnectStart
+UnityEngine.Debug:Log (object,UnityEngine.Object)
+GameLogger:Log (object,UnityEngine.Object) (at Assets/Scripts/Framework/Debug/GameLogger.cs:73)
+Test:OnNetStateChanged (NetState,object) (at Assets/Scripts/Test.cs:50)
+RemoteConnection:invokeListener () (at Assets/Scripts/Framework/Network/RemoteConnection.cs:608)
+RemoteConnection:Update () (at Assets/Scripts/Framework/Network/RemoteConnection.cs:229)
+ClientNet:Update () (at Assets/Scripts/Framework/Network/ClientNet.cs:75)
+
+
+11-02 15:51:11 <color=#00ff00>连接skynet服务端成功</color>
+UnityEngine.Debug:Log (object,UnityEngine.Object)
+GameLogger:LogGreen (object,UnityEngine.Object) (at Assets/Scripts/Framework/Debug/GameLogger.cs:114)
+Test:OnNetStateChanged (NetState,object) (at Assets/Scripts/Test.cs:37)
+RemoteConnection:invokeListener () (at Assets/Scripts/Framework/Network/RemoteConnection.cs:608)
+RemoteConnection:Update () (at Assets/Scripts/Framework/Network/RemoteConnection.cs:229)
+ClientNet:Update () (at Assets/Scripts/Framework/Network/ClientNet.cs:75)
+
+
+11-02 15:51:11 lua on response: 0 Hi, I am skynet
+stack traceback:
+	[C]: in function 'traceback'
+	[string "Common/functions"]:7: in function 'log'
+	[string "Logic/Game.lua"]:25: in local 'handler'
+	[string "Network/Network.lua"]:181: in function <[string "Network/Network.lua"]:168>
+UnityEngine.Debug:Log (object,UnityEngine.Object)
+GameLogger:Log (object,UnityEngine.Object) (at Assets/Scripts/Framework/Debug/GameLogger.cs:73)
+LuaFramework.Util:Log (string) (at Assets/LuaFramework/Scripts/Utility/Util.cs:242)
+LuaFramework_UtilWrap:Log (intptr) (at Assets/LuaFramework/ToLua/Source/Generate/LuaFramework_UtilWrap.cs:341)
+LuaInterface.LuaStatePtr:LuaPCall (int,int,int) (at Assets/LuaFramework/ToLua/Core/LuaStatePtr.cs:326)
+LuaInterface.LuaState:PCall (int,int) (at Assets/LuaFramework/ToLua/Core/LuaState.cs:687)
+LuaInterface.LuaFunction:PCall () (at Assets/LuaFramework/ToLua/Core/LuaFunction.cs:91)
+LuaInterface.LuaFunction:Call (object[]) (at Assets/LuaFramework/ToLua/Core/LuaFunction.cs:132)
+LuaFramework.NetworkManager:OnResponseData (SpStream,SpProtocol,int) (at Assets/LuaFramework/Scripts/Manager/NetworkManager.cs:229)
+SpRpc:Dispatch (SpStream) (at Assets/Scripts/Framework/sproto/src/SpRpc.cs:205)
+RemoteConnection:stream2Obj (SpStream) (at Assets/Scripts/Framework/Network/RemoteConnection.cs:397)
+RemoteConnection:dispatchMessage () (at Assets/Scripts/Framework/Network/RemoteConnection.cs:369)
+RemoteConnection:Update () (at Assets/Scripts/Framework/Network/RemoteConnection.cs:269)
+ClientNet:Update () (at Assets/Scripts/Framework/Network/ClientNet.cs:75)
+
+
+11-02 16:00:37 <color=yellow>close socket</color>
+UnityEngine.Debug:Log (object,UnityEngine.Object)
+GameLogger:LogYellow (object,UnityEngine.Object) (at Assets/Scripts/Framework/Debug/GameLogger.cs:123)
+RemoteConnection:Close () (at Assets/Scripts/Framework/Network/RemoteConnection.cs:436)
+ClientNet:OnDestroy () (at Assets/Scripts/Framework/Network/ClientNet.cs:103)
+
+
