@@ -1,0 +1,4 @@
+搭建skynet服务端，参见我这篇文章：https://blog.csdn.net/linxinfa/article/details/120573016
+然后把examples文件夹替换为这个examples，
+执行编译，命令：make linux
+最终启动skynet，命令: ./skynet example/config
