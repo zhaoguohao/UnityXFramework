@@ -1,0 +1,52 @@
+.package {
+	type 0 : integer
+	session 1 : integer
+}
+
+#获取版本信息
+get_update_info 1 {
+	request {
+		#手机平台，0:ios, 1:android
+		phone_plat 0 : integer
+		#客户端整包的版本，打包的时候固定的, 即app_version, 比如:1.0.0.52
+		client_version 1 : string
+		#客户端热更新下来的版本，即res_version, 如1.0.0.52
+		res_version 2 : string
+		#登录渠道
+		login_channel 3 : string
+	}
+	response {
+		#获取结果: 0成功 1不在白名单之中 2参数错误,无效的手机平台 3服务器没有配置 4服务器错误
+		#           5此版本的客户端被限制更新
+		error_code 0 : integer
+		#附带信息: 当错误码是0成功，attach_msg为json串，包含以下4个字段
+		#          update_type:    更新类型, 0不需要更新 1可选更新 2必须更新 3配置强制更新
+		#          package_type:   更新包类型, 1为资源包，2为整包 (注意：更新包类型要么资源包，要么整包，不可能混在一起)
+		#          package_infos:  更新包的信息, 整包更新是时是一个{}，资源包更新时，是一个[{},{},...],
+		#                          {"url":"xxx", "md5":"xxx", "size",xxx}, url:下载地址 md5:文件md5值 size:文件大小
+		#                          注意：资源包是一个或多个，要按顺序下载
+		#          newest_version: 最新版本号
+        #          rewrite_channel_id: 是否重写渠道id
+		attach_msg 1 : string
+		# 客户端更新后奖励，格式:
+		# {"gold" : xx, "diamond" : xx, "silver_coin" : xx, "silver_diamond" : xx,
+		#	"props" : [{"name" : "xx", "quantity" : xx}, {"name" : "xx", "quantity" : xx}]}
+		update_bonus 2 : string
+		# 更新文本信息
+		update_text 3 : string
+	}
+}
+
+#心跳
+heartbeat 2 {
+	
+}
+
+#测试使用
+unit_test 3 {
+	request {
+	}
+	response {
+		error_code 0 : integer
+	}	
+}
