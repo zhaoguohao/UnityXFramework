@@ -43,7 +43,7 @@
      <Compile Include="Assets\LuaFramework\ToLua\Source\Generate\UnityEngine_QualitySettingsWrap.cs" />
      <Compile Include="Assets\LuaFramework\ToLua\Source\Generate\UnityEngine_MaterialWrap.cs" />
      <Compile Include="Assets\LuaFramework\ToLua\Core\LuaMethodCache.cs" />
-     <Compile Include="Assets\Scripts\Test.cs" />
+     <Compile Include="Assets\Scripts\Logic\Test.cs" />
      <Compile Include="Assets\LuaFramework\ToLua\Source\Generate\LuaBinder.cs" />
      <Compile Include="Assets\Scripts\Framework\Network\INetStateListener.cs" />
      <Compile Include="Assets\Scripts\Framework\Debug\GameLogger.cs" />

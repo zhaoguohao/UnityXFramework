@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class PanelMgr
 {
@@ -25,8 +26,13 @@ public class PanelMgr
         if (null == panel)
         {
             var go = new GameObject(moduleName);
-            panel = go.AddComponent<BasePanel>();
             go.transform.SetParent(parent, false);
+            var rectTrans = go.AddComponent<RectTransform>();
+            rectTrans.anchorMin = Vector2.zero;
+            rectTrans.anchorMax = Vector2.one;
+            rectTrans.offsetMin = Vector2.zero;
+            rectTrans.offsetMax = Vector2.zero;
+            panel = go.AddComponent<BasePanel>();
             panel.Init(moduleName);
             m_panelMap.Add(panelId, panel);
         }
@@ -40,8 +46,13 @@ public class PanelMgr
         if (null == panel)
         {
             var go = new GameObject(typeof(T).ToString());
-            panel = go.AddComponent<T>();
             go.transform.SetParent(parent, false);
+            var rectTrans = go.AddComponent<RectTransform>();
+            rectTrans.anchorMin = Vector2.zero;
+            rectTrans.anchorMax = Vector2.one;
+            rectTrans.offsetMin = Vector2.zero;
+            rectTrans.offsetMax = Vector2.zero;
+            panel = go.AddComponent<T>();
             panel.Init(typeof(T).ToString());
             m_panelMap.Add(panelId, panel);
         }

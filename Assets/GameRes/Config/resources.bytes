@@ -1,11 +1,10 @@
 <?xml version="1.0" encoding="utf-8"?>
 <items>
-  <item id="1" editorPath="Font/fz_CuoYuan.prefab" version="2021/10/15" desc="粗圆字体" />
-  <item id="2" editorPath="Font/fz_ZhunYuan.prefab" version="2021/10/15" desc="细圆字体" />
-  <item id="3" editorPath="UIPrefabs/LoginPanel.prefab" version="2021/10/15" desc="测试界面" />
-  <item id="4" editorPath="Effects/Particle System.prefab" version="2021/10/15" desc="粒子" />
+  <item id="1" editorPath="BaseRes/HotUpdatePanel.prefab" version="2021/10/15" desc="热更新界面" />
+  <item id="2" editorPath="3D/Cube.prefab" version="2021/10/15" desc="3D正方体，测试用" />
+  <item id="3" editorPath="UIPrefabs/LoginPanel.prefab" version="2021/10/15" desc="登录界面" />
+  <item id="4" editorPath="Effects/Particle System.prefab" version="2021/10/15" desc="粒子，测试用" />
   <item id="5" editorPath="Atlas/CommonUI.spriteatlas" version="2021/10/15" desc="图集" />
-  <item id="6" editorPath="Audios/bg.wav" version="2021/10/15" desc="背景音乐" />
-  <item id="7" editorPath="3D/Cube.prefab" version="2021/10/15" desc="Cube" />
+  <item id="6" editorPath="Audios/bg.wav" version="2021/10/15" desc="背景音乐" />  
   <item id="8" editorPath="BaseRes/TestPanel.prefab" version="2021/10/15" desc="测试界面" />
 </items>
