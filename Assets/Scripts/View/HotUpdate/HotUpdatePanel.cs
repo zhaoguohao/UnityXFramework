@@ -71,6 +71,7 @@ public class HotUpdatePanel : BasePanel
     {
         base.OnShow(parent);
         var panelObj = ResourceManager.instance.Instantiate<GameObject>("BaseRes/HotUpdatePanel.prefab");
+        panelObj.transform.SetParent(parent, false);
         var binder = panelObj.GetComponent<PrefabBinder>();
         SetUi(binder);
         StartUpdate();
