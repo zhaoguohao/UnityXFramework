@@ -1,4 +1,5 @@
-这是用python写的一个将Excel转xml、lua、json的工具
+这是用python写的一个将Excel转xml、lua、json的工具，要安装python3，并且安装openpyxl库
+关于openpyxl库的使用，可以参见我之前写的这篇博文：https://blog.csdn.net/linxinfa/article/details/116309278
 Excel文件放在Excels目录中，生成的配置会放在output文件夹中
 
 Excel表头格式
