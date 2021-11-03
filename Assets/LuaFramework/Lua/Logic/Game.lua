@@ -25,6 +25,7 @@ function Game.Send()
             log("lua on response: " .. data.error_code .. " " .. data.msg)
         end
     )
+    
 end
 
 -- endregion

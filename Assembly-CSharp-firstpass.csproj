@@ -289,6 +289,9 @@
     <Reference Include="HOTween">
         <HintPath>E:/GitHub/UnityXFramework/Assets/Plugins/HOTween/HOTween.dll</HintPath>
     </Reference>
+    <Reference Include="Ionic.Zip.Unity">
+        <HintPath>E:/GitHub/UnityXFramework/Assets/Plugins/Ionic.Zip.Unity.dll</HintPath>
+    </Reference>
     <Reference Include="netstandard">
         <HintPath>F:/Unity2019/Editor/2021.1.9f1c1/Editor/Data/NetStandard/ref/2.0.0/netstandard.dll</HintPath>
     </Reference>

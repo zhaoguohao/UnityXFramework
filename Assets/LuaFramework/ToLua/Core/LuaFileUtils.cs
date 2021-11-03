@@ -72,7 +72,7 @@ namespace LuaInterface
             if (beZip)
             {
                 //update (只有在更新时候用到)
-                var luaUpdateAb = AssetBundleMgr.instance.LoadAssetBundle("update.bundle");
+                var luaUpdateAb = AssetBundleMgr.instance.LoadAssetBundle("lua_update.bundle");
                 if (luaUpdateAb != null)
                 {
                     m_luaBundleList.Add(luaUpdateAb);
@@ -85,8 +85,6 @@ namespace LuaInterface
                 }
             }
         }
-
-      
 
         public virtual void Dispose()
         {

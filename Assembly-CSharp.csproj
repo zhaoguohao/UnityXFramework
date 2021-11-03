@@ -253,6 +253,19 @@
      <Compile Include="Assets\LuaFramework\ToLua\Core\LuaFunction.cs" />
      <Compile Include="Assets\LuaFramework\ToLua\BaseType\UnityEngine_LightWrap.cs" />
      <Compile Include="Assets\LuaFramework\ToLua\Reflection\LuaField.cs" />
+     <Compile Include="Assets\Scripts\Framework\Common\Misc\UnityExtension.cs" />
+     <Compile Include="Assets\Scripts\Framework\HotUpdate\HotUpdater.cs" />
+     <Compile Include="Assets\Scripts\Framework\HotUpdate\Downloader.cs" />
+     <Compile Include="Assets\Scripts\3rd\LitJson\JsonReader.cs" />
+     <Compile Include="Assets\Scripts\3rd\LitJson\JsonMapper.cs" />
+     <Compile Include="Assets\Scripts\3rd\LitJson\Lexer.cs" />
+     <Compile Include="Assets\Scripts\3rd\LitJson\JsonData.cs" />
+     <Compile Include="Assets\Scripts\3rd\LitJson\ParserToken.cs" />
+     <Compile Include="Assets\Scripts\3rd\LitJson\JsonWriter.cs" />
+     <Compile Include="Assets\Scripts\3rd\LitJson\Netstandard15Polyfill.cs" />
+     <Compile Include="Assets\Scripts\3rd\LitJson\IJsonWrapper.cs" />
+     <Compile Include="Assets\Scripts\3rd\LitJson\JsonException.cs" />
+     <Compile Include="Assets\Scripts\3rd\LitJson\JsonMockWrapper.cs" />
      <None Include="Assets\output_log.txt" />
      <None Include="Assets\LuaFramework\ToLua\readme.txt" />
     <Reference Include="UnityEngine">
@@ -497,6 +510,9 @@
     </Reference>
     <Reference Include="HOTween">
         <HintPath>E:/GitHub/UnityXFramework/Assets/Plugins/HOTween/HOTween.dll</HintPath>
+    </Reference>
+    <Reference Include="Ionic.Zip.Unity">
+        <HintPath>E:/GitHub/UnityXFramework/Assets/Plugins/Ionic.Zip.Unity.dll</HintPath>
     </Reference>
     <Reference Include="netstandard">
         <HintPath>F:/Unity2019/Editor/2021.1.9f1c1/Editor/Data/NetStandard/ref/2.0.0/netstandard.dll</HintPath>
@@ -896,10 +912,6 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
-    <ProjectReference Include="Assembly-CSharp-firstpass.csproj">
-      <Project>{13cc2ea5-4392-7355-785d-f4066a4cc259}</Project>
-      <Name>Assembly-CSharp-firstpass</Name>
-    </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it.

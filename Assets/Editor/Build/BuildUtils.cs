@@ -145,6 +145,8 @@ public class BuildUtils
         // PlayerSettings.iOS.buildNumber
 
         BuildPipeline.BuildPlayer(scenes, appPath, GetBuildTarget(), BuildOptions.None);
+        // 自动打开Bin目录
+        FastOpenTools.OpenFileOrDirectory("/../Bin");
         GameLogger.Log("Build APP Done");
     }
 
@@ -213,6 +215,11 @@ public class BuildUtils
     /// </summary>
     public static void DeleteDir(string targetDir)
     {
+        // 删除对应的meta文件
+        if(File.Exists(targetDir + ".meta"))
+        {
+            File.Delete(targetDir + ".meta");
+        }
         if (Directory.Exists(targetDir))
         {
             Directory.Delete(targetDir, true);
