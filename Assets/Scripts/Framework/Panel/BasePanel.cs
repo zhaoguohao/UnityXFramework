@@ -1,3 +1,4 @@
+using System.Net.Security;
 using UnityEngine;
 using LuaInterface;
 
@@ -30,33 +31,54 @@ public class BasePanel : MonoBehaviour
             luaFuncUpdate.Call();
     }
 
-    public void Show()
+    public virtual void Show()
     {
-        if(1 == m_state)
+        if (1 == m_state)
             return;
 
         m_state = 1;
         m_selfObj.SetActive(true);
 
-        if(null != luaFuncOnShow)
-            luaFuncOnShow.Call(m_selfTransform);
 
-        if(null != luaFuncRegistEvent)
+        OnShow(m_selfTransform);
+        RegistEvent();
+    }
+
+    protected virtual void RegistEvent()
+    {
+        if (null != luaFuncRegistEvent)
             luaFuncRegistEvent.Call();
     }
 
-    public void Hide()
+
+    protected virtual void OnShow(Transform parent)
     {
-        if(0 == m_state)
+        if (null != luaFuncOnShow)
+            luaFuncOnShow.Call(parent);
+    }
+
+    public virtual void Hide()
+    {
+        if (0 == m_state)
             return;
 
-        if(null != luaFuncOnHide)
-            luaFuncOnHide.Call();
-        if(null != luaFuncUnRegistEvent)
-            luaFuncUnRegistEvent.Call();
+        OnHide();
+        UnRegistEvent();
 
         m_selfObj.SetActive(false);
         m_state = 0;
+    }
+
+    protected virtual void OnHide()
+    {
+        if (null != luaFuncOnHide)
+            luaFuncOnHide.Call();
+    }
+
+    protected virtual void UnRegistEvent()
+    {
+        if (null != luaFuncUnRegistEvent)
+            luaFuncUnRegistEvent.Call();
     }
 
     /// <summary>

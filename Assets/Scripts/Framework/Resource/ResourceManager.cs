@@ -14,7 +14,6 @@ public class ResourceManager
 
     public void Init()
     {
-        //GameLogger.Log("prase resource.");
         m_resourceConfigFile = new ConfigFile<ResourceConfigItem>("resources");
         Dictionary<string, ResourceConfigItem> allItems = m_resourceConfigFile.GetAllItems();
         foreach (KeyValuePair<string, ResourceConfigItem> p in allItems)

@@ -44,7 +44,7 @@ public class BuildApp : EditorWindow
             // 打AssetBundle
             BuildAssetBundle.Build();
         }
-
+        
     }
 
     private VersionGUI m_versionGUI;

@@ -1,0 +1,21 @@
+Framework目录: 框架代码
+    Animation: 动画相关
+    Audio: 音效相关
+    Common: 一些全局、工具脚本
+    Debug: 调试相关
+    Encrypt: 加密
+    Event: 事件
+    HotUpdate: 热更新
+    I18N: 国际化语言封装
+    Network: 网络封装
+    Panel: 界面管理封装
+    Particle: 粒子特效封装
+    Sprite: 精灵与图集封装
+    Resource: 资源加载封装
+    sproto: sproto的C#实现
+    SprotoDef: sproto协议定义
+    Timer: 定时器
+    Version: 版本管理
+3rd: 第三方库代码
+Logic: 游戏逻辑代码
+View: 游戏界面代码

@@ -17,38 +17,52 @@ public class PanelMgr
         BasePanel panel = null;
         m_panelMap.TryGetValue(panelId, out panel);
         return panel;
-
     }
 
-     public BasePanel ShowPanel(int panelId, string moduleName, Transform parent)
-     {
-         var panel = GetPanelById(panelId);
-         if(null == panel)
-         {
-             var go = new GameObject(moduleName);
-             panel = go.AddComponent<BasePanel>();
-             go.transform.SetParent(parent, false);
-             panel.Init(moduleName);
-             m_panelMap.Add(panelId, panel);
-         }
-         panel.Show();
-         return panel;
-     }
-     
-     public void HidePanel(int panelId)
-     {
-         var panel = GetPanelById(panelId);
-         if(null != panel)
-            panel.Hide();
-     }
+    public BasePanel ShowPanel(int panelId, string moduleName, Transform parent)
+    {
+        var panel = GetPanelById(panelId);
+        if (null == panel)
+        {
+            var go = new GameObject(moduleName);
+            panel = go.AddComponent<BasePanel>();
+            go.transform.SetParent(parent, false);
+            panel.Init(moduleName);
+            m_panelMap.Add(panelId, panel);
+        }
+        panel.Show();
+        return panel;
+    }
 
-     public void HideAllPanels()
-     {
-         foreach(var panel in m_panelMap.Values)
-         {
-             panel.Hide();
-         }
-     }
+    public T ShowPanel<T>(int panelId, Transform parent) where T : BasePanel
+    {
+        var panel = GetPanelById(panelId);
+        if (null == panel)
+        {
+            var go = new GameObject(typeof(T).ToString());
+            panel = go.AddComponent<T>();
+            go.transform.SetParent(parent, false);
+            panel.Init(typeof(T).ToString());
+            m_panelMap.Add(panelId, panel);
+        }
+        panel.Show();
+        return (T)panel;
+    }
+
+    public void HidePanel(int panelId)
+    {
+        var panel = GetPanelById(panelId);
+        if (null != panel)
+            panel.Hide();
+    }
+
+    public void HideAllPanels()
+    {
+        foreach (var panel in m_panelMap.Values)
+        {
+            panel.Hide();
+        }
+    }
 
     private Dictionary<int, BasePanel> m_panelMap = new Dictionary<int, BasePanel>();
 
