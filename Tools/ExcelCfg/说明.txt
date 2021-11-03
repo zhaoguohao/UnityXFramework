@@ -7,5 +7,5 @@ Excel表头格式
 第二行：字段名
 第三行：数据类型，num、str、lua
 
-自行在excel2xml.py、excel2lua.py、excel2json.py中指定你要转换的excel
+自行在gen.py中指定你要转换的excel
 最终双击gen.bat脚本执行即可
