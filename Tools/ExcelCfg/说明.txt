@@ -1,0 +1,10 @@
+这是用python写的一个将Excel转xml、lua、json的工具
+Excel文件放在Excels目录中，生成的配置会放在output文件夹中
+
+Excel表头格式
+第一行：字段备注
+第二行：字段名
+第三行：数据类型，num、str、lua
+
+自行在excel2xml.py、excel2lua.py、excel2json.py中指定你要转换的excel
+最终双击gen.bat脚本执行即可
