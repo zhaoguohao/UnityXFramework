@@ -2,9 +2,11 @@
 <items>
   <item id="1" editorPath="BaseRes/HotUpdatePanel.prefab" version="2021/10/15" desc="热更新界面" />
   <item id="2" editorPath="3D/Cube.prefab" version="2021/10/15" desc="3D正方体，测试用" />
-  <item id="3" editorPath="UIPrefabs/LoginPanel.prefab" version="2021/10/15" desc="登录界面" />
+  <item id="3" editorPath="UIPrefabs/Login/LoginPanel.prefab" version="2021/10/15" desc="登录界面" />
   <item id="4" editorPath="Effects/Particle System.prefab" version="2021/10/15" desc="粒子，测试用" />
   <item id="5" editorPath="Atlas/CommonUI.spriteatlas" version="2021/10/15" desc="图集" />
-  <item id="6" editorPath="Audios/bg.wav" version="2021/10/15" desc="背景音乐" />  
+  <item id="6" editorPath="Audios/bg.wav" version="2021/10/15" desc="背景音乐" />
   <item id="8" editorPath="BaseRes/TestPanel.prefab" version="2021/10/15" desc="测试界面" />
+  <item id="9" editorPath="UIPrefabs/Common/FlyTips.prefab" version="2021/11/4" desc="冒提示语" />
+  <item id="10" editorPath="UIPrefabs/GameHall/GameHallPanel.prefab" version="2021/11/4" desc="大厅界面" />
 </items>

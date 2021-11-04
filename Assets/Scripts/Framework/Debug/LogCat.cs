@@ -12,7 +12,7 @@ public class LogCat : MonoBehaviour
     {
         Application.logMessageReceivedThreaded += logCallBack;
 
-        m_scrollViewRect = new Rect(0, 0, Screen.width, Screen.height * 0.5f);
+        m_scrollViewRect = new Rect(0, 0, Screen.width, Screen.height * 0.9f);
         m_lblStyle = new GUIStyle();
         m_lblStyle.normal.textColor = Color.white;
         m_lblStyle.wordWrap = true;

@@ -1,4 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
   <item key="1" value="你好Unity，我是I18" />
+  <item key="2" value="请输入账号" />
+  <item key="3" value="请输入密码" />
 </resources>

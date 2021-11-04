@@ -6,16 +6,20 @@ Common/protocal.lua
 Common/const.lua
 Common/UITools.lua
 
+-- 入口脚本
+Logic/Main.lua
 
-
-Logic/Game.lua
-
-
-
-
+-- 网络
 Network/C2SProcess.lua
 Network/S2CProcess.lua
 Network/Network.lua
 
+-- 冒提示语
+View/Common/FlyTips.lua
 
-View/LoginPanel.lua
+-- 登录
+Logic/Login/LoginLogic.lua
+View/Login/LoginPanel.lua
+
+-- 大厅
+View/GameHall/GameHallPanel.lua

@@ -22,7 +22,7 @@ public class PrefabBinderEditor : EditorWindow
     private string m_lockBtnName;
     private Object m_itemObj;
     private bool m_lock;
-    private string m_componentStr;
+    private string m_componentStr="";
     enum ItemOption
     {
         AddItem,

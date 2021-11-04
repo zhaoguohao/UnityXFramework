@@ -174,39 +174,6 @@ function LuaUtil.GetFormatTime(sec)
     return str
 end
 
--- 将秒数转化为时间字符串：格式：x天x时，x时x分，x分x秒，x秒
-function LuaUtil.TranslateTimeToString(seconds)
-    local str = ""
-    -- 天
-    local day = math.floor(seconds / 86400)
-    local vd = math.floor(seconds % 86400)
-    -- 时
-    local hour = math.floor(vd / 3600)
-    -- 分
-    local min = math.floor(vd % 3600 / 60)
-    -- 秒
-    local sec = math.floor(vd % 3600 % 60)
-    local dayUnit = Util.GetStr(1924)
-    local hourUnit = Util.GetStr(413)
-    local minUnit = Util.GetStr(414)
-    local secUnit = Util.GetStr(415)
-    if seconds >= 86400 then
-        str = day .. dayUnit
-        if hour > 0 then str = str .. hour .. hourUnit end
-    elseif seconds >= 3600 then
-        str = hour .. hourUnit
-        if min > 0 then str = str .. min .. minUnit end
-    elseif seconds > 60 then
-        str = min .. minUnit
-        if sec > 0 then str = str .. sec .. secUnit end
-    elseif seconds > 0 then
-        str = seconds .. secUnit
-    else
-        str = Util.GetStr(12943)
-    end
-    return str
-end
-
 
 -- 获取今天的秒数(相对于0点)
 function LuaUtil.GetTodaySec()

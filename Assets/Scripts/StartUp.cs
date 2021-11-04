@@ -24,12 +24,8 @@ public class StartUp : MonoBehaviour
         //启动lua框架//
         LuaFramework.AppFacade.Instance.StartUp(() =>
         {
-            LuaCall.CallFunc("Game.Init");
-
-            LuaCall.CallFunc("Game.Start");
-
-            // 测试
-            Test.Create();
+            LuaCall.CallFunc("Main.Init");
+            LuaCall.CallFunc("Main.Start");
         });
     }
 

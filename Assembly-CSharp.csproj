@@ -38,13 +38,17 @@
   <ItemGroup>
      <Compile Include="Assets\LuaFramework\Scripts\Manager\LuaManager.cs" />
      <Compile Include="Assets\Scripts\Framework\Panel\BasePanel.cs" />
+     <Compile Include="Assets\Scripts\3rd\LitJson\JsonException.cs" />
      <Compile Include="Assets\LuaFramework\ToLua\Core\LuaDLL.cs" />
      <Compile Include="Assets\LuaFramework\Scripts\Network\SocketClient.cs" />
      <Compile Include="Assets\LuaFramework\ToLua\Source\Generate\UnityEngine_QualitySettingsWrap.cs" />
      <Compile Include="Assets\LuaFramework\ToLua\Source\Generate\UnityEngine_MaterialWrap.cs" />
+     <Compile Include="Assets\Scripts\Framework\HotUpdate\Downloader.cs" />
      <Compile Include="Assets\LuaFramework\ToLua\Core\LuaMethodCache.cs" />
      <Compile Include="Assets\Scripts\Logic\Test.cs" />
+     <Compile Include="Assets\Scripts\3rd\LitJson\JsonMockWrapper.cs" />
      <Compile Include="Assets\LuaFramework\ToLua\Source\Generate\LuaBinder.cs" />
+     <Compile Include="Assets\Scripts\3rd\LitJson\JsonMapper.cs" />
      <Compile Include="Assets\Scripts\Framework\Network\INetStateListener.cs" />
      <Compile Include="Assets\Scripts\Framework\Debug\GameLogger.cs" />
      <Compile Include="Assets\Scripts\Framework\sproto\src\SpCodec.cs" />
@@ -53,6 +57,7 @@
      <Compile Include="Assets\Scripts\Framework\SprotoDef\s2c.cs" />
      <Compile Include="Assets\Scripts\Framework\Debug\LogCat.cs" />
      <Compile Include="Assets\Scripts\Framework\Timer\TimerThread.cs" />
+     <Compile Include="Assets\Scripts\3rd\LitJson\ParserToken.cs" />
      <Compile Include="Assets\LuaFramework\ToLua\Source\Generate\Holoville_HOTween_Plugins_Core_PlugColorWrap.cs" />
      <Compile Include="Assets\LuaFramework\ToLua\Source\Generate\UnityEngine_CameraClearFlagsWrap.cs" />
      <Compile Include="Assets\Scripts\Framework\Audio\AudioCfg.cs" />
@@ -84,6 +89,7 @@
      <Compile Include="Assets\LuaFramework\ToLua\Source\Generate\UnityEngine_RuntimePlatformWrap.cs" />
      <Compile Include="Assets\LuaFramework\ToLua\Source\Generate\UnityEngine_AudioClipWrap.cs" />
      <Compile Include="Assets\Scripts\Framework\Sprite\SpriteCfg.cs" />
+     <Compile Include="Assets\Scripts\3rd\LitJson\JsonData.cs" />
      <Compile Include="Assets\Scripts\Framework\SprotoDef\c2s.cs" />
      <Compile Include="Assets\Scripts\Framework\Common\Global\GlobalObjs.cs" />
      <Compile Include="Assets\LuaFramework\ToLua\Source\Generate\UnityEngine_SkinnedMeshRendererWrap.cs" />
@@ -93,15 +99,16 @@
      <Compile Include="Assets\LuaFramework\ToLua\Misc\LuaClient.cs" />
      <Compile Include="Assets\Scripts\Framework\Common\Global\GameDef.cs" />
      <Compile Include="Assets\LuaFramework\Scripts\Common\CallLuaBehaviour.cs" />
-     <Compile Include="Assets\LuaFramework\Scripts\Main.cs" />
      <Compile Include="Assets\LuaFramework\ToLua\Core\ToLua.cs" />
      <Compile Include="Assets\LuaFramework\ToLua\BaseType\LuaInterface_LuaMethodWrap.cs" />
+     <Compile Include="Assets\Scripts\View\HotUpdate\HotUpdatePanel.cs" />
      <Compile Include="Assets\LuaFramework\ToLua\Source\Generate\LuaFramework_UtilWrap.cs" />
      <Compile Include="Assets\LuaFramework\ToLua\Source\Generate\UnityEngine_GameObjectWrap.cs" />
      <Compile Include="Assets\Scripts\Framework\Network\RemoteConnection.cs" />
      <Compile Include="Assets\Scripts\Framework\Network\NetworkMsgEventRegister.cs" />
      <Compile Include="Assets\Scripts\Framework\sproto\src\SpStream.cs" />
      <Compile Include="Assets\LuaFramework\ToLua\Source\Generate\Holoville_HOTween_Core_ABSTweenComponentWrap.cs" />
+     <Compile Include="Assets\Scripts\3rd\LitJson\JsonWriter.cs" />
      <Compile Include="Assets\LuaFramework\ToLua\Core\LuaEvent.cs" />
      <Compile Include="Assets\LuaFramework\Scripts\Network\ProtoEncrypt.cs" />
      <Compile Include="Assets\LuaFramework\ToLua\Core\LuaBeatEvent.cs" />
@@ -115,6 +122,8 @@
      <Compile Include="Assets\LuaFramework\Scripts\Utility\WrapCSObj.cs" />
      <Compile Include="Assets\LuaFramework\ToLua\Source\Generate\EventDispatcherWrap.cs" />
      <Compile Include="Assets\LuaFramework\ToLua\Source\Generate\UnityEngine_MeshColliderWrap.cs" />
+     <Compile Include="Assets\Scripts\3rd\LitJson\Lexer.cs" />
+     <Compile Include="Assets\Scripts\Framework\Debug\Logger.cs" />
      <Compile Include="Assets\LuaFramework\ToLua\BaseType\System_Collections_Generic_Dictionary_ValueCollectionWrap.cs" />
      <Compile Include="Assets\LuaFramework\ToLua\BaseType\UnityEngine_TextureWrap.cs" />
      <Compile Include="Assets\LuaFramework\ToLua\Source\Generate\UnityEngine_TimeWrap.cs" />
@@ -174,9 +183,11 @@
      <Compile Include="Assets\LuaFramework\ToLua\Source\Generate\DelayCallMgrWrap.cs" />
      <Compile Include="Assets\LuaFramework\Scripts\Framework\Core\Base.cs" />
      <Compile Include="Assets\LuaFramework\ToLua\Source\Generate\UnityEngine_Texture2DWrap.cs" />
+     <Compile Include="Assets\Scripts\3rd\LitJson\JsonReader.cs" />
      <Compile Include="Assets\LuaFramework\Scripts\Framework\Core\Controller.cs" />
      <Compile Include="Assets\Scripts\Framework\Audio\AudioCfgItem.cs" />
      <Compile Include="Assets\LuaFramework\ToLua\BaseType\System_Collections_Generic_KeyValuePairWrap.cs" />
+     <Compile Include="Assets\Scripts\Framework\Common\Misc\UnityExtension.cs" />
      <Compile Include="Assets\Scripts\Framework\Network\ProtocolProcessor.cs" />
      <Compile Include="Assets\Scripts\Framework\Network\NetDataAnalysis.cs" />
      <Compile Include="Assets\LuaFramework\ToLua\BaseType\UnityEngine_CoroutineWrap.cs" />
@@ -198,6 +209,7 @@
      <Compile Include="Assets\LuaFramework\ToLua\Source\Generate\LuaFramework_BaseWrap.cs" />
      <Compile Include="Assets\Scripts\Framework\Resource\ResourceManager.cs" />
      <Compile Include="Assets\LuaFramework\ToLua\Source\Generate\PanelMgrWrap.cs" />
+     <Compile Include="Assets\Scripts\3rd\LitJson\Netstandard15Polyfill.cs" />
      <Compile Include="Assets\LuaFramework\ToLua\Core\LuaState.cs" />
      <Compile Include="Assets\LuaFramework\ToLua\Source\Generate\UnityEngine_ShaderWrap.cs" />
      <Compile Include="Assets\LuaFramework\ToLua\Source\Generate\UnityEngine_PhysicsWrap.cs" />
@@ -241,6 +253,7 @@
      <Compile Include="Assets\Scripts\Framework\sproto\src\SpProtocol.cs" />
      <Compile Include="Assets\Scripts\Framework\Common\Util\UnityUtil.cs" />
      <Compile Include="Assets\LuaFramework\ToLua\BaseType\System_Collections_IEnumeratorWrap.cs" />
+     <Compile Include="Assets\Scripts\Framework\Animation\AnimationEventTrigger.cs" />
      <Compile Include="Assets\Scripts\Framework\Version\VersionMgr.cs" />
      <Compile Include="Assets\LuaFramework\Scripts\Network\Heartbeat.cs" />
      <Compile Include="Assets\LuaFramework\ToLua\Source\Generate\UnityEngine_TrackedReferenceWrap.cs" />
@@ -248,26 +261,26 @@
      <Compile Include="Assets\LuaFramework\Scripts\Framework\Core\Facade.cs" />
      <Compile Include="Assets\Scripts\Framework\sproto\src\SpObject.cs" />
      <Compile Include="Assets\LuaFramework\ToLua\Core\LuaBaseRef.cs" />
+     <Compile Include="Assets\Scripts\3rd\LitJson\IJsonWrapper.cs" />
      <Compile Include="Assets\LuaFramework\Scripts\Utility\LuaHelper.cs" />
      <Compile Include="Assets\LuaFramework\ToLua\Core\LuaFunction.cs" />
+     <Compile Include="Assets\Scripts\Framework\HotUpdate\HotUpdater.cs" />
      <Compile Include="Assets\LuaFramework\ToLua\BaseType\UnityEngine_LightWrap.cs" />
      <Compile Include="Assets\LuaFramework\ToLua\Reflection\LuaField.cs" />
-     <Compile Include="Assets\Scripts\Framework\Common\Misc\UnityExtension.cs" />
-     <Compile Include="Assets\Scripts\Framework\HotUpdate\HotUpdater.cs" />
-     <Compile Include="Assets\Scripts\Framework\HotUpdate\Downloader.cs" />
-     <Compile Include="Assets\Scripts\3rd\LitJson\JsonReader.cs" />
-     <Compile Include="Assets\Scripts\3rd\LitJson\JsonMapper.cs" />
-     <Compile Include="Assets\Scripts\3rd\LitJson\Lexer.cs" />
-     <Compile Include="Assets\Scripts\3rd\LitJson\JsonData.cs" />
-     <Compile Include="Assets\Scripts\3rd\LitJson\ParserToken.cs" />
-     <Compile Include="Assets\Scripts\3rd\LitJson\JsonWriter.cs" />
-     <Compile Include="Assets\Scripts\3rd\LitJson\Netstandard15Polyfill.cs" />
-     <Compile Include="Assets\Scripts\3rd\LitJson\IJsonWrapper.cs" />
-     <Compile Include="Assets\Scripts\3rd\LitJson\JsonException.cs" />
-     <Compile Include="Assets\Scripts\3rd\LitJson\JsonMockWrapper.cs" />
-     <Compile Include="Assets\Scripts\Framework\Animation\AnimationEventTrigger.cs" />
-     <Compile Include="Assets\Scripts\Framework\Debug\Logger.cs" />
-     <Compile Include="Assets\Scripts\View\HotUpdate\HotUpdatePanel.cs" />
+     <Compile Include="Assets\LuaFramework\ToLua\Source\Generate\I18NWrap.cs" />
+     <Compile Include="Assets\LuaFramework\ToLua\Source\Generate\AnimationEventTriggerWrap.cs" />
+     <Compile Include="Assets\LuaFramework\ToLua\Source\Generate\UnityEngine_UI_ToggleWrap.cs" />
+     <Compile Include="Assets\LuaFramework\ToLua\Source\Generate\UnityEngine_RectTransformWrap.cs" />
+     <Compile Include="Assets\LuaFramework\ToLua\Source\Generate\UnityEngine_UI_TextWrap.cs" />
+     <Compile Include="Assets\LuaFramework\ToLua\Source\Generate\UnityEngine_UI_SelectableWrap.cs" />
+     <Compile Include="Assets\LuaFramework\ToLua\Source\Generate\UnityEngine_UI_MaskableGraphicWrap.cs" />
+     <Compile Include="Assets\LuaFramework\ToLua\Source\Generate\UnityEngine_UI_ButtonWrap.cs" />
+     <Compile Include="Assets\LuaFramework\ToLua\Source\Generate\UnityEngine_UI_SliderWrap.cs" />
+     <Compile Include="Assets\LuaFramework\ToLua\Source\Generate\UnityEngine_EventSystems_UIBehaviourWrap.cs" />
+     <Compile Include="Assets\LuaFramework\ToLua\Source\Generate\UnityEngine_UI_GraphicWrap.cs" />
+     <Compile Include="Assets\LuaFramework\ToLua\Source\Generate\UnityEngine_UI_RawImageWrap.cs" />
+     <Compile Include="Assets\LuaFramework\ToLua\Source\Generate\UnityEngine_UI_ImageWrap.cs" />
+     <Compile Include="Assets\LuaFramework\ToLua\Source\Generate\UnityEngine_UI_InputFieldWrap.cs" />
      <None Include="Assets\output_log.txt" />
      <None Include="Assets\Scripts\代码目录说明.txt" />
      <None Include="Assets\LuaFramework\ToLua\readme.txt" />
@@ -502,6 +515,9 @@
     <Reference Include="UnityEditor.UnityConnectModule">
         <HintPath>F:/Unity2019/Editor/2021.1.9f1c1/Editor/Data/Managed/UnityEngine/UnityEditor.UnityConnectModule.dll</HintPath>
     </Reference>
+    <Reference Include="Ionic.Zip.Unity">
+        <HintPath>E:/GitHub/UnityXFramework/Assets/Plugins/Ionic.Zip.Unity.dll</HintPath>
+    </Reference>
     <Reference Include="Unity.VisualScripting.Antlr3.Runtime">
         <HintPath>E:/GitHub/UnityXFramework/Library/PackageCache/com.unity.visualscripting@1.6.1/Runtime/VisualScripting.Flow/Dependencies/NCalc/Unity.VisualScripting.Antlr3.Runtime.dll</HintPath>
     </Reference>
@@ -513,9 +529,6 @@
     </Reference>
     <Reference Include="HOTween">
         <HintPath>E:/GitHub/UnityXFramework/Assets/Plugins/HOTween/HOTween.dll</HintPath>
-    </Reference>
-    <Reference Include="Ionic.Zip.Unity">
-        <HintPath>E:/GitHub/UnityXFramework/Assets/Plugins/Ionic.Zip.Unity.dll</HintPath>
     </Reference>
     <Reference Include="netstandard">
         <HintPath>F:/Unity2019/Editor/2021.1.9f1c1/Editor/Data/NetStandard/ref/2.0.0/netstandard.dll</HintPath>

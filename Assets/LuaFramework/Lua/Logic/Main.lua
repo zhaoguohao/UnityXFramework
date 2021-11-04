@@ -2,22 +2,22 @@
 -- Date
 -- 此文件由[BabeLua]插件自动生成
 
-Game = Game or {}
-local this = Game
+Main = Main or {}
+local this = Main
 
-function Game.Init()
-    log("Lua Game.Init")
+function Main.Init()
+    log("Lua Main.Init")
     
 end
 
-function Game.Start()
-    log("Lua Game.Start")
+function Main.Start()
+    log("Lua Main.Start")
 
     -- 显示登录界面
     LoginPanel.Show()
 end
 
-function Game.Send()
+function Main.Send()
     Network.SendData(
         "sayhello",
         {what = "hi, i am unity"},
@@ -25,7 +25,6 @@ function Game.Send()
             log("lua on response: " .. data.error_code .. " " .. data.msg)
         end
     )
-    
 end
 
 -- endregion
