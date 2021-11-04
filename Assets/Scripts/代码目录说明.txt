@@ -15,6 +15,7 @@ Framework目录: 框架代码
     sproto: sproto的C#实现
     SprotoDef: sproto协议定义
     Timer: 定时器
+    UGUIExpand: UGUI拓展
     Version: 版本管理
 3rd: 第三方库代码
 Logic: 游戏逻辑代码

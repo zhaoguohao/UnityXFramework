@@ -283,8 +283,10 @@
      <Compile Include="Assets\LuaFramework\ToLua\Source\Generate\UnityEngine_UI_InputFieldWrap.cs" />
      <Compile Include="Assets\Scripts\Framework\Common\Global\Cache.cs" />
      <Compile Include="Assets\LuaFramework\ToLua\Source\Generate\CacheWrap.cs" />
-     <Compile Include="Assets\Scripts\Framework\Common\Misc\UGUITool.cs" />
+     <Compile Include="Assets\Scripts\Framework\UGUIExpand\UGUITool.cs" />
      <Compile Include="Assets\LuaFramework\ToLua\Source\Generate\UGUIToolWrap.cs" />
+     <Compile Include="Assets\Scripts\Framework\UGUIExpand\RecyclingScrollView\RecyclingListView.cs" />
+     <Compile Include="Assets\Scripts\Framework\UGUIExpand\RecyclingScrollView\RecyclingListViewItem.cs" />
      <None Include="Assets\output_log.txt" />
      <None Include="Assets\Scripts\代码目录说明.txt" />
      <None Include="Assets\LuaFramework\ToLua\readme.txt" />
