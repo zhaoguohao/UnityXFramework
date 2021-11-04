@@ -10,6 +10,8 @@ public static class LuaBinder
 		float t = Time.realtimeSinceStartup;
 		L.BeginModule(null);
 		LuaInterface_DebuggerWrap.Register(L);
+		UGUIToolWrap.Register(L);
+		CacheWrap.Register(L);
 		EventDispatcherWrap.Register(L);
 		GlobalObjsWrap.Register(L);
 		ResourceManagerWrap.Register(L);

@@ -13,7 +13,7 @@ function GameHallPanel.Show()
 end
 
 function GameHallPanel.OnShow(parent)
-    local panelObj = UITools.Instantiate(parent, 10)
+    local panelObj = UITool.Instantiate(parent, 10)
     this.panelObj = panelObj
     local binder = panelObj:GetComponent("PrefabBinder")
     this.SetUi(binder)
@@ -21,7 +21,7 @@ end
 
 -- UI交互
 function GameHallPanel.SetUi(binder)
-    binder:SetButton("backBtn", function ()
+    UGUITool.SetButton(binder, "backBtn", function (btn)
         this.Hide()
         LoginLogic.DoLogout()
     end)

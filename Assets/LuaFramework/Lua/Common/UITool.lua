@@ -1,10 +1,10 @@
 
 
-UITools = UITools or { }
-local this = UITools 
+UITool = UITool or { }
+local this = UITool 
 
 -- 实例化UI
-function UITools.Instantiate(parent, prefabId)
+function UITool.Instantiate(parent, prefabId)
     local obj = ResourceMgr:InstantiateGameObject(prefabId)
     if not LuaUtil.IsNilOrNull(parent) then
         obj.transform:SetParent(parent.transform, false)

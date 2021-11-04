@@ -1,9 +1,9 @@
 ﻿
 using UnityEngine;
 using System;
-using UnityEngine.UI;
 
-public class PrefabBinder : MonoBehaviour {
+public class PrefabBinder : MonoBehaviour
+{
 
     [Serializable]
 
@@ -43,41 +43,4 @@ public class PrefabBinder : MonoBehaviour {
             return default(T);
         }
     }
-
-    #region 设置ui接口
-    public Text SetText(string name, string textStr)
-    {
-        var text = GetObj<Text>(name);
-        if(null != text)
-        {
-            text.text = textStr;
-        }
-        else
-        {
-            Debug.LogError("PrefabBinder SetText Error, obj is null: " + name);
-        }
-
-        return text;
-    }
-
-    public Button SetButton(string name, Action<GameObject> onClick)
-    {
-        var btn = GetObj<Button>(name);
-        if(null != btn)
-        {
-            btn.onClick.AddListener(() =>
-            {
-                onClick(btn.gameObject);
-            });
-        }
-        else
-        {
-            Debug.LogError("PrefabBinder SetButton Error, obj is null: " + name);
-        }
-        return btn;
-    }
-
-    ///TODO: 其他接口可自行拓展
-
-    #endregion 设置ui接口
 }

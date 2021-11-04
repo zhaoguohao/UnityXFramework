@@ -5,7 +5,7 @@ FlyTips.__index = FlyTips
 
 function FlyTips.Show(contentText)
     local self = {}
-    self.gameObject = UITools.Instantiate(GlobalObjs.s_topPanel, 9)
+    self.gameObject = UITool.Instantiate(GlobalObjs.s_topPanel, 9)
     setmetatable(self, FlyTips)
     local binder = self.gameObject:GetComponent("PrefabBinder")
     self:SetUi(binder, contentText)

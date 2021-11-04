@@ -8,8 +8,6 @@ public class PrefabBinderWrap
 	{
 		L.BeginClass(typeof(PrefabBinder), typeof(UnityEngine.MonoBehaviour));
 		L.RegFunction("GetObj", GetObj);
-		L.RegFunction("SetText", SetText);
-		L.RegFunction("SetButton", SetButton);
 		L.RegFunction("__eq", op_Equality);
 		L.RegFunction("__tostring", ToLua.op_ToString);
 		L.RegVar("items", get_items, set_items);
@@ -25,56 +23,6 @@ public class PrefabBinderWrap
 			PrefabBinder obj = (PrefabBinder)ToLua.CheckObject(L, 1, typeof(PrefabBinder));
 			string arg0 = ToLua.CheckString(L, 2);
 			UnityEngine.Object o = obj.GetObj(arg0);
-			ToLua.Push(L, o);
-			return 1;
-		}
-		catch(Exception e)
-		{
-			return LuaDLL.toluaL_exception(L, e);
-		}
-	}
-
-	[MonoPInvokeCallbackAttribute(typeof(LuaCSFunction))]
-	static int SetText(IntPtr L)
-	{
-		try
-		{
-			ToLua.CheckArgsCount(L, 3);
-			PrefabBinder obj = (PrefabBinder)ToLua.CheckObject(L, 1, typeof(PrefabBinder));
-			string arg0 = ToLua.CheckString(L, 2);
-			string arg1 = ToLua.CheckString(L, 3);
-			UnityEngine.UI.Text o = obj.SetText(arg0, arg1);
-			ToLua.Push(L, o);
-			return 1;
-		}
-		catch(Exception e)
-		{
-			return LuaDLL.toluaL_exception(L, e);
-		}
-	}
-
-	[MonoPInvokeCallbackAttribute(typeof(LuaCSFunction))]
-	static int SetButton(IntPtr L)
-	{
-		try
-		{
-			ToLua.CheckArgsCount(L, 3);
-			PrefabBinder obj = (PrefabBinder)ToLua.CheckObject(L, 1, typeof(PrefabBinder));
-			string arg0 = ToLua.CheckString(L, 2);
-			System.Action<UnityEngine.GameObject> arg1 = null;
-			LuaTypes funcType3 = LuaDLL.lua_type(L, 3);
-
-			if (funcType3 != LuaTypes.LUA_TFUNCTION)
-			{
-				 arg1 = (System.Action<UnityEngine.GameObject>)ToLua.CheckObject(L, 3, typeof(System.Action<UnityEngine.GameObject>));
-			}
-			else
-			{
-				LuaFunction func = ToLua.ToLuaFunction(L, 3);
-				arg1 = DelegateFactory.CreateDelegate(typeof(System.Action<UnityEngine.GameObject>), func) as System.Action<UnityEngine.GameObject>;
-			}
-
-			UnityEngine.UI.Button o = obj.SetButton(arg0, arg1);
 			ToLua.Push(L, o);
 			return 1;
 		}

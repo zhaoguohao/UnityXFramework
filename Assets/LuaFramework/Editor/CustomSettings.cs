@@ -156,6 +156,7 @@ namespace LuaFramework
 
 
             // UGUI相关
+            _GT(typeof(UGUITool)),
             _GT(typeof(RectTransform)),
             _GT(typeof(Button)),
             _GT(typeof(Text)),
@@ -167,6 +168,7 @@ namespace LuaFramework
             
 
             // TODO: 添加自定义的类
+            _GT(typeof(Cache)),
             _GT(typeof(NetworkManager)),
             _GT(typeof(EventDispatcher)),
             _GT(typeof(GlobalObjs)),
