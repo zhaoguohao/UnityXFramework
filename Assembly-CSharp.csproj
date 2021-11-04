@@ -287,6 +287,12 @@
      <Compile Include="Assets\LuaFramework\ToLua\Source\Generate\UGUIToolWrap.cs" />
      <Compile Include="Assets\Scripts\Framework\UGUIExpand\RecyclingScrollView\RecyclingListView.cs" />
      <Compile Include="Assets\Scripts\Framework\UGUIExpand\RecyclingScrollView\RecyclingListViewItem.cs" />
+     <Compile Include="Assets\Scripts\Framework\UGUIExpand\I18NText\I18NText.cs" />
+     <Compile Include="Assets\Scripts\Framework\I18N\LanguageMgr.cs" />
+     <Compile Include="Assets\Scripts\Framework\I18N\I18NCfgItem.cs" />
+     <Compile Include="Assets\LuaFramework\ToLua\Source\Generate\LanguageMgrWrap.cs" />
+     <Compile Include="Assets\LuaFramework\ToLua\Source\Generate\UnityEngine_UI_DropdownWrap.cs" />
+     <Compile Include="Assets\Scripts\Framework\Event\EventNameDef.cs" />
      <None Include="Assets\output_log.txt" />
      <None Include="Assets\Scripts\代码目录说明.txt" />
      <None Include="Assets\LuaFramework\ToLua\readme.txt" />

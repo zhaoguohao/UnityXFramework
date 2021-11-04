@@ -51,6 +51,12 @@ function LoginPanel.SetUi(binder)
             GameHallPanel.Show()
         end)
     end)
+
+    -- 多语言设置
+    local language = UGUITool.SetDropDown(binder, "languageDropdown", function (v)
+        LanguageMgr:ChangeLanguageType(v)
+    end)
+    language.value = LanguageMgr.languageIndex
 end
 
 function LoginPanel.Hide()

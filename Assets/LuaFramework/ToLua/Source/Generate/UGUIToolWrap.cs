@@ -10,6 +10,9 @@ public class UGUIToolWrap
 		L.RegFunction("SetText", SetText);
 		L.RegFunction("SetButton", SetButton);
 		L.RegFunction("SetInputField", SetInputField);
+		L.RegFunction("SetDropDown", SetDropDown);
+		L.RegFunction("SetToggle", SetToggle);
+		L.RegFunction("SetSlider", SetSlider);
 		L.RegFunction("New", _CreateUGUITool);
 		L.RegFunction("__tostring", ToLua.op_ToString);
 		L.EndClass();
@@ -111,6 +114,99 @@ public class UGUIToolWrap
 			}
 
 			UnityEngine.UI.InputField o = UGUITool.SetInputField(arg0, arg1, arg2);
+			ToLua.Push(L, o);
+			return 1;
+		}
+		catch(Exception e)
+		{
+			return LuaDLL.toluaL_exception(L, e);
+		}
+	}
+
+	[MonoPInvokeCallbackAttribute(typeof(LuaCSFunction))]
+	static int SetDropDown(IntPtr L)
+	{
+		try
+		{
+			ToLua.CheckArgsCount(L, 3);
+			PrefabBinder arg0 = (PrefabBinder)ToLua.CheckUnityObject(L, 1, typeof(PrefabBinder));
+			string arg1 = ToLua.CheckString(L, 2);
+			System.Action<int> arg2 = null;
+			LuaTypes funcType3 = LuaDLL.lua_type(L, 3);
+
+			if (funcType3 != LuaTypes.LUA_TFUNCTION)
+			{
+				 arg2 = (System.Action<int>)ToLua.CheckObject(L, 3, typeof(System.Action<int>));
+			}
+			else
+			{
+				LuaFunction func = ToLua.ToLuaFunction(L, 3);
+				arg2 = DelegateFactory.CreateDelegate(typeof(System.Action<int>), func) as System.Action<int>;
+			}
+
+			UnityEngine.UI.Dropdown o = UGUITool.SetDropDown(arg0, arg1, arg2);
+			ToLua.Push(L, o);
+			return 1;
+		}
+		catch(Exception e)
+		{
+			return LuaDLL.toluaL_exception(L, e);
+		}
+	}
+
+	[MonoPInvokeCallbackAttribute(typeof(LuaCSFunction))]
+	static int SetToggle(IntPtr L)
+	{
+		try
+		{
+			ToLua.CheckArgsCount(L, 3);
+			PrefabBinder arg0 = (PrefabBinder)ToLua.CheckUnityObject(L, 1, typeof(PrefabBinder));
+			string arg1 = ToLua.CheckString(L, 2);
+			System.Action<bool> arg2 = null;
+			LuaTypes funcType3 = LuaDLL.lua_type(L, 3);
+
+			if (funcType3 != LuaTypes.LUA_TFUNCTION)
+			{
+				 arg2 = (System.Action<bool>)ToLua.CheckObject(L, 3, typeof(System.Action<bool>));
+			}
+			else
+			{
+				LuaFunction func = ToLua.ToLuaFunction(L, 3);
+				arg2 = DelegateFactory.CreateDelegate(typeof(System.Action<bool>), func) as System.Action<bool>;
+			}
+
+			UnityEngine.UI.Toggle o = UGUITool.SetToggle(arg0, arg1, arg2);
+			ToLua.Push(L, o);
+			return 1;
+		}
+		catch(Exception e)
+		{
+			return LuaDLL.toluaL_exception(L, e);
+		}
+	}
+
+	[MonoPInvokeCallbackAttribute(typeof(LuaCSFunction))]
+	static int SetSlider(IntPtr L)
+	{
+		try
+		{
+			ToLua.CheckArgsCount(L, 3);
+			PrefabBinder arg0 = (PrefabBinder)ToLua.CheckUnityObject(L, 1, typeof(PrefabBinder));
+			string arg1 = ToLua.CheckString(L, 2);
+			System.Action<float> arg2 = null;
+			LuaTypes funcType3 = LuaDLL.lua_type(L, 3);
+
+			if (funcType3 != LuaTypes.LUA_TFUNCTION)
+			{
+				 arg2 = (System.Action<float>)ToLua.CheckObject(L, 3, typeof(System.Action<float>));
+			}
+			else
+			{
+				LuaFunction func = ToLua.ToLuaFunction(L, 3);
+				arg2 = DelegateFactory.CreateDelegate(typeof(System.Action<float>), func) as System.Action<float>;
+			}
+
+			UnityEngine.UI.Slider o = UGUITool.SetSlider(arg0, arg1, arg2);
 			ToLua.Push(L, o);
 			return 1;
 		}

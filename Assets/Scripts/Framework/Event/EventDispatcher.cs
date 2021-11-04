@@ -6,7 +6,7 @@ Description:  事件管理
 using UnityEngine;
 using System.Collections.Generic;
 
-public delegate object MyEventHandler(params object[] objs);
+public delegate void MyEventHandler(params object[] objs);
 
 public class EventDispatcher
 {

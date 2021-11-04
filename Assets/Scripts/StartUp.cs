@@ -65,9 +65,14 @@ public class StartUp : MonoBehaviour
     /// </summary>
     private void InitAfterHotUpdate()
     {
+        // 资源管理器
         ResourceManager.instance.Init();
+        // 音效管理器
         AudioMgr.instance.Init();
+        // 多语言
+        LanguageMgr.instance.Init();
         I18N.instance.Init();
+        // 图集管理器
         SpriteManager.instance.Init();
     }
 

@@ -165,7 +165,7 @@ namespace LuaFramework
             _GT(typeof(Toggle)),
             _GT(typeof(Slider)),
             _GT(typeof(InputField)),
-            
+            _GT(typeof(Dropdown)),
 
             // TODO: 添加自定义的类
             _GT(typeof(Cache)),
@@ -181,6 +181,7 @@ namespace LuaFramework
             _GT(typeof(ParticleManager)),
             _GT(typeof(AnimationEventTrigger)),
             _GT(typeof(I18N)),
+            _GT(typeof(LanguageMgr)),
         };
 
         private static Type NonEdtType(string className)

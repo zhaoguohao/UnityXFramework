@@ -1,6 +1,11 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-  <item key="1" value="你好Unity，我是I18" />
-  <item key="2" value="请输入账号" />
-  <item key="3" value="请输入密码" />
+  <item key="1" value_zh="这是一个Unity通用游戏框架" value_zh_tw="這是一個Unity通用遊戲框架" english="This is a Unity universal game framework"/>
+  <item key="2" value_zh="请输入账号" value_zh_tw="請輸入賬號" english="Please enter your account" />
+  <item key="3" value_zh="请输入密码" value_zh_tw="請輸入密碼" english="Please enter your password" />
+  <item key="4" value_zh="游戏LOGO" value_zh_tw="遊戲LOGO" english="GAME LOGO" />
+  <item key="5" value_zh="Unity通用游戏框架" value_zh_tw="Unity通用遊戲框架" english="Unity Universal Game Framework" />
+  <item key="6" value_zh="账号" value_zh_tw="賬號" english="Account" />
+  <item key="7" value_zh="密码" value_zh_tw="密碼" english="Password" />
+  <item key="8" value_zh="登录" value_zh_tw="登錄" english="Login" />
 </resources>

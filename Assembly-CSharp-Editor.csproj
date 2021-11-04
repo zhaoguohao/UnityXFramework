@@ -67,6 +67,7 @@
      <Compile Include="Assets\LuaFramework\ToLua\Editor\ToLuaExport.cs" />
      <Compile Include="Assets\LuaFramework\ToLua\Editor\Extend\ToLua_System_Delegate.cs" />
      <Compile Include="Assets\Editor\ResConfigEditor.cs" />
+     <Compile Include="Assets\Editor\I18NText\I18NTextInspector.cs" />
     <Reference Include="UnityEngine">
         <HintPath>F:/Unity2019/Editor/2021.1.9f1c1/Editor/Data/Managed/UnityEngine/UnityEngine.dll</HintPath>
     </Reference>

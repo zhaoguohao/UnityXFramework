@@ -8,6 +8,7 @@ public class I18NWrap
 	{
 		L.BeginClass(typeof(I18N), typeof(System.Object));
 		L.RegFunction("Init", Init);
+		L.RegFunction("Reload", Reload);
 		L.RegFunction("GetStr", GetStr);
 		L.RegFunction("GetString", GetString);
 		L.RegFunction("getSeparateResString", getSeparateResString);
@@ -59,22 +60,38 @@ public class I18NWrap
 	}
 
 	[MonoPInvokeCallbackAttribute(typeof(LuaCSFunction))]
+	static int Reload(IntPtr L)
+	{
+		try
+		{
+			ToLua.CheckArgsCount(L, 1);
+			I18N obj = (I18N)ToLua.CheckObject(L, 1, typeof(I18N));
+			obj.Reload();
+			return 0;
+		}
+		catch(Exception e)
+		{
+			return LuaDLL.toluaL_exception(L, e);
+		}
+	}
+
+	[MonoPInvokeCallbackAttribute(typeof(LuaCSFunction))]
 	static int GetStr(IntPtr L)
 	{
 		try
 		{
 			int count = LuaDLL.lua_gettop(L);
 
-			if (count == 1 && TypeChecker.CheckTypes(L, 1, typeof(uint)))
+			if (count == 1 && TypeChecker.CheckTypes(L, 1, typeof(int)))
 			{
-				uint arg0 = (uint)LuaDLL.lua_tonumber(L, 1);
+				int arg0 = (int)LuaDLL.lua_tonumber(L, 1);
 				string o = I18N.GetStr(arg0);
 				LuaDLL.lua_pushstring(L, o);
 				return 1;
 			}
-			else if (TypeChecker.CheckTypes(L, 1, typeof(uint)) && TypeChecker.CheckParamsType(L, typeof(object), 2, count - 1))
+			else if (TypeChecker.CheckTypes(L, 1, typeof(int)) && TypeChecker.CheckParamsType(L, typeof(object), 2, count - 1))
 			{
-				uint arg0 = (uint)LuaDLL.lua_tonumber(L, 1);
+				int arg0 = (int)LuaDLL.lua_tonumber(L, 1);
 				object[] arg1 = ToLua.ToParamsObject(L, 2, count - 1);
 				string o = I18N.GetStr(arg0, arg1);
 				LuaDLL.lua_pushstring(L, o);
@@ -98,7 +115,7 @@ public class I18NWrap
 		{
 			ToLua.CheckArgsCount(L, 2);
 			I18N obj = (I18N)ToLua.CheckObject(L, 1, typeof(I18N));
-			uint arg0 = (uint)LuaDLL.luaL_checknumber(L, 2);
+			int arg0 = (int)LuaDLL.luaL_checknumber(L, 2);
 			string o = obj.GetString(arg0);
 			LuaDLL.lua_pushstring(L, o);
 			return 1;
@@ -116,7 +133,7 @@ public class I18NWrap
 		{
 			ToLua.CheckArgsCount(L, 6);
 			I18N obj = (I18N)ToLua.CheckObject(L, 1, typeof(I18N));
-			uint arg0 = (uint)LuaDLL.luaL_checknumber(L, 2);
+			int arg0 = (int)LuaDLL.luaL_checknumber(L, 2);
 			int arg1 = (int)LuaDLL.luaL_checknumber(L, 3);
 			char arg2 = (char)LuaDLL.luaL_checknumber(L, 4);
 			char arg3 = (char)LuaDLL.luaL_checknumber(L, 5);
@@ -138,10 +155,10 @@ public class I18NWrap
 		{
 			int count = LuaDLL.lua_gettop(L);
 
-			if (TypeChecker.CheckTypes(L, 1, typeof(I18N), typeof(uint)) && TypeChecker.CheckParamsType(L, typeof(object), 3, count - 2))
+			if (TypeChecker.CheckTypes(L, 1, typeof(I18N), typeof(int)) && TypeChecker.CheckParamsType(L, typeof(object), 3, count - 2))
 			{
 				I18N obj = (I18N)ToLua.ToObject(L, 1);
-				uint arg0 = (uint)LuaDLL.lua_tonumber(L, 2);
+				int arg0 = (int)LuaDLL.lua_tonumber(L, 2);
 				object[] arg1 = ToLua.ToParamsObject(L, 3, count - 2);
 				string o = obj.getResString(arg0, arg1);
 				LuaDLL.lua_pushstring(L, o);

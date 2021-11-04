@@ -48,9 +48,9 @@ public class UGUITool
     /// <summary>
     /// 设置输入框文本输入完毕回调
     /// </summary>
-    /// <param name="onSubmit">文本输入完毕后回调</param>
+    /// <param name="onEndEdit">文本输入完毕后回调</param>
     /// <returns></returns>
-    public static InputField SetInputField(PrefabBinder binder, string name, Action<string> onSubmit)
+    public static InputField SetInputField(PrefabBinder binder, string name, Action<string> onEndEdit)
     {
         var input = binder.GetObj<InputField>(name);
         if (null == input)
@@ -58,11 +58,11 @@ public class UGUITool
             GameLogger.LogError("SetInputField Error, obj is null: " + name);
             return null;
         }
-        input.onSubmit.RemoveAllListeners();
-        input.onSubmit.AddListener((v) =>
+        input.onEndEdit.RemoveAllListeners();
+        input.onEndEdit.AddListener((v) =>
         {
-            if (null != onSubmit)
-                onSubmit(v);
+            if (null != onEndEdit)
+                onEndEdit(v);
         });
 
         return input;

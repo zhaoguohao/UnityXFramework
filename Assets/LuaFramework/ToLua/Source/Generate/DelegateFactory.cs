@@ -35,6 +35,7 @@ public static class DelegateFactory
 		dict.Add(typeof(UnityEngine.AudioClip.PCMSetPositionCallback), UnityEngine_AudioClip_PCMSetPositionCallback);
 		dict.Add(typeof(System.Action<UnityEngine.AsyncOperation>), System_Action_UnityEngine_AsyncOperation);
 		dict.Add(typeof(System.Action<UnityEngine.GameObject>), System_Action_UnityEngine_GameObject);
+		dict.Add(typeof(System.Action<float>), System_Action_float);
 		dict.Add(typeof(UnityEngine.RectTransform.ReapplyDrivenProperties), UnityEngine_RectTransform_ReapplyDrivenProperties);
 		dict.Add(typeof(UnityEngine.UI.InputField.OnValidateInput), UnityEngine_UI_InputField_OnValidateInput);
 		dict.Add(typeof(MyEventHandler), MyEventHandler);
@@ -1003,6 +1004,53 @@ public static class DelegateFactory
 		}
 	}
 
+	class System_Action_float_Event : LuaDelegate
+	{
+		public System_Action_float_Event(LuaFunction func) : base(func) { }
+		public System_Action_float_Event(LuaFunction func, LuaTable self) : base(func, self) { }
+
+		public void Call(float param0)
+		{
+			func.BeginPCall();
+			func.Push(param0);
+			func.PCall();
+			func.EndPCall();
+		}
+
+		public void CallWithSelf(float param0)
+		{
+			func.BeginPCall();
+			func.Push(self);
+			func.Push(param0);
+			func.PCall();
+			func.EndPCall();
+		}
+	}
+
+	public static Delegate System_Action_float(LuaFunction func, LuaTable self, bool flag)
+	{
+		if (func == null)
+		{
+			System.Action<float> fn = delegate(float param0) { };
+			return fn;
+		}
+
+		if(!flag)
+		{
+			System_Action_float_Event target = new System_Action_float_Event(func);
+			System.Action<float> d = target.Call;
+			target.method = d.Method;
+			return d;
+		}
+		else
+		{
+			System_Action_float_Event target = new System_Action_float_Event(func, self);
+			System.Action<float> d = target.CallWithSelf;
+			target.method = d.Method;
+			return d;
+		}
+	}
+
 	class UnityEngine_RectTransform_ReapplyDrivenProperties_Event : LuaDelegate
 	{
 		public UnityEngine_RectTransform_ReapplyDrivenProperties_Event(LuaFunction func) : base(func) { }
@@ -1110,7 +1158,7 @@ public static class DelegateFactory
 		public MyEventHandler_Event(LuaFunction func) : base(func) { }
 		public MyEventHandler_Event(LuaFunction func, LuaTable self) : base(func, self) { }
 
-		public object Call(object[] param0)
+		public void Call(object[] param0)
 		{
 			func.BeginPCall();
 
@@ -1124,12 +1172,10 @@ public static class DelegateFactory
 			}
 
 			func.PCall();
-			object ret = func.CheckVariant();
 			func.EndPCall();
-			return ret;
 		}
 
-		public object CallWithSelf(object[] param0)
+		public void CallWithSelf(object[] param0)
 		{
 			func.BeginPCall();
 			func.Push(self);
@@ -1144,9 +1190,7 @@ public static class DelegateFactory
 			}
 
 			func.PCall();
-			object ret = func.CheckVariant();
 			func.EndPCall();
-			return ret;
 		}
 	}
 
@@ -1154,7 +1198,7 @@ public static class DelegateFactory
 	{
 		if (func == null)
 		{
-			MyEventHandler fn = delegate(object[] param0) { return null; };
+			MyEventHandler fn = delegate(object[] param0) { };
 			return fn;
 		}
 
