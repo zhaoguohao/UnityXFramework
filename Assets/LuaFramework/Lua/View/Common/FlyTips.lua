@@ -13,7 +13,8 @@ function FlyTips.Show(contentText)
 end
 
 function FlyTips:SetUi(binder, contentText)
-    binder:SetText("tipsText", contentText)
+    UGUITool.SetText(binder, "tipsText", contentText)
+    
     local aniEventTrigger = binder:GetObj("aniEventTrigger")
     aniEventTrigger.aniEvent = function ()
         LuaUtil.SafeDestroyObj(self.gameObject)

@@ -1,13 +1,10 @@
--- region *.lua
--- Date
--- 此文件由[BabeLua]插件自动生成
+-- 入口脚本
 
 Main = Main or {}
 local this = Main
 
 function Main.Init()
     log("Lua Main.Init")
-    
 end
 
 function Main.Start()

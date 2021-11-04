@@ -1,7 +1,11 @@
 ﻿
 using UnityEngine;
 using System;
+using UObject = UnityEngine.Object;
 
+/// <summary>
+/// 预设物体绑定器
+/// </summary>
 public class PrefabBinder : MonoBehaviour
 {
 
@@ -16,7 +20,7 @@ public class PrefabBinder : MonoBehaviour
 
     public Item[] items = new Item[0];
 
-    public UnityEngine.Object GetObj(string name)
+    public UObject GetObj(string name)
     {
         if (string.IsNullOrEmpty(name)) return null;
         for (int i = 0, cnt = items.Length; i < cnt; i++)
@@ -31,7 +35,7 @@ public class PrefabBinder : MonoBehaviour
         return null;
     }
 
-    public T GetObj<T>(string name) where T : UnityEngine.Object
+    public T GetObj<T>(string name) where T : UObject
     {
         try
         {

@@ -7,6 +7,7 @@ CsNetworkMgr = LuaFramework.LuaHelper.GetNetManager()
 UGUITool = UGUITool
 Cache = Cache
 GlobalObjs = GlobalObjs
+I18N = I18N
 
 DelayCallMgr = DelayCallMgr.instance
 ResourceMgr = ResourceManager.instance

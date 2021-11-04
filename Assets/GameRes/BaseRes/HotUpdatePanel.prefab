@@ -357,7 +357,7 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: "\u4F5C\u8005\uFF1A\u6797\u65B0\u53D1     \u535A\u5BA2\uFF1Ahttps://blog.csdn.net/linxinfa"
+  m_Text: "\u5F00\u53D1\u8005\uFF1A\u6797\u65B0\u53D1     \u535A\u5BA2\uFF1Ahttps://blog.csdn.net/linxinfa"
 --- !u!114 &8440994183198208197
 MonoBehaviour:
   m_ObjectHideFlags: 0
