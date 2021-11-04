@@ -281,7 +281,6 @@
      <Compile Include="Assets\LuaFramework\ToLua\Source\Generate\UnityEngine_UI_RawImageWrap.cs" />
      <Compile Include="Assets\LuaFramework\ToLua\Source\Generate\UnityEngine_UI_ImageWrap.cs" />
      <Compile Include="Assets\LuaFramework\ToLua\Source\Generate\UnityEngine_UI_InputFieldWrap.cs" />
-     <None Include="Assets\output_log.txt" />
      <None Include="Assets\Scripts\代码目录说明.txt" />
      <None Include="Assets\LuaFramework\ToLua\readme.txt" />
     <Reference Include="UnityEngine">
