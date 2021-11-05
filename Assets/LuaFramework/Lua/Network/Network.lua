@@ -125,6 +125,33 @@ function Network.OnInit()
     this.sessionHandlers = {}
 end
 
+function Network.Connect(connectCb)
+    this.connectCb = nil
+    this.connectCb = connectCb
+    WaitBoard.Create()
+    ClientNet:Connect("127.0.0.1", 8888, false)
+end
+
+-- 网络状态改变
+function Network.OnNetStateChanged(state, param)
+    log("Network.OnNetStateChanged, state: " .. tostring(state))
+    if 1 == state then
+        -- ConnectSuccess
+        WaitBoard.Destroy()
+        if nil ~= this.connectCb then
+            this.connectCb(true)
+            this.connectCb = nil
+        end
+    elseif 2 == state then
+        -- ConnectFail
+        WaitBoard.Destroy()
+        if nil ~= this.connectCb then
+            this.connectCb(false)
+            this.connectCb = nil
+        end
+    end
+end
+
 -- 收到服务器请求处理
 function Network.OnRequestDataFun(buffer, length)
     local type, protoname, request = s2c_host:dispatch_nopacked(buffer, length)
@@ -236,11 +263,7 @@ function Network.ResendCacheDataOnReconnect()
     end
 end
 
--- 网络状态改变
-function Network.OnNetStateChanged(state, param)
-    log("--------------Network.OnNetStateChanged-----------"..state:ToInt())
 
-end
 
 -- 仅部分公用的网络消息需要动态的添加 和 删除(某些不同的模式公用)
 function Network.AddLuaProcessC2S(protoname, flag, processFun)

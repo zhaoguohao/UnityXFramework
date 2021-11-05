@@ -169,6 +169,7 @@ namespace LuaFramework
             _GT(typeof(Dropdown)),
 
             // TODO: 添加自定义的类
+            _GT(typeof(ClientNet)),
             _GT(typeof(Cache)),
             _GT(typeof(NetworkManager)),
             _GT(typeof(EventDispatcher)),

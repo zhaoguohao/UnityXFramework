@@ -14,10 +14,16 @@ function LoginLogic.DoLogin(account, pwdMd5, cb)
     -- 缓存账号密码
     Cache.Set('ACCOUNT', account)
     Cache.Set('PASSWORD', pwdMd5)
-    -- 回调
-    if nil ~= cb then
-        cb(true)
-    end
+    Network.Connect(function (ok)
+        -- TODO 发送登录协议
+
+
+        -- 回调
+        if nil ~= cb then
+            cb(true)
+        end
+    end)
+
 end
 
 -- 执行登出

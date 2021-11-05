@@ -39,6 +39,7 @@ public static class DelegateFactory
 		dict.Add(typeof(UnityEngine.RectTransform.ReapplyDrivenProperties), UnityEngine_RectTransform_ReapplyDrivenProperties);
 		dict.Add(typeof(UnityEngine.UI.InputField.OnValidateInput), UnityEngine_UI_InputField_OnValidateInput);
 		dict.Add(typeof(UnityEngine.Events.UnityAction<string>), UnityEngine_Events_UnityAction_string);
+		dict.Add(typeof(System.Action<string,SpObject>), System_Action_string_SpObject);
 		dict.Add(typeof(MyEventHandler), MyEventHandler);
 	}
 
@@ -1196,6 +1197,55 @@ public static class DelegateFactory
 		{
 			UnityEngine_Events_UnityAction_string_Event target = new UnityEngine_Events_UnityAction_string_Event(func, self);
 			UnityEngine.Events.UnityAction<string> d = target.CallWithSelf;
+			target.method = d.Method;
+			return d;
+		}
+	}
+
+	class System_Action_string_SpObject_Event : LuaDelegate
+	{
+		public System_Action_string_SpObject_Event(LuaFunction func) : base(func) { }
+		public System_Action_string_SpObject_Event(LuaFunction func, LuaTable self) : base(func, self) { }
+
+		public void Call(string param0, SpObject param1)
+		{
+			func.BeginPCall();
+			func.Push(param0);
+			func.PushObject(param1);
+			func.PCall();
+			func.EndPCall();
+		}
+
+		public void CallWithSelf(string param0, SpObject param1)
+		{
+			func.BeginPCall();
+			func.Push(self);
+			func.Push(param0);
+			func.PushObject(param1);
+			func.PCall();
+			func.EndPCall();
+		}
+	}
+
+	public static Delegate System_Action_string_SpObject(LuaFunction func, LuaTable self, bool flag)
+	{
+		if (func == null)
+		{
+			System.Action<string,SpObject> fn = delegate(string param0, SpObject param1) { };
+			return fn;
+		}
+
+		if(!flag)
+		{
+			System_Action_string_SpObject_Event target = new System_Action_string_SpObject_Event(func);
+			System.Action<string,SpObject> d = target.Call;
+			target.method = d.Method;
+			return d;
+		}
+		else
+		{
+			System_Action_string_SpObject_Event target = new System_Action_string_SpObject_Event(func, self);
+			System.Action<string,SpObject> d = target.CallWithSelf;
 			target.method = d.Method;
 			return d;
 		}

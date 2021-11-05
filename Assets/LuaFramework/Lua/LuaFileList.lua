@@ -20,6 +20,8 @@ Logic/AppQuit/AppQuitLogic.lua
 View/Common/FlyTips.lua
 -- 提示框
 View/Common/TipsDlg.lua
+-- 请稍等挡板
+View/Common/WaitBoard.lua
 -- 新手引导遮罩
 View/Common/GuideMask.lua
 
