@@ -321,10 +321,9 @@ namespace LuaInterface
         private byte[] ReadBytesFromAssetBundle(string fileName)
         {
             //使用全名， 避免冲突
-            fileName = "Assets/RawAssets/lua/" + fileName;
+            fileName = "Assets/luabundle/" + fileName;
 
             string bundleFileName = fileName + ".bytes";
-            //AssetBundle ab = GameEssentialResLoader.luaAssetBundle;
             int bundleCount = m_luaBundleList.Count;
             for (int i = 0; i < bundleCount; i++)
             {
@@ -344,7 +343,8 @@ namespace LuaInterface
                 byte[] luaBytes = null;
                 if (luaCode != null)
                 {
-                    luaBytes = CryptoUtil.AESDecrypt(luaCode.bytes, LuaFramework.AppConst.LuaSecretKey);
+                    // 解密
+                    luaBytes =  AESEncrypt.Decrypt(luaCode.bytes);
                     Resources.UnloadAsset(luaCode);
                     return luaBytes;
                 }
@@ -356,10 +356,9 @@ namespace LuaInterface
 
         private string ReadStringFromAssetBundle(string fileName)
         {
-            fileName = "Assets/RawAssets/lua/" + fileName;
+            fileName = "Assets/luabundle/" + fileName;
 
             string bundleFileName = fileName + ".bytes";
-            //AssetBundle ab = GameEssentialResLoader.luaAssetBundle;
             int bundleCount = m_luaBundleList.Count;
             for (int i = 0; i < bundleCount; i++)
             {
@@ -379,7 +378,10 @@ namespace LuaInterface
                 string luaStr = null;
                 if (luaCode != null)
                 {
-                    luaStr = System.Text.Encoding.GetEncoding(65001).GetString(CryptoUtil.AESDecrypt(luaCode.bytes, LuaFramework.AppConst.LuaSecretKey));
+                    // 解密
+                    var bytes = AESEncrypt.Decrypt(luaCode.bytes);
+                    // 转字符串
+                    luaStr = System.Text.Encoding.GetEncoding(65001).GetString(bytes);
                     Resources.UnloadAsset(luaCode);
                     return luaStr;
                 }

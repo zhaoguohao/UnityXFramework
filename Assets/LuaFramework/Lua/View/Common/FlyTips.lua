@@ -9,12 +9,11 @@ function FlyTips.Create(contentText)
     setmetatable(self, FlyTips)
     local binder = self.gameObject:GetComponent("PrefabBinder")
     self:SetUi(binder, contentText)
-    return self
 end
 
 function FlyTips:SetUi(binder, contentText)
     UGUITool.SetText(binder, "tipsText", contentText)
-    
+  
     local aniEventTrigger = binder:GetObj("aniEventTrigger")
     aniEventTrigger.aniEvent = function ()
         LuaUtil.SafeDestroyObj(self.gameObject)

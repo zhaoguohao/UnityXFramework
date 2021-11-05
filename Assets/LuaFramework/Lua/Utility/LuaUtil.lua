@@ -369,7 +369,7 @@ end
 
 -- 安全销毁
 function LuaUtil.SafeDestroyObj(obj)
-    if not LuaUtil.IsNilOrNull(obj) then
+    if LuaUtil.IsNilOrNull(obj) then
         return
     end
     GameObject.Destroy(obj.gameObject)
@@ -377,7 +377,7 @@ end
 
 -- 安全激活或禁用
 function LuaUtil.SafeActiveObj(obj, active)
-    if not LuaUtil.IsNilOrNull(obj) then
+    if LuaUtil.IsNilOrNull(obj) then
         return
     end
     obj.gameObject:SetActive(active)

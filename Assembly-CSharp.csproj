@@ -219,7 +219,6 @@
      <Compile Include="Assets\LuaFramework\ToLua\Reflection\LuaReflection.cs" />
      <Compile Include="Assets\LuaFramework\ToLua\BaseType\LuaInterface_LuaPropertyWrap.cs" />
      <Compile Include="Assets\LuaFramework\ToLua\Source\Generate\UnityEngine_WWWWrap.cs" />
-     <Compile Include="Assets\Scripts\Framework\Common\Util\CryptoUtil.cs" />
      <Compile Include="Assets\LuaFramework\ToLua\Core\LuaAttributes.cs" />
      <Compile Include="Assets\LuaFramework\ToLua\BaseType\System_ArrayWrap.cs" />
      <Compile Include="Assets\Scripts\Framework\Resource\AssetBundleMgr.cs" />

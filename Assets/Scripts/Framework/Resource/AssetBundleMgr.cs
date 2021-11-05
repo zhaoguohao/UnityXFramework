@@ -98,8 +98,9 @@ public class AssetBundleMgr
         if (null != bundle)
         {
             m_bundles[abName] = bundle;
+            GameLogger.Log("LoadAssetBundle Ok, abName: " + abName);
         }
-        GameLogger.Log("LoadAssetBundle Ok, abName: " + abName);
+        
         return bundle;
     }
 
