@@ -8,9 +8,7 @@ function LoginLogic.DoLogin(account, pwdMd5, cb)
     if not this.CheckAccount(account) then
         return
     end
-    if not this.CheckPwd(pwdMd5) then
-        return
-    end
+
     -- TODO 调用SDK或与游戏服务端通信，执行登录流程
     log("DoLogin, account: " .. account .. ", pwdMd5: " .. pwdMd5)
     -- 缓存账号密码

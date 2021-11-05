@@ -296,6 +296,9 @@
      <Compile Include="Assets\Scripts\Framework\UGUIExpand\GuideMask\GuideMaskBhv.cs" />
      <Compile Include="Assets\LuaFramework\ToLua\Source\Generate\GuideMaskBhvWrap.cs" />
      <Compile Include="Assets\Scripts\Framework\UGUIExpand\MirrorImage\MirrorImage.cs" />
+     <Compile Include="Assets\LuaFramework\ToLua\Source\Generate\UnityEngine_Events_UnityEvent_stringWrap.cs" />
+     <Compile Include="Assets\LuaFramework\ToLua\Source\Generate\UnityEngine_UI_InputField_OnChangeEventWrap.cs" />
+     <Compile Include="Assets\LuaFramework\ToLua\Source\Generate\UnityEngine_Events_UnityEventBaseWrap.cs" />
      <None Include="Assets\RawAssets\GuideMask\Shader\GuideMask.shader" />
      <None Include="Assets\output_log.txt" />
      <None Include="Assets\Scripts\代码目录说明.txt" />

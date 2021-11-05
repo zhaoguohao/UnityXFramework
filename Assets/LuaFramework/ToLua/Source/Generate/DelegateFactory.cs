@@ -38,6 +38,7 @@ public static class DelegateFactory
 		dict.Add(typeof(System.Action<float>), System_Action_float);
 		dict.Add(typeof(UnityEngine.RectTransform.ReapplyDrivenProperties), UnityEngine_RectTransform_ReapplyDrivenProperties);
 		dict.Add(typeof(UnityEngine.UI.InputField.OnValidateInput), UnityEngine_UI_InputField_OnValidateInput);
+		dict.Add(typeof(UnityEngine.Events.UnityAction<string>), UnityEngine_Events_UnityAction_string);
 		dict.Add(typeof(MyEventHandler), MyEventHandler);
 	}
 
@@ -1148,6 +1149,53 @@ public static class DelegateFactory
 		{
 			UnityEngine_UI_InputField_OnValidateInput_Event target = new UnityEngine_UI_InputField_OnValidateInput_Event(func, self);
 			UnityEngine.UI.InputField.OnValidateInput d = target.CallWithSelf;
+			target.method = d.Method;
+			return d;
+		}
+	}
+
+	class UnityEngine_Events_UnityAction_string_Event : LuaDelegate
+	{
+		public UnityEngine_Events_UnityAction_string_Event(LuaFunction func) : base(func) { }
+		public UnityEngine_Events_UnityAction_string_Event(LuaFunction func, LuaTable self) : base(func, self) { }
+
+		public void Call(string param0)
+		{
+			func.BeginPCall();
+			func.Push(param0);
+			func.PCall();
+			func.EndPCall();
+		}
+
+		public void CallWithSelf(string param0)
+		{
+			func.BeginPCall();
+			func.Push(self);
+			func.Push(param0);
+			func.PCall();
+			func.EndPCall();
+		}
+	}
+
+	public static Delegate UnityEngine_Events_UnityAction_string(LuaFunction func, LuaTable self, bool flag)
+	{
+		if (func == null)
+		{
+			UnityEngine.Events.UnityAction<string> fn = delegate(string param0) { };
+			return fn;
+		}
+
+		if(!flag)
+		{
+			UnityEngine_Events_UnityAction_string_Event target = new UnityEngine_Events_UnityAction_string_Event(func);
+			UnityEngine.Events.UnityAction<string> d = target.Call;
+			target.method = d.Method;
+			return d;
+		}
+		else
+		{
+			UnityEngine_Events_UnityAction_string_Event target = new UnityEngine_Events_UnityAction_string_Event(func, self);
+			UnityEngine.Events.UnityAction<string> d = target.CallWithSelf;
 			target.method = d.Method;
 			return d;
 		}

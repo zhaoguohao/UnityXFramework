@@ -165,6 +165,7 @@ namespace LuaFramework
             _GT(typeof(Toggle)),
             _GT(typeof(Slider)),
             _GT(typeof(InputField)),
+            _GT(typeof(InputField.OnChangeEvent)),
             _GT(typeof(Dropdown)),
 
             // TODO: 添加自定义的类

@@ -35,8 +35,6 @@ public class UGUITool
             GameLogger.LogError("SetButton Error, obj is null: " + name);
             return null;
         }
-
-        btn.onClick.RemoveAllListeners();
         btn.onClick.AddListener(() =>
         {
             if (null != onClick)
@@ -58,16 +56,14 @@ public class UGUITool
             GameLogger.LogError("SetInputField Error, obj is null: " + name);
             return null;
         }
-        input.onEndEdit.RemoveAllListeners();
         input.onEndEdit.AddListener((v) =>
         {
             if (null != onEndEdit)
                 onEndEdit(v);
         });
-
         return input;
     }
-
+    
     /// <summary>
     /// 设置下拉框选择回调
     /// </summary>
@@ -87,7 +83,7 @@ public class UGUITool
             if (null != onValueChanged)
                 onValueChanged(v);
         });
-        
+
         return dropdown;
     }
 
@@ -139,5 +135,5 @@ public class UGUITool
         return slider;
     }
 
-    
+
 }

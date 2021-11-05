@@ -26,26 +26,46 @@ function LoginPanel:SetUi(binder)
     local accountInput = binder:GetObj("accountInput")
     accountInput.text = Cache.Get("ACCOUNT", "")
     -- 密码输入框
-    local pwdMd5 = Cache.Get("PASSWORD", "")
+    local cachePwdMd5 = Cache.Get("PASSWORD", "")
+    local finalPwdMd5 = cachePwdMd5
+    
     local pwdInput = UGUITool.SetInputField(binder, "pwdInput", function (v)
+        -- 输入框编辑完毕后会进入这个回调
         if "********" == v then
             return
         end
         local newPwdMd5 = Util.md5(v)
-        if newPwdMd5 ~= pwdMd5 then
-            pwdMd5 = newPwdMd5
+        if newPwdMd5 ~= cachePwdMd5 then
+            finalPwdMd5 = newPwdMd5
         end
     end)
-    
-    if not LuaUtil.IsStrNullOrEmpty(pwdMd5) then
+
+    -- 当缓存了密码，修改任何字符都会清掉密码
+    pwdInput.onValueChanged:AddListener(function (v)
+        if "********" == v then
+            return
+        end
+        if not LuaUtil.IsStrNullOrEmpty(cachePwdMd5) then
+            cachePwdMd5 = ""
+            pwdInput.text = ""
+        end
+    end)
+
+    -- 如果缓存了密码，则密码框显示为********
+    if not LuaUtil.IsStrNullOrEmpty(cachePwdMd5) then
         pwdInput.text = "********"
     end
 
     -- 登录按钮
     UGUITool.SetButton(binder, "loginBtn", function (btn)
+        if not LoginLogic.CheckPwd(pwdInput.text) then
+            return
+        end
+
         -- 执行登录
         local account = accountInput.text
-        LoginLogic.DoLogin(account, pwdMd5, function (ok)
+        -- logGreen("pwd :" .. pwdInput.text .. ", md5: " .. Util.md5(pwdInput.text))
+        LoginLogic.DoLogin(account, finalPwdMd5, function (ok)
             if not ok then return end
             -- 登录成功，关闭登录界面
             self.Hide()
