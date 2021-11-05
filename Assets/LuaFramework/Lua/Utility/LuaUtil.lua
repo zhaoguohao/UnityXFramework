@@ -4,7 +4,7 @@
 
 -- 由于tolua重写了__index方法， 所以不能直接扩展 LuaFramework.Util 只能用名称LuaUtil
 
-LuaUtil = LuaUtil or { }
+LuaUtil = LuaUtil or {}
 
 local ONE_HOUR_SEC = 3600
 -- 一天的秒数
@@ -21,7 +21,6 @@ LuaUtil.TWO_WEEKS_SEC = TWO_WEEKS_SEC
 local EventDispatcher = EventDispatcher.instance
 
 function LuaUtil.RegistEvent(eventName, handle)
-    -- 使用Unity导出的GameWorld事件处理器
     EventDispatcher:Regist(eventName, handle)
 end
 
@@ -30,14 +29,14 @@ function LuaUtil.UnRegistEvent(eventName, handle)
 end
 
 function LuaUtil.FireEvent(eventName, ...)
-    -- log("LuaUtil.FireEvent: " .. eventName)
     EventDispatcher:DispatchEvent(eventName, ...)
 end
 
-
 -- 获取table长度
 function LuaUtil.TableCount(t)
-    if nil == t then return 0 end
+    if nil == t then
+        return 0
+    end
 
     local cnt = 0
     for _ in pairs(t) do
@@ -61,10 +60,7 @@ local function PrintTable2(o, f, b, deep)
     end
     p = f or io.write
     b = b or false
-    if type(o) == "number" or
-        type(o) == "function" or
-        type(o) == "boolean" or
-        type(o) == "nil" then
+    if type(o) == "number" or type(o) == "function" or type(o) == "boolean" or type(o) == "nil" then
         p(tostring(o))
     elseif type(o) == "string" then
         p(string.format("%q", o))
@@ -92,24 +88,32 @@ end
 
 -- 打印一个lua表 用于调试输出
 function LuaUtil.PrintTable(t)
-    local printTabStr = "";
-    PrintTable2(t, function(str) printTabStr = printTabStr .. str end, true, 0)
+    local printTabStr = ""
+    PrintTable2(
+        t,
+        function(str)
+            printTabStr = printTabStr .. str
+        end,
+        true,
+        0
+    )
     if printTabStr == "" then
         logError("LuaUtil.PrintTable printTabStr is nil")
     end
     log(printTabStr)
 end
 
-
 function LuaUtil.strToDate(s, sTime)
-    local t = { }
+    local t = {}
     if sTime then
         t.year, t.month, t.day = s:match("(%d+)-(%d+)-(%d+)")
         t.hour, t.min, t.sec = sTime:match("(%d+):(%d+):(%d+)")
     else
         t.year, t.month, t.day, t.hour, t.min, t.sec = s:match("(%d+)-(%d+)-(%d+)%s+(%d+):(%d+):(%d+)")
     end
-    for k, v in pairs(t) do t[k] = tonumber(v) end
+    for k, v in pairs(t) do
+        t[k] = tonumber(v)
+    end
     return t
 end
 
@@ -123,7 +127,8 @@ end
 function LuaUtil.getTodayTimestamp(clock, nowTime)
     local nowTab = os.date("*t", nowTime)
     local _, _, hour, min, sec = string.find(clock, "(%d+):(%d+):(%d+)")
-    local timestamp = os.time {
+    local timestamp =
+        os.time {
         year = nowTab.year,
         month = nowTab.month,
         day = nowTab.day,
@@ -134,11 +139,12 @@ function LuaUtil.getTodayTimestamp(clock, nowTime)
 
     return timestamp
 end
+
 -- 通过距零点的秒数获取时间戳
 function LuaUtil.GetTodayTimestampBySec(sec)
     local H, M, S = LuaUtil.GetTimeHMS(sec)
     local nowTab = os.date("*t", os.time())
-    local timestamp = os.time { year = nowTab.year, month = nowTab.month, day = nowTab.day, hour = H, min = M, sec = S }
+    local timestamp = os.time {year = nowTab.year, month = nowTab.month, day = nowTab.day, hour = H, min = M, sec = S}
 
     return timestamp
 end
@@ -146,14 +152,9 @@ end
 -- 将秒数转换为 小时， 分， 秒(只限于一天)
 function LuaUtil.GetTimeHMS(sec)
     local H = math.floor(sec / ONE_HOUR_SEC)
-    local L = sec -(H * ONE_HOUR_SEC)
+    local L = sec - (H * ONE_HOUR_SEC)
     local M = math.floor(L / 60)
-    local S = L -(M * 60)
-
-
-    --    local H, L = math.modf(sec / ONE_HOUR_SEC)
-    --    local M, S = math.modf(L * 60)
-    --    S = math.floor(S * 60)
+    local S = L - (M * 60)
 
     return H, M, S
 end
@@ -174,12 +175,11 @@ function LuaUtil.GetFormatTime(sec)
     return str
 end
 
-
 -- 获取今天的秒数(相对于0点)
 function LuaUtil.GetTodaySec()
     local cur_time = os.time()
     local nowTab = os.date("*t", os.time())
-    local zero_time = os.time { year = nowTab.year, month = nowTab.month, day = nowTab.day, hour = 0, min = 0, sec = 0 }
+    local zero_time = os.time {year = nowTab.year, month = nowTab.month, day = nowTab.day, hour = 0, min = 0, sec = 0}
     return cur_time - zero_time
 end
 
@@ -205,47 +205,11 @@ function LuaUtil.Second2DateTable(second)
     return os.date("*t", math.floor(second))
 end
 
--- 显示奖励 name:配置表的名称 objTemplate：使用的GameObject 模板 v:数量 或者道具信息
--- function LuaUtil.ShowAward(name, objTemplate, v)
---    if name == "diamond" then
---        local cellInfo = ItemCellInfo.New()
---        cellInfo.rewardType = RewardType.diamond--RewardType.gold
---        cellInfo.num = v
---        --cellInfo.ItemType = RewardType.propItems
---        ItemCellOperate.ShowItemCell(cellInfo, objTemplate)
---    elseif name == "gold" then
---            local cellInfo = ItemCellInfo.New()
---        cellInfo.rewardType = RewardType.gold
---        cellInfo.num = v
---        ItemCellOperate.ShowItemCell(cellInfo, objTemplate)
---    elseif name == "pt" then
---            local cellInfo = ItemCellInfo.New()
---        cellInfo.rewardType = RewardType.pt
---        cellInfo.num = v
---        ItemCellOperate.ShowItemCell(cellInfo, objTemplate)
---    elseif name == "props" then
---        --道具
---        for k1, v1 in pairs(v) do
---            local cellInfo = ItemCellInfo.New()
---            cellInfo.rewardType = RewardType.propItems
---            cellInfo.ItemType = v.id
---            cellInfo.num = v.quantity
---            ItemCellOperate.ShowItemCell(cellInfo, objTemplate)
---        end
---    else
---        logError("LuaUtil.ShowAward not process award type "..name)
---    end
--- end
-
-
-
-
-
 -- utils for string
 function LuaUtil.SplitString(fullString, separator)
     local startIndex = 1
     local splitIndex = 1
-    local splitArray = { }
+    local splitArray = {}
     if not fullString or not separator or string.len(fullString) == 0 then
         return splitArray
     end
@@ -263,7 +227,7 @@ function LuaUtil.SplitString(fullString, separator)
 end
 
 function LuaUtil.StringToNumberList(fromString, separator)
-    local retList = { }
+    local retList = {}
     if fromString ~= nil and string.len(fromString) > 0 then
         local tempTable = LuaUtil.SplitString(fromString, separator)
         for k, v in pairs(tempTable) do
@@ -275,7 +239,6 @@ function LuaUtil.StringToNumberList(fromString, separator)
     return retList
 end
 -- end of utils for string
-
 
 function LuaUtil.ToNumber(strContent)
     local ret = 0
@@ -292,8 +255,6 @@ function LuaUtil.IsStrNullOrEmpty(str)
     return false
 end
 
-
-
 function LuaUtil.GetTableValue(prototab, key, default)
     if nil ~= prototab[key] then
         return prototab[key]
@@ -304,16 +265,20 @@ end
 
 -- utf8字符串截取
 function LuaUtil.sub_chars(s, len)
-    local ss = { }
+    local ss = {}
     if len > #s then
         return s
     end
     local k = 1
     while true do
         len = len - 1
-        if len < 0 then break end
+        if len < 0 then
+            break
+        end
         local c = string.byte(s, k)
-        if not c then break end
+        if not c then
+            break
+        end
         if c < 192 then
             table.insert(ss, string.char(c))
             k = k + 1
@@ -362,8 +327,6 @@ function LuaUtil.sub_chars(s, len)
     return table.concat(ss)
 end
 
-
-
 --[[ 分割字符串 ]]
 function LuaUtil.StringSplit(origin_str, separator)
     -- origin_str = "2"
@@ -371,7 +334,7 @@ function LuaUtil.StringSplit(origin_str, separator)
     -- origin_str = "2,3,4,5,6,7,8,9"
     local mFindStartIndex = 1
     local mSplitIndex = 1
-    local mSplitArray = { }
+    local mSplitArray = {}
     while true do
         local mFindLastIndex = string.find(origin_str, separator, mFindStartIndex)
         if mFindLastIndex == nil then
@@ -388,39 +351,35 @@ function LuaUtil.StringSplit(origin_str, separator)
     return mSplitArray
 end
 
+-- 将秒转为日、时、分、秒
 function LuaUtil.GetTimeDHMS(sec)
     local D = math.floor(sec / ONE_DAY_SEC)
     local leftHour = sec - D * ONE_DAY_SEC
     local H = math.floor(leftHour / ONE_HOUR_SEC)
-    local L = leftHour -(H * ONE_HOUR_SEC)
+    local L = leftHour - (H * ONE_HOUR_SEC)
     local M = math.floor(L / 60)
-    local S = L -(M * 60)
+    local S = L - (M * 60)
     return D, H, M, S
 end
 
--- 调整panel的层
-function LuaUtil.AdjustPanelDepth(panel, depth)
-    if depth == nil then
-        depth = UIPanel.nextUnusedDepth
-        local panel_ui = panel:GetComponent(typeof(UIPanel))
-
-        if panel_ui == nil then
-            log("can not find uipanel")
-            return
-        end
-        depth = depth - panel_ui.depth
-    end
-
-    UnityUtils.AdjustPanelDepth(panel, depth)
-end
-
+-- 判空
 function LuaUtil.IsNilOrNull(obj)
     return nil == obj or null == obj
 end
 
+-- 安全销毁
 function LuaUtil.SafeDestroyObj(obj)
     if not LuaUtil.IsNilOrNull(obj) then
-        GameObject.Destroy(obj.gameObject)
+        return
     end
+    GameObject.Destroy(obj.gameObject)
+end
+
+-- 安全激活或禁用
+function LuaUtil.SafeActiveObj(obj, active)
+    if not LuaUtil.IsNilOrNull(obj) then
+        return
+    end
+    obj.gameObject:SetActive(active)
 end
 -- endregion
