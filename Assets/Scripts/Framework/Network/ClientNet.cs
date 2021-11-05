@@ -9,8 +9,6 @@ public delegate void OnRecvData(SpRpcResult result);
 /// </summary>
 public class ClientNet : MonoBehaviour
 {
-    
-
     void Awake()
     {
         if (s_instance == null)
@@ -33,11 +31,6 @@ public class ClientNet : MonoBehaviour
         return m_connection.Connect(ip, port, isReconnect);
     }
 
-    public bool Login(string platform, string username, string password, bool isReLogin)
-    {
-        return login(platform, username, password, isReLogin);
-    }
-
     public void Send(string proto, SpObject arg)
     {
         m_connection.Send(proto, arg);
@@ -49,7 +42,9 @@ public class ClientNet : MonoBehaviour
         m_connection.Send(proto, arg);
     }
 
-    //Lua 使用接口
+    /// <summary>
+    /// 发送消息，给Lua 使用的接口
+    /// </summary>
     public void Send(string proto, byte[] data, int length, int session, int tag)
     {
         m_connection.Send(proto, data, length, session, tag);
@@ -89,13 +84,6 @@ public class ClientNet : MonoBehaviour
     public void Close()
     {
         m_connection.Close();
-    }
-
-    // 登录游戏服务器
-    private bool login(string platform, string username, string password, bool isReLogin)
-    {
-
-        return true;
     }
 
     private void OnDestroy()

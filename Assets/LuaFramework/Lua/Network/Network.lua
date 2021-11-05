@@ -232,19 +232,14 @@ function Network.ResendCacheDataOnReconnect()
         cnt = cnt + 1
     end
     if cnt > 0 then
-        LuaUtil.FireEvent(GameWorldCommand.LUA_NETWORK_RESEND_SUCCESSFULLY)
+        LuaUtil.FireEvent(EventNameDef.LUA_NETWORK_RESEND_SUCCESSFULLY)
     end
 end
 
 -- 网络状态改变
 function Network.OnNetStateChanged(state, param)
-    -- log("--------------Network.OnNetStateChanged-----------"..state:ToInt())
-    --    if state == NetState.ConnectStart then
-    --        log("NetState = ConnectStart")
-    --    end
-    --    if state == NetStateEnum.Disconnect or state == NetStateEnum.Error then
-    --        SceneMgr.OnDisconnect()
-    --    end
+    log("--------------Network.OnNetStateChanged-----------"..state:ToInt())
+
 end
 
 -- 仅部分公用的网络消息需要动态的添加 和 删除(某些不同的模式公用)

@@ -14,14 +14,14 @@ function Main.Start()
     LoginPanel.Show()
 end
 
-function Main.Send()
-    Network.SendData(
-        "sayhello",
-        {what = "hi, i am unity"},
-        function(data)
-            log("lua on response: " .. data.error_code .. " " .. data.msg)
-        end
-    )
-end
+-- function Main.Send()
+--     Network.SendData(
+--         "sayhello",
+--         {what = "hi, i am unity"},
+--         function(data)
+--             log("lua on response: " .. data.error_code .. " " .. data.msg)
+--         end
+--     )
+-- end
 
 -- endregion

@@ -1,9 +1,7 @@
--- region *.lua
--- Date
--- 此文件由[BabeLua]插件自动生成
+
 EventNameDef =
 {
-   
+    LUA_NETWORK_RESEND_SUCCESSFULLY = "LUA_NETWORK_RESEND_SUCCESSFULLY",
 }
 
 

@@ -93,6 +93,24 @@ public class VersionMgr
     }
 
     /// <summary>
+    /// 版本号转版本数字，例：1.5.0.12转为1050012
+    /// </summary>
+    /// <returns></returns>
+    public static int VersionCode(string version)
+    {
+        var s = version.Split('.');
+        var result = "";
+        for(int i=0,len=s.Length;i<len;++i)
+        {
+            var b = s[i];
+            if(i > 0)
+                b = s[i].PadLeft(2, '0');
+            result += b;     
+        }
+        return int.Parse(result);
+    }
+
+    /// <summary>
     /// 游戏版本号
     /// </summary>
     public string appVersion { get; private set; }

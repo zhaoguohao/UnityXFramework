@@ -1,4 +1,5 @@
 ﻿using UnityEngine;
+using LuaFramework;
 
 /// <summary>
 /// 启动脚本
@@ -35,11 +36,14 @@ public class StartUp : MonoBehaviour
     private void InitBeforeHotUpdate()
     {
         m_networkMsgEventRegister = new NetworkMsgEventRegister();
-        //手机常亮//
+        // 限制游戏帧数
+        Application.targetFrameRate = AppConst.GameFrameRate;
+        // 手机常亮//
         Screen.sleepTimeout = -1;
-        //后台运行//
+        // 后台运行//
         Application.runInBackground = true;
 
+        // 日志
         Logger.instance.Init();
         LogCat.Init();
         // 网络消息注册
@@ -78,17 +82,17 @@ public class StartUp : MonoBehaviour
 
     private void Update()
     {
-        LuaFramework.AppFacade.Instance.UpdateEx();
+        AppFacade.Instance.UpdateEx();
     }
 
     private void LateUpdate()
     {
-        LuaFramework.AppFacade.Instance.LateUpdateEx();
+        AppFacade.Instance.LateUpdateEx();
     }
 
     private void FixedUpdate()
     {
-        LuaFramework.AppFacade.Instance.FixedUpdateEx();
+        AppFacade.Instance.FixedUpdateEx();
     }
 
 

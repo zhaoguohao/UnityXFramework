@@ -109,7 +109,6 @@ public class BuildUtils
         tb["atlas.bundle"] = "GameRes/Atlas";
         tb["effects.bundle"] = "GameRes/Effects";
         tb["3d.bundle"] = "GameRes/3D";
-        tb["font.bundle"] = "GameRes/Font";
         AssetBundleBuild[] buildArray = MakeAssetBundleBuildArray(tb);
         BuildBundles(buildArray, targetPath);
     }
@@ -125,11 +124,24 @@ public class BuildUtils
             Directory.CreateDirectory(targetPath);
         }
         BuildPipeline.BuildAssetBundles(targetPath, buildArray, BuildAssetBundleOptions.ChunkBasedCompression, GetBuildTarget());
-        
+
     }
 
+    /// <summary>
+    /// 打包APP
+    /// </summary>
     public static void BuildApp()
     {
+        // 根据你的需求设置各种版本号
+        SetAppVersion();
+        // 设置APP名称
+        SetAppName("通用游戏框架");
+        // 设置IL2CPP还是Mono
+        SetScriptingBackend(false);
+        // PC平台的一些设置
+        SetStandalone();
+        
+
         string[] scenes = new string[] { "Assets/Scenes/Main.unity" };
         string appName = PlayerSettings.productName + "_" + VersionMgr.instance.appVersion + GetTargetPlatfromAppPostfix();
         string outputPath = Application.dataPath + "/../Bin/";
@@ -138,16 +150,70 @@ public class BuildUtils
             Directory.CreateDirectory(outputPath);
         }
         string appPath = Path.Combine(outputPath, appName);
-
-        // 根据你的需求设置各种版本号
-        // PlayerSettings.Android.bundleVersionCode
-        // PlayerSettings.bundleVersion
-        // PlayerSettings.iOS.buildNumber
-
+        // 执行打包APP
         BuildPipeline.BuildPlayer(scenes, appPath, GetBuildTarget(), BuildOptions.None);
         // 自动打开Bin目录
         FastOpenTools.OpenFileOrDirectory("/../Bin");
         GameLogger.Log("Build APP Done");
+    }
+
+    /// <summary>
+    /// 设置各种版本号
+    /// </summary>
+    private static void SetAppVersion()
+    {
+        PlayerSettings.bundleVersion = VersionMgr.instance.appVersion;
+        PlayerSettings.Android.bundleVersionCode = VersionMgr.VersionCode(VersionMgr.instance.appVersion);
+        PlayerSettings.iOS.buildNumber = VersionMgr.instance.appVersion;
+    }
+
+    /// <summary>
+    /// 设置APP名称，安装后显示的名称
+    /// </summary>
+    /// <param name="name"></param>
+    private static void SetAppName(string name)
+    {
+        PlayerSettings.productName = name;
+    }
+
+    /// <summary>
+    /// 设置IL2CPP还是Mono
+    /// </summary>
+    private static void SetScriptingBackend(bool il2cpp)
+    {
+        if (il2cpp)
+        {
+            PlayerSettings.SetScriptingBackend(GetBuildTargetGroup(), ScriptingImplementation.IL2CPP);
+            PlayerSettings.Android.targetArchitectures = AndroidArchitecture.ARM64 | AndroidArchitecture.ARMv7;
+        }
+        else
+        {
+            PlayerSettings.SetScriptingBackend(GetBuildTargetGroup(), ScriptingImplementation.Mono2x);
+            PlayerSettings.Android.targetArchitectures = AndroidArchitecture.ARMv7;
+        }
+    }
+
+    /// <summary>
+    /// PC平台的一些设置
+    /// </summary>
+    private static void SetStandalone()
+    {
+#if UNITY_STANDALONE
+        // 设置窗口分辨率
+        PlayerSettings.fullScreenMode = FullScreenMode.Windowed;
+        PlayerSettings.defaultScreenWidth = 1280;
+        PlayerSettings.defaultScreenHeight = 720;
+        // 设置后台运行
+        PlayerSettings.runInBackground = true;
+        // 启动时不显示分辨率选择提示框（该属性已弃用）
+        // PlayerSettings.displayResolutionDialog = ResolutionDialogSetting.Disabled;
+        // 后台可见
+        PlayerSettings.visibleInBackground = true;
+        // 允许全屏
+        PlayerSettings.allowFullscreenSwitch = true;
+        // 使用.Net 2.0
+        PlayerSettings.SetApiCompatibilityLevel(BuildTargetGroup.Standalone, ApiCompatibilityLevel.NET_Standard_2_0);
+#endif
     }
 
     /// <summary>
@@ -216,7 +282,7 @@ public class BuildUtils
     public static void DeleteDir(string targetDir)
     {
         // 删除对应的meta文件
-        if(File.Exists(targetDir + ".meta"))
+        if (File.Exists(targetDir + ".meta"))
         {
             File.Delete(targetDir + ".meta");
         }
@@ -266,7 +332,6 @@ public class BuildUtils
     /// </summary>
     public static BuildTarget GetBuildTarget()
     {
-
 #if UNITY_STANDALONE
         return BuildTarget.StandaloneWindows;
 #elif UNITY_ANDROID
@@ -276,13 +341,24 @@ public class BuildUtils
 #endif
     }
 
+    public static BuildTargetGroup GetBuildTargetGroup()
+    {
+#if UNITY_STANDALONE
+        return BuildTargetGroup.Standalone;
+#elif UNITY_ANDROID
+        return BuildTargetGroup.Android;
+#else
+        return BuildTargetGroup.iOS;
+#endif
+    }
+
     public static string GetNameByPath(string path)
     {
-        if(string.IsNullOrEmpty(path)) return string.Empty;
+        if (string.IsNullOrEmpty(path)) return string.Empty;
         var name = string.Empty;
         path = path.Replace("\\", "/");
         int lastIndex = path.LastIndexOf("/");
-        if(lastIndex < 0) return string.Empty;
+        if (lastIndex < 0) return string.Empty;
         name = path.Remove(0, lastIndex + 1);
         return name;
     }
@@ -314,5 +390,5 @@ public class BuildUtils
     {
         get { return Application.dataPath + "/../Bin/"; }
     }
-    
+
 }
