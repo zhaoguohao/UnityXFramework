@@ -2439,6 +2439,8 @@ MonoBehaviour:
     obj: {fileID: 1379999617935055205}
   - name: languageDropdown
     obj: {fileID: 8064066043860710197}
+  - name: guideMask
+    obj: {fileID: 0}
 --- !u!1 &8384778433073756124
 GameObject:
   m_ObjectHideFlags: 0

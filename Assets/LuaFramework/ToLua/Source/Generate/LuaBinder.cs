@@ -24,6 +24,7 @@ public static class LuaBinder
 		AnimationEventTriggerWrap.Register(L);
 		I18NWrap.Register(L);
 		LanguageMgrWrap.Register(L);
+		GuideMaskBhvWrap.Register(L);
 		L.RegFunction("MyEventHandler", MyEventHandler);
 		L.BeginModule("UnityEngine");
 		UnityEngine_ComponentWrap.Register(L);

@@ -293,6 +293,10 @@
      <Compile Include="Assets\Scripts\Framework\HotUpdate\HotUpdater.cs" />
      <Compile Include="Assets\LuaFramework\ToLua\BaseType\UnityEngine_LightWrap.cs" />
      <Compile Include="Assets\LuaFramework\ToLua\Reflection\LuaField.cs" />
+     <Compile Include="Assets\Scripts\Framework\UGUIExpand\GuideMask\EventPermeate.cs" />
+     <Compile Include="Assets\Scripts\Framework\UGUIExpand\GuideMask\GuideMaskBhv.cs" />
+     <Compile Include="Assets\LuaFramework\ToLua\Source\Generate\GuideMaskBhvWrap.cs" />
+     <None Include="Assets\RawAssets\GuideMask\Shader\GuideMask.shader" />
      <None Include="Assets\output_log.txt" />
      <None Include="Assets\Scripts\代码目录说明.txt" />
      <None Include="Assets\LuaFramework\ToLua\readme.txt" />

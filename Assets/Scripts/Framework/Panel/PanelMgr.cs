@@ -8,6 +8,7 @@ public class PanelMgr
 {
     public void Init()
     {
+        GlobalObjs.s_canvas = GameObject.Find("Canvas").GetComponent<Canvas>();
         GlobalObjs.s_topPanel = GameObject.Find("TopPanel").transform;
         GlobalObjs.s_windowPanel = GameObject.Find("WindowPanel").transform;
         GlobalObjs.s_gamePanel = GameObject.Find("GamePanel").transform;

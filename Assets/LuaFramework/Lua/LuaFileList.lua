@@ -16,6 +16,8 @@ Network/Network.lua
 
 -- 冒提示语
 View/Common/FlyTips.lua
+-- 新手引导遮罩
+View/Common/GuideMask.lua
 
 -- 登录
 Logic/Login/LoginLogic.lua

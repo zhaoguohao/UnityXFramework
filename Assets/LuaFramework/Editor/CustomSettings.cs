@@ -182,6 +182,7 @@ namespace LuaFramework
             _GT(typeof(AnimationEventTrigger)),
             _GT(typeof(I18N)),
             _GT(typeof(LanguageMgr)),
+            _GT(typeof(GuideMaskBhv)),
         };
 
         private static Type NonEdtType(string className)

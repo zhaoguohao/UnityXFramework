@@ -3,7 +3,7 @@
 FlyTips = FlyTips or {}
 FlyTips.__index = FlyTips
 
-function FlyTips.Show(contentText)
+function FlyTips.Create(contentText)
     local self = {}
     self.gameObject = UITool.Instantiate(GlobalObjs.s_topPanel, 9)
     setmetatable(self, FlyTips)

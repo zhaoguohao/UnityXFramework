@@ -34,7 +34,7 @@ end
 function LoginLogic.CheckAccount(account)
     if LuaUtil.IsStrNullOrEmpty(account) then
         -- 请输入账号
-        FlyTips.Show(I18N.GetStr(2))
+        FlyTips.Create(I18N.GetStr(2))
         return false
     end
     return true
@@ -44,7 +44,7 @@ end
 function LoginLogic.CheckPwd(pwd)
     if LuaUtil.IsStrNullOrEmpty(pwd) then
         -- 请输入账号
-        FlyTips.Show(I18N.GetStr(3))
+        FlyTips.Create(I18N.GetStr(3))
         return false
     end
     return true

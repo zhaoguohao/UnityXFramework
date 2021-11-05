@@ -9,6 +9,7 @@ public class GlobalObjsWrap
 		L.BeginClass(typeof(GlobalObjs), typeof(System.Object));
 		L.RegFunction("New", _CreateGlobalObjs);
 		L.RegFunction("__tostring", ToLua.op_ToString);
+		L.RegVar("s_canvas", get_s_canvas, set_s_canvas);
 		L.RegVar("s_topPanel", get_s_topPanel, set_s_topPanel);
 		L.RegVar("s_windowPanel", get_s_windowPanel, set_s_windowPanel);
 		L.RegVar("s_gamePanel", get_s_gamePanel, set_s_gamePanel);
@@ -33,6 +34,20 @@ public class GlobalObjsWrap
 			{
 				return LuaDLL.luaL_throw(L, "invalid arguments to ctor method: GlobalObjs.New");
 			}
+		}
+		catch(Exception e)
+		{
+			return LuaDLL.toluaL_exception(L, e);
+		}
+	}
+
+	[MonoPInvokeCallbackAttribute(typeof(LuaCSFunction))]
+	static int get_s_canvas(IntPtr L)
+	{
+		try
+		{
+			ToLua.Push(L, GlobalObjs.s_canvas);
+			return 1;
 		}
 		catch(Exception e)
 		{
@@ -89,6 +104,21 @@ public class GlobalObjsWrap
 		{
 			ToLua.Push(L, GlobalObjs.s_bgPanel);
 			return 1;
+		}
+		catch(Exception e)
+		{
+			return LuaDLL.toluaL_exception(L, e);
+		}
+	}
+
+	[MonoPInvokeCallbackAttribute(typeof(LuaCSFunction))]
+	static int set_s_canvas(IntPtr L)
+	{
+		try
+		{
+			UnityEngine.Canvas arg0 = (UnityEngine.Canvas)ToLua.CheckUnityObject(L, 2, typeof(UnityEngine.Canvas));
+			GlobalObjs.s_canvas = arg0;
+			return 0;
 		}
 		catch(Exception e)
 		{
