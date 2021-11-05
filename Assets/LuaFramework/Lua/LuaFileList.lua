@@ -14,8 +14,12 @@ Network/C2SProcess.lua
 Network/S2CProcess.lua
 Network/Network.lua
 
+-- App退出
+Logic/AppQuit/AppQuitLogic.lua
 -- 冒提示语
 View/Common/FlyTips.lua
+-- 提示框
+View/Common/TipsDlg.lua
 -- 新手引导遮罩
 View/Common/GuideMask.lua
 

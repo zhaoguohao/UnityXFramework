@@ -184,6 +184,7 @@ namespace LuaFramework
             _GT(typeof(I18N)),
             _GT(typeof(LanguageMgr)),
             _GT(typeof(GuideMaskBhv)),
+            _GT(typeof(AppQuitDefend)),
         };
 
         private static Type NonEdtType(string className)

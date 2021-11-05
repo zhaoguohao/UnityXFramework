@@ -25,6 +25,7 @@ public static class LuaBinder
 		I18NWrap.Register(L);
 		LanguageMgrWrap.Register(L);
 		GuideMaskBhvWrap.Register(L);
+		AppQuitDefendWrap.Register(L);
 		L.RegFunction("MyEventHandler", MyEventHandler);
 		L.BeginModule("UnityEngine");
 		UnityEngine_ComponentWrap.Register(L);

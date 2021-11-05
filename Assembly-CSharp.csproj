@@ -44,7 +44,7 @@
      <Compile Include="Assets\LuaFramework\ToLua\Source\Generate\UnityEngine_QualitySettingsWrap.cs" />
      <Compile Include="Assets\LuaFramework\ToLua\Source\Generate\UnityEngine_RectTransformWrap.cs" />
      <Compile Include="Assets\LuaFramework\ToLua\Source\Generate\UnityEngine_MaterialWrap.cs" />
-     <Compile Include="Assets\Scripts\Framework\HotUpdate\Downloader.cs" />
+     <Compile Include="Assets\Scripts\Logic\HotUpdate\Downloader.cs" />
      <Compile Include="Assets\LuaFramework\ToLua\Source\Generate\UnityEngine_UI_InputFieldWrap.cs" />
      <Compile Include="Assets\LuaFramework\ToLua\Core\LuaMethodCache.cs" />
      <Compile Include="Assets\Scripts\Logic\Test.cs" />
@@ -289,7 +289,7 @@
      <Compile Include="Assets\Scripts\3rd\LitJson\IJsonWrapper.cs" />
      <Compile Include="Assets\LuaFramework\Scripts\Utility\LuaHelper.cs" />
      <Compile Include="Assets\LuaFramework\ToLua\Core\LuaFunction.cs" />
-     <Compile Include="Assets\Scripts\Framework\HotUpdate\HotUpdater.cs" />
+     <Compile Include="Assets\Scripts\Logic\HotUpdate\HotUpdater.cs" />
      <Compile Include="Assets\LuaFramework\ToLua\BaseType\UnityEngine_LightWrap.cs" />
      <Compile Include="Assets\LuaFramework\ToLua\Reflection\LuaField.cs" />
      <Compile Include="Assets\Scripts\Framework\UGUIExpand\GuideMask\EventPermeate.cs" />
@@ -299,6 +299,8 @@
      <Compile Include="Assets\LuaFramework\ToLua\Source\Generate\UnityEngine_Events_UnityEvent_stringWrap.cs" />
      <Compile Include="Assets\LuaFramework\ToLua\Source\Generate\UnityEngine_UI_InputField_OnChangeEventWrap.cs" />
      <Compile Include="Assets\LuaFramework\ToLua\Source\Generate\UnityEngine_Events_UnityEventBaseWrap.cs" />
+     <Compile Include="Assets\Scripts\Logic\AppQuitDefend\AppQuitDefend.cs" />
+     <Compile Include="Assets\LuaFramework\ToLua\Source\Generate\AppQuitDefendWrap.cs" />
      <None Include="Assets\RawAssets\GuideMask\Shader\GuideMask.shader" />
      <None Include="Assets\output_log.txt" />
      <None Include="Assets\Scripts\代码目录说明.txt" />

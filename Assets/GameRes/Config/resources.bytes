@@ -10,4 +10,5 @@
   <item id="9" editorPath="UIPrefabs/Common/FlyTips.prefab" version="2021/11/4" desc="冒提示语" />
   <item id="10" editorPath="UIPrefabs/GameHall/GameHallPanel.prefab" version="2021/11/4" desc="大厅界面" />
   <item id="11" editorPath="UIPrefabs/Common/GuideMask.prefab" version="2021/11/5" desc="新手引导遮罩" />
+  <item id="12" editorPath="UIPrefabs/Common/TipsDlg.prefab" version="2021/11/5" desc="提示框" />
 </items>

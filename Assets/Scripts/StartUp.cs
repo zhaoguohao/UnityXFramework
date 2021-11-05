@@ -18,6 +18,8 @@ public class StartUp : MonoBehaviour
             // 启动游戏
             StartGame();
         });
+
+
     }
 
     private void StartGame()
@@ -27,6 +29,9 @@ public class StartUp : MonoBehaviour
         {
             LuaCall.CallFunc("Main.Init");
             LuaCall.CallFunc("Main.Start");
+
+            // 监听关闭游戏事件
+            AppQuitDefend.Init();
         });
     }
 
@@ -94,7 +99,6 @@ public class StartUp : MonoBehaviour
     {
         AppFacade.Instance.FixedUpdateEx();
     }
-
 
     private NetworkMsgEventRegister m_networkMsgEventRegister;
 }
