@@ -84,7 +84,7 @@ public class PanelMgrWrap
 			ToLua.CheckArgsCount(L, 4);
 			PanelMgr obj = (PanelMgr)ToLua.CheckObject(L, 1, typeof(PanelMgr));
 			int arg0 = (int)LuaDLL.luaL_checknumber(L, 2);
-			string arg1 = ToLua.CheckString(L, 3);
+			LuaTable arg1 = ToLua.CheckLuaTable(L, 3);
 			UnityEngine.Transform arg2 = (UnityEngine.Transform)ToLua.CheckUnityObject(L, 4, typeof(UnityEngine.Transform));
 			BasePanel o = obj.ShowPanel(arg0, arg1, arg2);
 			ToLua.Push(L, o);

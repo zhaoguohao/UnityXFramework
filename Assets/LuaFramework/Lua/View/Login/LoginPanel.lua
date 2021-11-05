@@ -1,25 +1,27 @@
 -- 登录界面
 
 LoginPanel = LoginPanel or {}
-local this = LoginPanel
+LoginPanel.__index = LoginPanel
 
-this.basePanel = nil
-this.panelObj = nil
-
+local instance = nil
 
 function LoginPanel.Show()
-    this.basePanel = PanelMgr:ShowPanel(PANEL_ID.LOGIN_PANEL_ID, "LoginPanel", GlobalObjs.s_gamePanel)
+    instance = UITool.CreatePanelObj(instance, LoginPanel, 'LoginPanel', PANEL_ID.LOGIN_PANEL_ID, GlobalObjs.s_gamePanel)
 end
 
-function LoginPanel.OnShow(parent)
+function LoginPanel.Hide()
+    UITool.HidePanel(instance)
+end
+
+function LoginPanel:OnShow(parent)
     local panelObj = UITool.Instantiate(parent, 3)
-    this.panelObj = panelObj
+    self.panelObj = panelObj
     local binder = panelObj:GetComponent("PrefabBinder")
-    this.SetUi(binder)
+    self:SetUi(binder)
 end
 
 -- UI交互
-function LoginPanel.SetUi(binder)
+function LoginPanel:SetUi(binder)
     -- 账号输入框
     local accountInput = binder:GetObj("accountInput")
     accountInput.text = Cache.Get("ACCOUNT", "")
@@ -46,7 +48,7 @@ function LoginPanel.SetUi(binder)
         LoginLogic.DoLogin(account, pwdMd5, function (ok)
             if not ok then return end
             -- 登录成功，关闭登录界面
-            this.Hide()
+            self.Hide()
             -- 进入大厅界面
             GameHallPanel.Show()
         end)
@@ -59,12 +61,7 @@ function LoginPanel.SetUi(binder)
     language.value = LanguageMgr.languageIndex
 end
 
-function LoginPanel.Hide()
-    if nil ~= this.basePanel then
-        this.basePanel:Hide()
-    end
-end
-
-function LoginPanel.OnHide()
-    LuaUtil.SafeDestroyObj(this.panelObj)
+function LoginPanel:OnHide()
+    LuaUtil.SafeDestroyObj(self.panelObj)
+    instance = nil
 end

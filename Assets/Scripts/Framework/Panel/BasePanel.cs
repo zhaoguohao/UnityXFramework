@@ -1,17 +1,16 @@
-using System.Net.Security;
 using UnityEngine;
 using LuaInterface;
 
 public class BasePanel : MonoBehaviour
 {
-    public void Init(string moduleName)
+    public void LuaBind(LuaInterface.LuaTable luaObj)
     {
-        var lua = LuaFramework.LuaManager.instance;
-        luaFuncOnShow = lua.GetFunction(moduleName + ".OnShow", false);
-        luaFuncOnHide = lua.GetFunction(moduleName + ".OnHide", false);
-        luaFuncUpdate = lua.GetFunction(moduleName + ".Update", false);
-        luaFuncRegistEvent = lua.GetFunction(moduleName + ".RegistEvent", false);
-        luaFuncUnRegistEvent = lua.GetFunction(moduleName + ".UnRegistEvent", false);
+        m_luaObj = luaObj;
+        luaFuncOnShow = luaObj.GetLuaFunction("OnShow");
+        luaFuncOnHide = luaObj.GetLuaFunction("OnHide");
+        luaFuncUpdate = luaObj.GetLuaFunction("Update");
+        luaFuncRegistEvent = luaObj.GetLuaFunction("RegistEvent");
+        luaFuncUnRegistEvent = luaObj.GetLuaFunction("UnRegistEvent");
     }
 
     protected virtual void Awake()
@@ -28,7 +27,7 @@ public class BasePanel : MonoBehaviour
     protected virtual void Update()
     {
         if (null != luaFuncUpdate)
-            luaFuncUpdate.Call();
+            luaFuncUpdate.Call(m_luaObj);
     }
 
     public virtual void Show()
@@ -47,14 +46,14 @@ public class BasePanel : MonoBehaviour
     protected virtual void RegistEvent()
     {
         if (null != luaFuncRegistEvent)
-            luaFuncRegistEvent.Call();
+            luaFuncRegistEvent.Call(m_luaObj);
     }
 
 
     protected virtual void OnShow(Transform parent)
     {
         if (null != luaFuncOnShow)
-            luaFuncOnShow.Call(parent);
+            luaFuncOnShow.Call(m_luaObj, parent);
     }
 
     public virtual void Hide()
@@ -72,13 +71,13 @@ public class BasePanel : MonoBehaviour
     protected virtual void OnHide()
     {
         if (null != luaFuncOnHide)
-            luaFuncOnHide.Call();
+            luaFuncOnHide.Call(m_luaObj);
     }
 
     protected virtual void UnRegistEvent()
     {
         if (null != luaFuncUnRegistEvent)
-            luaFuncUnRegistEvent.Call();
+            luaFuncUnRegistEvent.Call(m_luaObj);
     }
 
     /// <summary>
@@ -86,6 +85,7 @@ public class BasePanel : MonoBehaviour
     /// </summary>
     private int m_state = 0;
 
+    private LuaInterface.LuaTable m_luaObj;
     private GameObject m_selfObj;
     private Transform m_selfTransform;
     private LuaFunction luaFuncOnShow;

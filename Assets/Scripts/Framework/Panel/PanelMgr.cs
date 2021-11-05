@@ -1,7 +1,5 @@
-using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-using UnityEngine.UI;
 
 public class PanelMgr
 {
@@ -20,12 +18,12 @@ public class PanelMgr
         return panel;
     }
 
-    public BasePanel ShowPanel(int panelId, string moduleName, Transform parent)
+    public BasePanel ShowPanel(int panelId, LuaInterface.LuaTable luaObj, Transform parent)
     {
         var panel = GetPanelById(panelId);
         if (null == panel)
         {
-            var go = new GameObject(moduleName);
+            var go = new GameObject(luaObj.GetStringField("panelName"));
             go.transform.SetParent(parent, false);
             var rectTrans = go.AddComponent<RectTransform>();
             rectTrans.anchorMin = Vector2.zero;
@@ -33,12 +31,13 @@ public class PanelMgr
             rectTrans.offsetMin = Vector2.zero;
             rectTrans.offsetMax = Vector2.zero;
             panel = go.AddComponent<BasePanel>();
-            panel.Init(moduleName);
+            panel.LuaBind(luaObj);
             m_panelMap.Add(panelId, panel);
         }
         panel.Show();
         return panel;
     }
+
 
     public T ShowPanel<T>(int panelId, Transform parent) where T : BasePanel
     {
@@ -53,7 +52,6 @@ public class PanelMgr
             rectTrans.offsetMin = Vector2.zero;
             rectTrans.offsetMax = Vector2.zero;
             panel = go.AddComponent<T>();
-            panel.Init(typeof(T).ToString());
             m_panelMap.Add(panelId, panel);
         }
         panel.Show();

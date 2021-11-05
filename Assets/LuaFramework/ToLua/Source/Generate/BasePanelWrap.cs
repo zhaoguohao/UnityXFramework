@@ -7,7 +7,7 @@ public class BasePanelWrap
 	public static void Register(LuaState L)
 	{
 		L.BeginClass(typeof(BasePanel), typeof(UnityEngine.MonoBehaviour));
-		L.RegFunction("Init", Init);
+		L.RegFunction("LuaBind", LuaBind);
 		L.RegFunction("Show", Show);
 		L.RegFunction("Hide", Hide);
 		L.RegFunction("__eq", op_Equality);
@@ -16,14 +16,14 @@ public class BasePanelWrap
 	}
 
 	[MonoPInvokeCallbackAttribute(typeof(LuaCSFunction))]
-	static int Init(IntPtr L)
+	static int LuaBind(IntPtr L)
 	{
 		try
 		{
 			ToLua.CheckArgsCount(L, 2);
 			BasePanel obj = (BasePanel)ToLua.CheckObject(L, 1, typeof(BasePanel));
-			string arg0 = ToLua.CheckString(L, 2);
-			obj.Init(arg0);
+			LuaTable arg0 = ToLua.CheckLuaTable(L, 2);
+			obj.LuaBind(arg0);
 			return 0;
 		}
 		catch(Exception e)
