@@ -1,8 +1,15 @@
 using UnityEngine;
 using LuaInterface;
 
+/// <summary>
+/// Panel基础脚本
+/// </summary>
 public class BasePanel : MonoBehaviour
 {
+    /// <summary>
+    /// Lua写的Panel脚本由BasePanel来调度，通过luaObj来绑定调度的方法
+    /// </summary>
+    /// <param name="luaObj">Lua Panel的对象</param>
     public void LuaBind(LuaInterface.LuaTable luaObj)
     {
         m_luaObj = luaObj;

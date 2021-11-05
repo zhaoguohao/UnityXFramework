@@ -1,6 +1,9 @@
 using System.Collections.Generic;
 using UnityEngine;
 
+/// <summary>
+/// Panel管理器
+/// </summary>
 public class PanelMgr
 {
     public void Init()
