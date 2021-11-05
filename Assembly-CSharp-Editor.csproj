@@ -45,15 +45,15 @@
      <Compile Include="Assets\LuaFramework\ToLua\Editor\Extend\ToLua_System_Enum.cs" />
      <Compile Include="Assets\LuaFramework\Editor\Packager.cs" />
      <Compile Include="Assets\Editor\Build\BuildUtils.cs" />
-     <Compile Include="Assets\Editor\EdtUtil.cs" />
+     <Compile Include="Assets\Editor\Common\EdtUtil.cs" />
      <Compile Include="Assets\LuaFramework\ToLua\Editor\ToLuaMenu.cs" />
-     <Compile Include="Assets\Editor\VersionGUI.cs" />
-     <Compile Include="Assets\Editor\EditorStyleDef.cs" />
+     <Compile Include="Assets\Editor\Version\VersionGUI.cs" />
+     <Compile Include="Assets\Editor\Common\EditorStyleDef.cs" />
      <Compile Include="Assets\Editor\PrefabBinder\PrefabBinderEditor.cs" />
      <Compile Include="Assets\Editor\I18NText\I18NTextInspector.cs" />
      <Compile Include="Assets\Editor\PrefabBinder\PrefabBinderInspector.cs" />
      <Compile Include="Assets\LuaFramework\ToLua\Editor\Extend\ToLua_UnityEngine_GameObject.cs" />
-     <Compile Include="Assets\Editor\FastOpenTools.cs" />
+     <Compile Include="Assets\Editor\Common\FastOpenTools.cs" />
      <Compile Include="Assets\LuaFramework\ToLua\Editor\Extend\ToLua_LuaInterface_LuaProperty.cs" />
      <Compile Include="Assets\LuaFramework\ToLua\Editor\Extend\ToLua_LuaInterface_LuaConstructor.cs" />
      <Compile Include="Assets\Editor\Build\BuildApp.cs" />
@@ -62,12 +62,15 @@
      <Compile Include="Assets\LuaFramework\Editor\CustomSettings.cs" />
      <Compile Include="Assets\Editor\Build\BuildUpdateZip.cs" />
      <Compile Include="Assets\LuaFramework\ToLua\Editor\ToLuaTree.cs" />
-     <Compile Include="Assets\Editor\SpriteAtlasTools.cs" />
+     <Compile Include="Assets\Editor\SpriteAtlas\SpriteAtlasTools.cs" />
      <Compile Include="Assets\LuaFramework\ToLua\Editor\Extend\ToLua_UnityEngine_Object.cs" />
      <Compile Include="Assets\LuaFramework\ToLua\Editor\Extend\ToLua_LuaInterface_LuaField.cs" />
      <Compile Include="Assets\LuaFramework\ToLua\Editor\ToLuaExport.cs" />
      <Compile Include="Assets\LuaFramework\ToLua\Editor\Extend\ToLua_System_Delegate.cs" />
-     <Compile Include="Assets\Editor\ResConfigEditor.cs" />
+     <Compile Include="Assets\Editor\ResConfig\ResConfigEditor.cs" />
+     <Compile Include="Assets\Editor\MirrorImage\MirrorImageInspector.cs" />
+     <Compile Include="Assets\Editor\MirrorImage\MirrorImageMenu.cs" />
+     <Compile Include="Assets\Editor\I18NText\I18NTextMenu.cs" />
     <Reference Include="UnityEngine">
         <HintPath>F:/Unity2019/Editor/2021.1.9f1c1/Editor/Data/Managed/UnityEngine/UnityEngine.dll</HintPath>
     </Reference>

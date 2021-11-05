@@ -296,6 +296,7 @@
      <Compile Include="Assets\Scripts\Framework\UGUIExpand\GuideMask\EventPermeate.cs" />
      <Compile Include="Assets\Scripts\Framework\UGUIExpand\GuideMask\GuideMaskBhv.cs" />
      <Compile Include="Assets\LuaFramework\ToLua\Source\Generate\GuideMaskBhvWrap.cs" />
+     <Compile Include="Assets\Scripts\Framework\UGUIExpand\MirrorImage\MirrorImage.cs" />
      <None Include="Assets\RawAssets\GuideMask\Shader\GuideMask.shader" />
      <None Include="Assets\output_log.txt" />
      <None Include="Assets\Scripts\代码目录说明.txt" />
