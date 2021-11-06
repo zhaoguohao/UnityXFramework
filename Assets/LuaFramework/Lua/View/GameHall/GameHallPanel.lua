@@ -26,6 +26,11 @@ function GameHallPanel:SetUi(binder)
         self.Hide()
         LoginLogic.DoLogout()
     end)
+
+    -- 背包按钮
+    UGUITool.SetButton(binder, "backpackBtn", function (btn)
+        BackpackPanel.Show()
+    end)
 end
 
 function GameHallPanel:OnHide()

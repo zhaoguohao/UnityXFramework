@@ -40,6 +40,7 @@
      <Compile Include="Assets\Scripts\Framework\Panel\BasePanel.cs" />
      <Compile Include="Assets\Scripts\3rd\LitJson\JsonException.cs" />
      <Compile Include="Assets\LuaFramework\ToLua\Core\LuaDLL.cs" />
+     <Compile Include="Assets\LuaFramework\ToLua\Source\Generate\ClientNetWrap.cs" />
      <Compile Include="Assets\LuaFramework\Scripts\Network\SocketClient.cs" />
      <Compile Include="Assets\LuaFramework\ToLua\Source\Generate\UnityEngine_QualitySettingsWrap.cs" />
      <Compile Include="Assets\LuaFramework\ToLua\Source\Generate\UnityEngine_RectTransformWrap.cs" />
@@ -301,7 +302,6 @@
      <Compile Include="Assets\Scripts\Logic\HotUpdate\HotUpdater.cs" />
      <Compile Include="Assets\LuaFramework\ToLua\BaseType\UnityEngine_LightWrap.cs" />
      <Compile Include="Assets\LuaFramework\ToLua\Reflection\LuaField.cs" />
-     <Compile Include="Assets\LuaFramework\ToLua\Source\Generate\ClientNetWrap.cs" />
      <None Include="Assets\RawAssets\GuideMask\Shader\GuideMask.shader" />
      <None Include="Assets\Scripts\代码目录说明.txt" />
      <None Include="Assets\LuaFramework\ToLua\readme.txt" />

@@ -9,4 +9,5 @@
   <item key="7" value_zh="密码" value_zh_tw="密碼" english="Password" />
   <item key="8" value_zh="登录" value_zh_tw="登錄" english="Login" />
   <item key="9" value_zh="正在拼命处理..." value_zh_tw="正在拼命處理..." english="Just a moment..." />
+  <item key="10" value_zh="背包" value_zh_tw="背包" english="Backpack" />
 </resources>

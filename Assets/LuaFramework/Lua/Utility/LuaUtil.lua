@@ -362,6 +362,14 @@ function LuaUtil.GetTimeDHMS(sec)
     return D, H, M, S
 end
 
+-- 克隆物体
+function LuaUtil.CloneObj(obj)
+    local go = GameObject.Instantiate(obj)    
+    LuaUtil.SafeActiveObj(go, true)
+    go.transform:SetParent(obj.transform.parent, false)
+    return go
+end
+
 -- 判空
 function LuaUtil.IsNilOrNull(obj)
     return nil == obj or null == obj

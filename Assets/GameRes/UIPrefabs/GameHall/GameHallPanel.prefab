@@ -294,6 +294,8 @@ MonoBehaviour:
   items:
   - name: backBtn
     obj: {fileID: 5884106356998082373}
+  - name: backpackBtn
+    obj: {fileID: 3190646328964235041}
 --- !u!1 &1346032198865300369
 GameObject:
   m_ObjectHideFlags: 0
@@ -1201,7 +1203,7 @@ GameObject:
   - component: {fileID: 265744407227992480}
   - component: {fileID: 3190646328964235041}
   m_Layer: 5
-  m_Name: Button
+  m_Name: backpackButton
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -1561,7 +1563,7 @@ MonoBehaviour:
     m_HorizontalOverflow: 1
     m_VerticalOverflow: 1
     m_LineSpacing: 1
-  m_Text: "\u6A21\u57571"
+  m_Text: "\u80CC\u5305"
 --- !u!1 &7785406150440489041
 GameObject:
   m_ObjectHideFlags: 0

@@ -31,3 +31,7 @@ View/Login/LoginPanel.lua
 
 -- 大厅
 View/GameHall/GameHallPanel.lua
+
+-- 背包
+Logic/Backpack/BackpackLogic.lua
+View/Backpack/BackpackPanel.lua
