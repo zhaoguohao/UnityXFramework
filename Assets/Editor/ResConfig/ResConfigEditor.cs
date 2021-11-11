@@ -184,7 +184,7 @@ public class ResConfigManager
 
     private XmlDocument getResourceElement(string name, out string filePath, out XmlElement item)
     {
-        filePath = ResourcePathBuilder.BuildEssentialConfigPath("resources");
+        filePath = ResourcePathBuilder.BuildConfigPath("resources");
         XmlDocument doc = getConfElementByName(name, filePath, out item);
         return doc;
     }
@@ -303,7 +303,7 @@ public class ResConfigManager
             return ResEditorErrorCode.ArgsError;
         }
 
-        string filePath = ResourcePathBuilder.BuildEssentialConfigPath(fileName);
+        string filePath = ResourcePathBuilder.BuildConfigPath(fileName);
         XmlDocument doc = XMLUtil.getXMLFromFile(filePath);
         XmlNode rootNode = doc.SelectSingleNode(rootItem);
         XmlNodeList items = doc.GetElementsByTagName(item);
@@ -332,7 +332,7 @@ public class ResConfigManager
         string sourcepath, string description)
     {
         int id = map1.Count > 0 ? map1.Keys.Max() + 1 : 1;
-        string filePath = ResourcePathBuilder.BuildEssentialConfigPath(resourceConf);
+        string filePath = ResourcePathBuilder.BuildConfigPath(resourceConf);
         XmlDocument doc = XMLUtil.getXMLFromFile(filePath);
         XmlNode rootNode = doc.SelectSingleNode("items");
         XmlElement item = doc.CreateElement("item");
@@ -366,7 +366,7 @@ public class ResConfigManager
 
     private ResEditorErrorCode appendAudioConf(string fname, int resID, float volume)
     {
-        string filePath = ResourcePathBuilder.BuildEssentialConfigPath("audioConfig");
+        string filePath = ResourcePathBuilder.BuildConfigPath("audioConfig");
         XmlDocument doc = XMLUtil.getXMLFromFile(filePath);
         if (isDuplicate(doc, "audio", "id", resID))
             return ResEditorErrorCode.DuplicateID;
@@ -385,7 +385,7 @@ public class ResConfigManager
 
     private ResEditorErrorCode updateAudioConf(string fname, int resID, float volume)
     {
-        string filePath = ResourcePathBuilder.BuildEssentialConfigPath("audioConfig");
+        string filePath = ResourcePathBuilder.BuildConfigPath("audioConfig");
         XmlDocument doc = XMLUtil.getXMLFromFile(filePath);
         if (isDuplicate(doc, "audio", "id", resID))
             return ResEditorErrorCode.DuplicateID;
@@ -469,7 +469,7 @@ public class ResConfigManager
 
     private static void initResourceConf(string fileName, Dictionary<int, ResConfigItem> map)
     {
-        string filePath = ResourcePathBuilder.BuildEssentialConfigPath(fileName);
+        string filePath = ResourcePathBuilder.BuildConfigPath(fileName);
         XmlDocument doc = XMLUtil.getXMLFromFile(filePath);
         XmlNodeList nodeList = doc.GetElementsByTagName("item");
         if (nodeList == null || nodeList.Count == 0) return;

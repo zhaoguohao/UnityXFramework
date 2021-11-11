@@ -9,7 +9,7 @@ public class ResourcePathBuilder
     {
     }
 
-    public static string BuildEssentialConfigPath(string name)
+    public static string BuildConfigPath(string name)
     {
 #if UNITY_EDITOR
         string path = "Assets/GameRes/Config/" + name;

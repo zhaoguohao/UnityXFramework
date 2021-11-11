@@ -82,7 +82,7 @@ public class XMLUtil
         try
         {
 #if UNITY_EDITOR
-            ret = getXMLFromFile(ResourcePathBuilder.BuildEssentialConfigPath(path));
+            ret = getXMLFromFile(ResourcePathBuilder.BuildConfigPath(path));
 #else
             AssetBundle ab = AssetBundleMgr.instance.m_normalCfgBundle;
             ret = getXMLFromAssetBundle(ab, path);
@@ -104,14 +104,14 @@ public class XMLUtil
     /// </summary>
     /// <param name="path"></param>
     /// <returns></returns>
-    public static XmlTextReader GetEssentialXmlCfgByReader(string path)
+    public static XmlTextReader GetXmlCfgByReader(string path)
     {
         XmlTextReader reader = null;
         //GameLogger.LogNattierBlue(path);
         try
         {
 #if UNITY_EDITOR
-            reader = GetXMLFromFile(ResourcePathBuilder.BuildEssentialConfigPath(path));
+            reader = GetXMLFromFile(ResourcePathBuilder.BuildConfigPath(path));
 #else
             AssetBundle ab = AssetBundleMgr.instance.m_normalCfgBundle;
             reader = GetXMLFromAssetBundle(ab, path);

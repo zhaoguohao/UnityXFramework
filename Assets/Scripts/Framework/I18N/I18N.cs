@@ -11,7 +11,7 @@ public class I18N
     {
         if (m_isInited) return;
         m_i18nCfg.Clear();
-        var reader = XMLUtil.GetEssentialXmlCfgByReader("i18nAppStrings");
+        var reader = XMLUtil.GetXmlCfgByReader("i18nAppStrings");
 
         while (reader.Read())
         {
