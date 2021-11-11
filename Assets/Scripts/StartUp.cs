@@ -18,8 +18,6 @@ public class StartUp : MonoBehaviour
             // 启动游戏
             StartGame();
         });
-
-
     }
 
     private void StartGame()

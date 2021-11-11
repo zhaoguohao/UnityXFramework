@@ -3,8 +3,14 @@
 Main = Main or {}
 local this = Main
 
+-- 测试lua配置加载
+local TestLuaCfg = require "Config/TestLuaCfg"
+
 function Main.Init()
     log("Lua Main.Init")
+
+    -- 输出配置表
+    LuaUtil.PrintTable(TestLuaCfg)
 end
 
 function Main.Start()
