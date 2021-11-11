@@ -35,7 +35,7 @@ public class Test : MonoBehaviour, INetStateListener
             case NetState.ConnectSuccess:
                 {
                     GameLogger.LogGreen("连接skynet服务端成功");
-                    LuaCall.CallFunc("Game.Send");
+                    LuaCall.CallFunc("Main.Send");
                     CSSayHello();
                     CSSayHello();
                     break;
