@@ -60,20 +60,13 @@ public class RemoteConnection
             m_passTime = 0f;
             m_connectCounter = 0f;
             m_isReconnect = isReconnect;
-#if UNITY_IPHONE || UNITY_IOS
-			var newHost = strHost;
-			var address_family = AddressFamily.InterNetwork;
-			IOSPlugins.IPv6_GetIPType(strHost, port.ToString(), out newHost, out address_family);
-			m_socket = new Socket(address_family, SocketType.Stream, ProtocolType.Tcp);
-			m_socket.SendTimeout = 500;
-			m_iAsyncResult = m_socket.BeginConnect(newHost, port, null, m_socket);
-			GameLogger.Log("ClientNet, connect: " + newHost + " port: " + port + " handle: " + m_socket.Handle + " ipv"+(address_family == AddressFamily.InterNetworkV6 ? "6" : "4"));
-#else 
+            // TODO iOS可能需要处理一下ipv6的连接
+            
             m_socket = new Socket(AddressFamily.InterNetwork, SocketType.Stream, ProtocolType.Tcp);
             m_socket.SendTimeout = 500;
             m_iAsyncResult = m_socket.BeginConnect(strHost, port, null, m_socket);
             GameLogger.Log("ClientNet, connect: " + strHost + " port: " + port + " handle: " + m_socket.Handle);
-#endif
+
             AddNetState(NetState.ConnectStart, null);
         }
         catch (Exception exception)
