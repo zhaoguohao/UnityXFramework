@@ -14,7 +14,7 @@ function LoginLogic.DoLogin(account, pwdMd5, cb)
     -- 缓存账号密码
     Cache.Set('ACCOUNT', account)
     Cache.Set('PASSWORD', pwdMd5)
-    Network.Connect(function (ok)
+    Network.Connect('127.0.0.1', 8888, function (ok)
         -- TODO 发送登录协议
 
 

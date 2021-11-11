@@ -125,11 +125,11 @@ function Network.OnInit()
     this.sessionHandlers = {}
 end
 
-function Network.Connect(connectCb)
+function Network.Connect(host, ip, connectCb)
     this.connectCb = nil
     this.connectCb = connectCb
     WaitBoard.Create()
-    ClientNet:Connect("127.0.0.1", 8888, false)
+    ClientNet:Connect(host, ip, false)
 end
 
 -- 网络状态改变
