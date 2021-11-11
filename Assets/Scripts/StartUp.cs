@@ -47,7 +47,7 @@ public class StartUp : MonoBehaviour
         Application.runInBackground = true;
 
         // 日志
-        Logger.instance.Init();
+        GameLogger.Init();
         LogCat.Init();
         // 网络消息注册
         m_networkMsgEventRegister.RegistNetworkMsgEvent();
