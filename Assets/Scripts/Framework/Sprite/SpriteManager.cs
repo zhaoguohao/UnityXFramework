@@ -26,6 +26,11 @@ public class SpriteManager
         return atlas.GetSprite(spriteName);
     }
 
+    /// <summary>
+    /// 给Image设置精灵图
+    /// </summary>
+    /// <param name="image">Image对象</param>
+    /// <param name="spriteName">精灵图名称</param>
     public void SetSprite(Image image, string spriteName)
     {
         image.sprite = GetSprite(spriteName);

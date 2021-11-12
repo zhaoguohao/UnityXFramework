@@ -90,6 +90,10 @@ public class AudioMgr
         return m_cfg.GetAudioCfg(audioName);
     }
 
+    /// <summary>
+    /// 调节音效音量
+    /// </summary>
+    /// <param name="factor">0到1</param>
     public void UpdateSoundVolume(float factor)
     {
         m_soundVolumeFactor = factor;
@@ -98,6 +102,10 @@ public class AudioMgr
 
     }
 
+    /// <summary>
+    /// 调节音乐音量
+    /// </summary>
+    /// <param name="factor">0到1</param>
     public void UpdateMusicVolume(float factor)
     {
         m_musicVolumeFactor = factor;
