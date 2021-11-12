@@ -201,7 +201,7 @@ public class HotUpdatePanel : BasePanel
 
     private void Finish()
     {
-        Destroy(gameObject);
+        PanelMgr.instance.HidePanel(1);
         m_cb?.Invoke();
     }
 

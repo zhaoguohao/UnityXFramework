@@ -1,16 +1,16 @@
 <?xml version="1.0" encoding="utf-8"?>
 <items>
-  <item id="1" editorPath="BaseRes/HotUpdatePanel.prefab" version="2021/10/15" desc="热更新界面" />
-  <item id="2" editorPath="3D/Cube.prefab" version="2021/10/15" desc="3D正方体，测试用" />
-  <item id="3" editorPath="UIPrefabs/Login/LoginPanel.prefab" version="2021/10/15" desc="登录界面" />
-  <item id="4" editorPath="Effects/Particle System.prefab" version="2021/10/15" desc="粒子，测试用" />
-  <item id="5" editorPath="Atlas/CommonUI.spriteatlas" version="2021/10/15" desc="图集" />
-  <item id="6" editorPath="Audios/bg.wav" version="2021/10/15" desc="背景音乐" />
-  <item id="8" editorPath="BaseRes/TestPanel.prefab" version="2021/10/15" desc="测试界面" />
-  <item id="9" editorPath="UIPrefabs/Common/FlyTips.prefab" version="2021/11/4" desc="冒提示语" />
-  <item id="10" editorPath="UIPrefabs/GameHall/GameHallPanel.prefab" version="2021/11/4" desc="大厅界面" />
-  <item id="11" editorPath="UIPrefabs/Common/GuideMask.prefab" version="2021/11/5" desc="新手引导遮罩" />
-  <item id="12" editorPath="UIPrefabs/Common/TipsDlg.prefab" version="2021/11/5" desc="提示框" />
-  <item id="13" editorPath="UIPrefabs/Common/WaitBoard.prefab" version="2021/11/5" desc="请稍等挡板" />
-  <item id="14" editorPath="UIPrefabs/Backpack/BackpackPanel.prefab" version="2021/11/6" desc="背包界面" />
+  <item id="1" editorPath="BaseRes/HotUpdatePanel.prefab" version="2021/11/10" desc="热更新界面" />
+  <item id="2" editorPath="3D/Cube.prefab" version="2021/11/10" desc="3D正方体，测试用" />
+  <item id="3" editorPath="UIPrefabs/Login/LoginPanel.prefab" version="2021/11/10" desc="登录界面" />
+  <item id="4" editorPath="Effects/Particle System.prefab" version="2021/11/10" desc="粒子，测试用" />
+  <item id="5" editorPath="Atlas/CommonUI.spriteatlas" version="2021/11/10" desc="图集" />
+  <item id="6" editorPath="Audios/bg.wav" version="2021/11/10" desc="背景音乐" />
+  <item id="8" editorPath="BaseRes/TestPanel.prefab" version="2021/11/10" desc="测试界面" />
+  <item id="9" editorPath="UIPrefabs/Common/FlyTips.prefab" version="2021/11/10" desc="冒提示语" />
+  <item id="10" editorPath="UIPrefabs/GameHall/GameHallPanel.prefab" version="2021/11/10" desc="大厅界面" />
+  <item id="11" editorPath="UIPrefabs/Common/GuideMask.prefab" version="2021/11/10" desc="新手引导遮罩" />
+  <item id="12" editorPath="UIPrefabs/Common/TipsDlg.prefab" version="2021/11/10" desc="提示框" />
+  <item id="13" editorPath="UIPrefabs/Common/WaitBoard.prefab" version="2021/11/10" desc="请稍等挡板" />
+  <item id="14" editorPath="UIPrefabs/Backpack/BackpackPanel.prefab" version="2021/11/10" desc="背包界面" />
 </items>
