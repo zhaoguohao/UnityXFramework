@@ -11,7 +11,7 @@ public class StartUp : MonoBehaviour
         // 热更新之前初始化一些模块
         InitBeforeHotUpdate();
         // 热更新
-        HotUpdatePanel.Create(() =>
+        HotUpdatePanel.Show(() =>
         {
             // 热更新后初始化一些模块
             InitAfterHotUpdate();
