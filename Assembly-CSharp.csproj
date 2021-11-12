@@ -304,7 +304,6 @@
      <None Include="Assets\RawAssets\GuideMask\Shader\GuideMask.shader" />
      <None Include="Assets\Scripts\代码目录说明.txt" />
      <None Include="Assets\LuaFramework\ToLua\readme.txt" />
-     <None Include="Assets\output_log.txt" />
     <Reference Include="UnityEngine">
         <HintPath>D:/software/Unity/2021.1.7f1c1/Editor/Data/Managed/UnityEngine/UnityEngine.dll</HintPath>
     </Reference>

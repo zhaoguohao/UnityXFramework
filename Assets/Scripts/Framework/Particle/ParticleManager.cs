@@ -5,6 +5,13 @@
 /// </summary>
 public class ParticleManager
 {
+    /// <summary>
+    /// 播放粒子特效
+    /// </summary>
+    /// <param name="resId">资源ID</param>
+    /// <param name="duration">持续事件</param>
+    /// <param name="cache">是否缓存到对象池中</param>
+    /// <returns></returns>
     public GameObject PlayParticle(int resId, float duration, bool cache)
     {
         // 取缓存 

@@ -1,10 +1,11 @@
-Utility/LuaUtil.lua
+Common/LuaUtil.lua
 
 Common/define.lua
 Common/functions.lua
 Common/protocal.lua
 Common/const.lua
 Common/UITool.lua
+Common/EventNameDef.lua
 
 -- 入口脚本
 Logic/Main.lua
