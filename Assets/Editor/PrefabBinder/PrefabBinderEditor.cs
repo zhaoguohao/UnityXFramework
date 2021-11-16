@@ -89,21 +89,27 @@ public class PrefabBinderEditor : EditorWindow
 
     void OnGUI()
     {
-        BeginBox(new Rect(0, 0, 3 * Screen.width / 7f, Screen.height));
+        float offset = 0;
+        float width = 3 * Screen.width / 10f;
+        BeginBox(new Rect(offset, 0, width, Screen.height));
         DrawSearchBtn();
         DrawSearchItemList();
         EndBox();
+        offset += width;
 
-        BeginBox(new Rect(3 * Screen.width / 7f + 2, 0, 2 * Screen.width / 7f, Screen.height));
+        width =  2 * Screen.width / 10f;
+        BeginBox(new Rect(offset, 0, width, Screen.height));
         DrawLockBtn();
         GUILayout.Space(2);
         DrawComponentList();
         EndBox();
+        offset += width;
 
-        BeginBox(new Rect(5 * Screen.width / 7f + 4, 0, 2 * Screen.width / 7f - 4, Screen.height));
+        width = 3 * Screen.width / 10f;
+        BeginBox(new Rect(offset, 0, width, Screen.height));
         DrawPrefabBinderField();
         GUILayout.Space(2);
-        DrawItemField();
+        DrawItemField(width);
         EndBox();
     }
 
@@ -178,17 +184,17 @@ public class PrefabBinderEditor : EditorWindow
         EditorGUILayout.EndScrollView();
     }
 
-    private void DrawItemField()
+    private void DrawItemField(float width)
     {
         EditorGUILayout.BeginVertical();
 
         GUILayout.Label(string.IsNullOrEmpty(m_componentStr) ? "null" : m_componentStr);
         m_itemName = EditorGUILayout.TextField(m_itemName);
-        if (GUILayout.Button(new GUIContent("Add Item", "添加item"), GUILayout.Height(80)))
+        if (GUILayout.Button("Add Item", GUILayout.Width(width), GUILayout.Height(80)))
         {
             ComponentOperation(m_slot, ItemOption.AddItem);
         }
-        if (GUILayout.Button(new GUIContent("Delete Item", "删除指定的item")))
+        if (GUILayout.Button("Delete Item",  GUILayout.Width(width)))
         {
             if (m_prefabBinderObj != null)
             {
@@ -198,7 +204,7 @@ public class PrefabBinderEditor : EditorWindow
                     ComponentOperation(m_slot, ItemOption.RemoveItem);
             }
         }
-        if (GUILayout.Button(new GUIContent("Refresh", "刷新")))
+        if (GUILayout.Button("Refresh",  GUILayout.Width(width)))
         {
             OnRefreshBtnClicked();
         }

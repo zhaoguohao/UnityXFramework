@@ -6,4 +6,4 @@
 配套的服务端使用skynet框架  
 
 ### 使用说明
-待写 
+参见我的这边博客：https://linxinfa.blog.csdn.net/article/details/121244430   

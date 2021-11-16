@@ -21,6 +21,10 @@ public class AudioMgr
         UpdateMusicVolume(m_musicVolumeFactor);
     }
 
+    /// <summary>
+    /// 播放音效
+    /// </summary>
+    /// <param name="audioName">声音名字，需要带后缀</param>
     public void PlaySound(string audioName)
     {
         var clip = m_cache.GetAudioClip(audioName);
@@ -28,6 +32,12 @@ public class AudioMgr
         m_channalMgr.PlaySound(clip);
     }
 
+    /// <summary>
+    /// 播放音效
+    /// </summary>
+    /// <param name="audioName">声音名字，需要带后缀</param>
+    /// <param name="loop">是否循环</param>
+    /// <param name="fadeIn">是否渐入</param>
     public void PlaySoundEx(string audioName, bool loop, bool fadeIn)
     {
         var clip = m_cache.GetAudioClip(audioName);
@@ -35,6 +45,13 @@ public class AudioMgr
         m_channalMgr.PlaySound(clip, loop, fadeIn);
     }
 
+    /// <summary>
+    /// 播放音乐，比如背景音乐
+    /// </summary>
+    /// <param name="audioName">声音名字，需要带后缀</param>
+    /// <param name="loop">是否循环</param>
+    /// <param name="fadeIn">是否渐入</param>
+    /// <param name="pauseOther">是否停止其他背景音乐</param>
     public void PlayMusic(string audioName, bool loop, bool fadeIn, bool pauseOther)
     {
         var cfgItem = m_cfg.GetAudioCfg(audioName);
@@ -73,6 +90,10 @@ public class AudioMgr
         return m_cfg.GetAudioCfg(audioName);
     }
 
+    /// <summary>
+    /// 调节音效音量
+    /// </summary>
+    /// <param name="factor">0到1</param>
     public void UpdateSoundVolume(float factor)
     {
         m_soundVolumeFactor = factor;
@@ -81,6 +102,10 @@ public class AudioMgr
 
     }
 
+    /// <summary>
+    /// 调节音乐音量
+    /// </summary>
+    /// <param name="factor">0到1</param>
     public void UpdateMusicVolume(float factor)
     {
         m_musicVolumeFactor = factor;

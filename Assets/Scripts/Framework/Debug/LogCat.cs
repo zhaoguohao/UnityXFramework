@@ -22,10 +22,10 @@ public class LogCat : MonoBehaviour
 
     void Update()
     {
-#if UNITY_EDITOR
+#if UNITY_EDITOR || UNITY_STANDALONE
         if (Input.GetKeyDown(KeyCode.F4))
 #else
-        if (Input.GetMouseButtonDown(0) && Input.touchCount >= 3)
+        if (Input.GetMouseButtonDown(0) && Input.touchCount == 4)
 #endif
         {
             m_showLog = !m_showLog;

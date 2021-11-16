@@ -22,6 +22,13 @@ public class PanelMgr
         return panel;
     }
 
+    /// <summary>
+    /// 显示界面（供lua层调用）
+    /// </summary>
+    /// <param name="panelId">界面ID</param>
+    /// <param name="luaObj">lua界面脚本对象，是一个lua table</param>
+    /// <param name="parent">父节点</param>
+    /// <returns></returns>
     public BasePanel ShowPanel(int panelId, LuaInterface.LuaTable luaObj, Transform parent)
     {
         var panel = GetPanelById(panelId);
@@ -42,7 +49,13 @@ public class PanelMgr
         return panel;
     }
 
-
+    /// <summary>
+    /// 显示界面（供C#层调用）
+    /// </summary>
+    /// <param name="panelId">界面ID</param>
+    /// <param name="parent">父节点</param>
+    /// <typeparam name="T">界面类</typeparam>
+    /// <returns></returns>
     public T ShowPanel<T>(int panelId, Transform parent) where T : BasePanel
     {
         var panel = GetPanelById(panelId);
@@ -62,6 +75,10 @@ public class PanelMgr
         return (T)panel;
     }
 
+    /// <summary>
+    /// 关闭界面
+    /// </summary>
+    /// <param name="panelId">界面ID</param>
     public void HidePanel(int panelId)
     {
         var panel = GetPanelById(panelId);

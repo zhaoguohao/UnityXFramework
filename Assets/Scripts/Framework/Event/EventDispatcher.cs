@@ -10,39 +10,54 @@ public delegate void MyEventHandler(params object[] objs);
 
 public class EventDispatcher
 {
-    public void Regist(string type, MyEventHandler handler)
+    /// <summary>
+    /// 注册事件
+    /// </summary>
+    /// <param name="evt">事件名</param>
+    /// <param name="handler">响应函数</param>
+    public void Regist(string evt, MyEventHandler handler)
     {
         if (handler == null)
             return;
 
-        if (listeners.ContainsKey(type))
+        if (listeners.ContainsKey(evt))
         {
             //这里涉及到Dispath过程中反注册问题，必须使用listeners[type]+=..
-            listeners[type] += handler;
+            listeners[evt] += handler;
         }
         else
         {
-            listeners.Add(type, handler);
+            listeners.Add(evt, handler);
         }
     }
 
-    public void UnRegist(string type, MyEventHandler handler)
+    /// <summary>
+    /// 注销事件
+    /// </summary>
+    /// <param name="evt">事件名</param>
+    /// <param name="handler">响应函数</param>
+    public void UnRegist(string evt, MyEventHandler handler)
     {
         if (handler == null)
             return;
 
-        if (listeners.ContainsKey(type))
+        if (listeners.ContainsKey(evt))
         {
             //这里涉及到Dispath过程中反注册问题，必须使用listeners[type]-=..
-            listeners[type] -= handler;
-            if (listeners[type] == null)
+            listeners[evt] -= handler;
+            if (listeners[evt] == null)
             {
                 //已经没有监听者了，移除.
-                listeners.Remove(type);
+                listeners.Remove(evt);
             }
         }
     }
 
+    /// <summary>
+    /// 抛出事件
+    /// </summary>
+    /// <param name="evt">事件名</param>
+    /// <param name="objs">参数</param>
     public void DispatchEvent(string evt, params object[] objs)
     {
         try

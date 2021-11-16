@@ -16,12 +16,16 @@ public class GuideMaskBhv : MonoBehaviour
     Vector3[] corners = new Vector3[4];
     float yVelocity = 0f;
 
+    /// <summary>
+    /// 执行引导
+    /// </summary>
+    /// <param name="target">模板对象</param>
     public void DoGuide(GameObject target)
     {
         if(null != target)
             this.target = target;
         // 设置事件透传对象
-        gameObject.GetComponent<EventPermeate>().target = this.target.gameObject;
+        gameObject.GetComponent<EventPermeate>().target = this.target;
 
         var canvas = GlobalObjs.s_canvas;
         target.GetComponent<RectTransform>().GetWorldCorners(corners);

@@ -11,7 +11,7 @@ public class StartUp : MonoBehaviour
         // 热更新之前初始化一些模块
         InitBeforeHotUpdate();
         // 热更新
-        HotUpdatePanel.Create(() =>
+        HotUpdatePanel.Show(() =>
         {
             // 热更新后初始化一些模块
             InitAfterHotUpdate();
@@ -47,7 +47,7 @@ public class StartUp : MonoBehaviour
         Application.runInBackground = true;
 
         // 日志
-        Logger.instance.Init();
+        GameLogger.Init();
         LogCat.Init();
         // 网络消息注册
         m_networkMsgEventRegister.RegistNetworkMsgEvent();

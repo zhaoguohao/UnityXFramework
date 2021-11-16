@@ -57,7 +57,7 @@ public class HotUpdatePanel : BasePanel
     /// </summary>
     private Action m_cb;
 
-    public static void Create(Action cb)
+    public static void Show(Action cb)
     {
 #if ENABLE_HOT_UPDATE
         var panel = PanelMgr.instance.ShowPanel<HotUpdatePanel>(1, GlobalObjs.s_topPanel);
@@ -201,7 +201,7 @@ public class HotUpdatePanel : BasePanel
 
     private void Finish()
     {
-        Destroy(gameObject);
+        PanelMgr.instance.HidePanel(1);
         m_cb?.Invoke();
     }
 

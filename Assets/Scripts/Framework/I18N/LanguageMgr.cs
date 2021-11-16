@@ -15,7 +15,7 @@ public class LanguageMgr
     /// <summary>
     /// 切换语言
     /// </summary>
-    /// <param name="index"></param>
+    /// <param name="index">语言索引，参见LanguageType枚举</param>
     public void ChangeLanguageType(int index)
     {
         language = (LanguageType)index;

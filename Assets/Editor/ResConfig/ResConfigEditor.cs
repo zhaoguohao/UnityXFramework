@@ -31,7 +31,7 @@ public class ResConfigEditor : EditorWindow
     static void Init()
     {
         ResConfigEditor window = (ResConfigEditor)EditorWindow.GetWindow(typeof(ResConfigEditor));
-        window.minSize = new Vector2(500f, 600f);
+        //window.minSize = new Vector2(500f, 600f);
         window.Show();
         s_manager = new ResConfigManager();
     }

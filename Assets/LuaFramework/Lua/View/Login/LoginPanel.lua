@@ -79,8 +79,6 @@ function LoginPanel:SetUi(binder)
         LanguageMgr:ChangeLanguageType(v)
     end)
     language.value = LanguageMgr.languageIndex
-
-   
 end
 
 function LoginPanel:OnHide()
