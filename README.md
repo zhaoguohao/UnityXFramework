@@ -7,3 +7,19 @@
 
 ### 使用说明
 参见我的这边博客：https://linxinfa.blog.csdn.net/article/details/121244430   
+![](https://img-blog.csdnimg.cn/1ce72256db7d4726883fb6ed9ba2cac4.png)  
+![](https://img-blog.csdnimg.cn/660600feb2314090982c82b4f7226beb.gif)  
+![](https://img-blog.csdnimg.cn/5356f0bb9c1d40ff8685c804c64a4075.png)  
+
+另外，关于Lua热更新，我之前写过另外一个Demo，可以看我这篇博客：  
+https://blog.csdn.net/linxinfa/article/details/119493890  
+
+下载多个增量包  
+![](https://img-blog.csdnimg.cn/432dc12d06e043a3afee960827629643.gif)  
+跳过大版本更新  
+![](https://img-blog.csdnimg.cn/f1fce415ed91437bbf87c5eb2e1a99ea.gif)  
+断点续传  
+![](https://img-blog.csdnimg.cn/f52f0de5fa8f4415b975f477e6b54083.gif)  
+
+
+
