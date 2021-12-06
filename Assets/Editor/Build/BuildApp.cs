@@ -38,11 +38,15 @@ public class BuildApp : EditorWindow
             BuildAssetBundle.Build();
             // 打包APP
             BuildUtils.BuildApp();
+
+            Close();
         }
         if (GUILayout.Button("Build AssetBundle"))
         {
             // 打AssetBundle
             BuildAssetBundle.Build();
+
+            Close();
         }
         
     }

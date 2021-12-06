@@ -77,7 +77,7 @@ function Vector2.Dot(lhs, rhs)
 end
 
 function Vector2.Angle(from, to)
-	return acos(clamp(Vector2.dot(from:Normalize(), to:Normalize()), -1, 1)) * 57.29578
+	return math.acos(LuaUtil.Clamp(Vector2.Dot(from:Normalize(), to:Normalize()), -1, 1)) * 57.29578
 end
 
 
@@ -110,7 +110,7 @@ function Vector2:Sub(b)
 	self.x = self.x - b.x
 	self.y = self.y - b.y
 	
-	return
+	return self
 end
 
 Vector2.__tostring = function(self)

@@ -17,11 +17,11 @@ public class AssetBundleMgr
 
     public void PreloadAssetBundles()
     {
-        #if UNITY_EDITOR
-            // Nothing
-        #else
-            m_normalCfgBundle = LoadAssetBundle("normal_cfg.bundle");
-        #endif
+#if UNITY_EDITOR
+        // Nothing
+#else
+        m_normalCfgBundle = LoadAssetBundle("normal_cfg.bundle");
+#endif
     }
 
     public Object LoadAsset(string uri)
@@ -58,7 +58,7 @@ public class AssetBundleMgr
         if (null != obj)
         {
             m_assets[uri] = obj;
-            
+
         }
         return obj;
     }
@@ -74,16 +74,16 @@ public class AssetBundleMgr
         if (File.Exists(updatePath + "/" + abName))
         {
             // 优先从update目录（热更新目录）中查找资源
-            bundle = AssetBundle.LoadFromFile(updatePath + "/" + abName);
+            bundle = AssetBundle.LoadFromFile(updatePath + abName);
         }
         else if (File.Exists(extPath + "/" + abName))
         {
             // 从拓展包目录加载资源
-            bundle = AssetBundle.LoadFromFile(extPath + "/" + abName);
+            bundle = AssetBundle.LoadFromFile(extPath + abName);
         }
         else
         {
-            bundle = AssetBundle.LoadFromFile(internalPath + "/" + abName);
+            bundle = AssetBundle.LoadFromFile(internalPath + abName);
         }
 
         /*
@@ -100,7 +100,7 @@ public class AssetBundleMgr
             m_bundles[abName] = bundle;
             GameLogger.Log("LoadAssetBundle Ok, abName: " + abName);
         }
-        
+
         return bundle;
     }
 
@@ -117,7 +117,7 @@ public class AssetBundleMgr
         {
             return typeof(AudioClip);
         }
-        else if(uri.EndsWith(".spriteatlas"))
+        else if (uri.EndsWith(".spriteatlas"))
         {
             return typeof(UnityEngine.U2D.SpriteAtlas);
         }
@@ -158,13 +158,21 @@ public class AssetBundleMgr
 
     /// <summary>
     /// 内部资源目录
+    /// 获取内部资源路径，对应streamingAssetsPath，
+    /// 一般情况，streamingAssetsPath目录中的资源只能用WWW异步加载，但是AssetBundle提供了LoadFromFile方法可以直接同步加载
+    /// 在Android中，Application.streamingAssetsPath会在前面加上"jar:file://"
+    /// 所以不直接使用Application.streamingAssetsPath，而使用Application.dataPath + "!assets“
     /// </summary>
     /// <value></value>
     public string internalPath
     {
         get
         {
+#if UNITY_ANDROID
+                return Application.dataPath + "!assets/res/";
+#else
             return Application.streamingAssetsPath + "/res/";
+#endif
         }
     }
 
@@ -172,7 +180,7 @@ public class AssetBundleMgr
     /// 常规配置AssetBundle (C# 使用的xml配置表)
     /// </summary>
     public AssetBundle m_normalCfgBundle;
-    
+
 
     private Dictionary<string, Object> m_assets;
     private Dictionary<string, AssetBundle> m_bundles;
