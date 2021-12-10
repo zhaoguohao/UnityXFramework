@@ -169,7 +169,7 @@ public class AssetBundleMgr
         get
         {
 #if UNITY_ANDROID
-                return Application.dataPath + "!assets/res/";
+            return Application.dataPath + "!assets/res/";
 #else
             return Application.streamingAssetsPath + "/res/";
 #endif

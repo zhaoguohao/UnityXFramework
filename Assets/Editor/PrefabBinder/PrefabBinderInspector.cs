@@ -6,6 +6,7 @@ using UnityEditor;
 [CustomEditor(typeof(PrefabBinder), true)]
 public class PrefabBinderInspector : Editor
 {
+
     void Awake()
     {
         btnStyle = new GUIStyle(EditorStyles.miniButton);
@@ -20,8 +21,6 @@ public class PrefabBinderInspector : Editor
             PrefabBinderEditor.ShowWindow();
         }
         base.OnInspectorGUI();
-
-
     }
 
     private GUIStyle btnStyle;

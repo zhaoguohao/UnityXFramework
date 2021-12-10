@@ -3,11 +3,12 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEditor;
 using System.Linq;
+using UnityEditor.SceneManagement;
 
 public class PrefabBinderEditor : EditorWindow
 {
     private GameObject m_prefabBinderObj;
-    private PrefabBinder m_slot;
+    private PrefabBinder m_binder;
     private List<PrefabBinder.Item> m_itemList;
     private List<PrefabBinder.Item> m_searchMatchItemList = new List<PrefabBinder.Item>();
     private Vector2 m_scrollViewPos;
@@ -21,7 +22,7 @@ public class PrefabBinderEditor : EditorWindow
     private string m_lockBtnName;
     private Object m_itemObj;
     private bool m_lock;
-    private string m_componentStr="";
+    private string m_componentStr = "";
     enum ItemOption
     {
         AddItem,
@@ -60,7 +61,7 @@ public class PrefabBinderEditor : EditorWindow
         m_labelSytleYellow = new GUIStyle(EditorStyles.miniButton);
         m_labelSytleYellow.fontSize = 12;
         m_labelSytleYellow.normal.textColor = Color.yellow;
-        
+
     }
 
     void OnEnable()
@@ -97,7 +98,7 @@ public class PrefabBinderEditor : EditorWindow
         EndBox();
         offset += width;
 
-        width =  2 * Screen.width / 10f;
+        width = 2 * Screen.width / 10f;
         BeginBox(new Rect(offset, 0, width, Screen.height));
         DrawLockBtn();
         GUILayout.Space(2);
@@ -125,7 +126,7 @@ public class PrefabBinderEditor : EditorWindow
             m_itemNameSearch = "";
             GUIUtility.keyboardControl = 0;
         }
-        ComponentOperation(m_slot, ItemOption.SearchItems, after);
+        ComponentOperation(m_binder, ItemOption.SearchItems, after);
         GUILayout.EndHorizontal();
     }
 
@@ -136,7 +137,7 @@ public class PrefabBinderEditor : EditorWindow
         var oldObj = m_prefabBinderObj;
         m_prefabBinderObj = EditorGUILayout.ObjectField(m_prefabBinderObj, typeof(GameObject), true) as GameObject;
 
-  
+
         EditorGUILayout.EndHorizontal();
         if (!m_prefabBinderObj)
         {
@@ -144,7 +145,7 @@ public class PrefabBinderEditor : EditorWindow
         }
         else if (oldObj != m_prefabBinderObj)
         {
-            m_slot = m_prefabBinderObj.GetComponent<PrefabBinder>();
+            m_binder = m_prefabBinderObj.GetComponent<PrefabBinder>();
         }
     }
 
@@ -164,7 +165,7 @@ public class PrefabBinderEditor : EditorWindow
 
     private void DrawSearchItemList()
     {
-        if (null == m_prefabBinderObj || null == m_slot)
+        if (null == m_prefabBinderObj || null == m_binder)
             m_searchMatchItemList.Clear();
         m_scrollViewPos = EditorGUILayout.BeginScrollView(m_scrollViewPos);
         foreach (var item in m_searchMatchItemList)
@@ -175,7 +176,7 @@ public class PrefabBinderEditor : EditorWindow
             if (GUILayout.Button("-", GUILayout.Width(20)))
             {
                 m_itemList.Remove(item);
-                m_slot.items = m_itemList.ToArray();
+                m_binder.items = m_itemList.ToArray();
                 GUILayout.EndHorizontal();
                 break;
             }
@@ -192,19 +193,19 @@ public class PrefabBinderEditor : EditorWindow
         m_itemName = EditorGUILayout.TextField(m_itemName);
         if (GUILayout.Button("Add Item", GUILayout.Width(width), GUILayout.Height(80)))
         {
-            ComponentOperation(m_slot, ItemOption.AddItem);
+            ComponentOperation(m_binder, ItemOption.AddItem);
         }
-        if (GUILayout.Button("Delete Item",  GUILayout.Width(width)))
+        if (GUILayout.Button("Delete Item", GUILayout.Width(width)))
         {
             if (m_prefabBinderObj != null)
             {
                 if (string.IsNullOrEmpty(m_itemName))
                     Debug.LogWarning("请输入要删除的项目名称");
                 else
-                    ComponentOperation(m_slot, ItemOption.RemoveItem);
+                    ComponentOperation(m_binder, ItemOption.RemoveItem);
             }
         }
-        if (GUILayout.Button("Refresh",  GUILayout.Width(width)))
+        if (GUILayout.Button("Refresh", GUILayout.Width(width)))
         {
             OnRefreshBtnClicked();
         }
@@ -214,8 +215,8 @@ public class PrefabBinderEditor : EditorWindow
     private void OnRefreshBtnClicked()
     {
         if (null != m_prefabBinderObj)
-            m_slot = m_prefabBinderObj.GetComponent<PrefabBinder>();
-        if (null == m_slot)
+            m_binder = m_prefabBinderObj.GetComponent<PrefabBinder>();
+        if (null == m_binder)
         {
             m_itemList.Clear();
             m_comList.Clear();
@@ -244,7 +245,7 @@ public class PrefabBinderEditor : EditorWindow
             m_comList.AddRange(components);
             m_selectedItemName = go.name;
         }
-        
+
         if (go == null)
         {
             m_comList.Clear();
@@ -275,36 +276,39 @@ public class PrefabBinderEditor : EditorWindow
     }
 
     #region private method
-    private void ComponentOperation(PrefabBinder slot, ItemOption option, string name = " ")
+    private void ComponentOperation(PrefabBinder binder, ItemOption option, string name = " ")
     {
-        if (null == slot) return;
+        if (null == binder) return;
         PrefabBinder.Item item = new PrefabBinder.Item();
         switch (option)
         {
             case ItemOption.AddItem:
-                AddItem(item, slot);
+                AddItem(item, binder);
+                EditorUtility.SetDirty(m_binder);
                 break;
 
             case ItemOption.RemoveItem:
-                RemoveItem(item, slot);
+                RemoveItem(item, binder);
+                EditorUtility.SetDirty(m_binder);
                 break;
 
             case ItemOption.ClearItems:
-                ClearItem(item, slot);
+                ClearItem(item, binder);
+                EditorUtility.SetDirty(m_binder);
                 break;
 
             case ItemOption.SearchItems:
-                SearchItem(item, slot, name);
+                SearchItem(item, binder, name);
                 break;
         }
-        slot.items = m_itemList.ToArray();
+        binder.items = m_itemList.ToArray();
     }
 
-    private void AddItem(PrefabBinder.Item item, PrefabBinder Ps)
+    private void AddItem(PrefabBinder.Item item, PrefabBinder binder)
     {
         item.name = m_itemName;
         item.obj = m_itemObj;
-        m_itemList = Ps.items.ToList();
+        m_itemList = binder.items.ToList();
         List<string> nameList = new List<string>();
         foreach (var iL in m_itemList)
         {
@@ -322,11 +326,11 @@ public class PrefabBinderEditor : EditorWindow
         }
     }
 
-    private void RemoveItem(PrefabBinder.Item item, PrefabBinder Ps)
+    private void RemoveItem(PrefabBinder.Item item, PrefabBinder binder)
     {
         item.name = m_itemName;
 
-        m_itemList = Ps.items.ToList();
+        m_itemList = binder.items.ToList();
         for (int i = 0; i < m_itemList.Count; i++)
         {
             if (m_itemList[i].name.ToLower() == item.name.ToLower())
@@ -337,11 +341,11 @@ public class PrefabBinderEditor : EditorWindow
         }
     }
 
-    private void ClearItem(PrefabBinder.Item item, PrefabBinder Ps)
+    private void ClearItem(PrefabBinder.Item item, PrefabBinder binder)
     {
         item.name = m_itemName;
         item.obj = m_itemObj;
-        m_itemList = Ps.items.ToList();
+        m_itemList = binder.items.ToList();
 
         for (int i = 0; i < m_itemList.Count; i++)
         {
@@ -352,9 +356,9 @@ public class PrefabBinderEditor : EditorWindow
         }
     }
 
-    private void SearchItem(PrefabBinder.Item item, PrefabBinder slot, string name)
+    private void SearchItem(PrefabBinder.Item item, PrefabBinder binder, string name)
     {
-        m_itemList = slot.items.ToList();
+        m_itemList = binder.items.ToList();
         m_searchMatchItemList.Clear();
 
         foreach (var o in m_itemList)
