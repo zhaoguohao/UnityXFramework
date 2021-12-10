@@ -48,7 +48,8 @@ public class ResConfigEditor : EditorWindow
         if (m_curObj != m_lastObj)
         {
             m_lastObj = m_curObj;
-            m_operType = s_manager.exist(m_curObj.name) ? OperType.Update : OperType.Add;
+            var assetPath = AssetDatabase.GetAssetPath(m_curObj);
+            m_operType = s_manager.ResIsConfiged(assetPath) ? OperType.Update : OperType.Add;
             string path = AssetDatabase.GetAssetPath(m_curObj);
             if (!ResConfigManager.isPathRight(path)) m_errorCode = ResEditorErrorCode.PathError;
 
@@ -140,8 +141,8 @@ public class ResConfigManager
         {
             return ResEditorErrorCode.ObjNull;
         }
-
-        if (exist(obj.name)) return ResEditorErrorCode.ResExist;
+        var assetPath = AssetDatabase.GetAssetPath(obj);
+        if (ResIsConfiged(assetPath)) return ResEditorErrorCode.ResExist;
         string path = AssetDatabase.GetAssetPath(obj);
         if (!isPathRight(path)) return ResEditorErrorCode.PathError;
         var ret = ResEditorErrorCode.Ok;
@@ -422,11 +423,12 @@ public class ResConfigManager
         return ResEditorErrorCode.Ok;
     }
 
-    public bool exist(string name)
+    public bool ResIsConfiged(string assetPath)
     {
+        assetPath = assetPath.Replace("Assets/GameRes/", "");
         foreach (ResConfigItem item in s_itemMap1.Values)
         {
-            if (item != null && name.Equals(item.name))
+            if (item != null && assetPath.Equals(item.path))
                 return true;
         }
 

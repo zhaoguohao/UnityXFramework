@@ -49,9 +49,7 @@ public class AssetBundleMgr
         }
         if (null != ab)
         {
-            var assetName = fname.Substring(0, fname.IndexOf("."));
-            obj = ab.LoadAsset<Object>(assetName);
-            GameLogger.LogGreen("Load Asset From AssetBundle: assetName: " + assetName);
+            obj = ab.LoadAsset<Object>("Assets/GameRes/" + uri);
         }
 #endif
 
