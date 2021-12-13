@@ -8,7 +8,9 @@ local TestLuaCfg = require "Config/TestLuaCfg"
 
 function Main.Init()
     log("Lua Main.Init")
-
+    -- 红点系统
+    RedpointTree.Init()
+    
     -- 输出配置表
     LuaUtil.PrintTable(TestLuaCfg)
 end

@@ -1,3 +1,4 @@
+Common/LuaClass.lua
 Common/LuaUtil.lua
 
 Common/define.lua
@@ -30,9 +31,16 @@ View/Common/GuideMask.lua
 Logic/Login/LoginLogic.lua
 View/Login/LoginPanel.lua
 
+-- 红点系统树
+Logic/Redpoint/RedpointNode.lua
+Logic/Redpoint/RedpointTree.lua
+View/Redpoint/RedpointPanel.lua
+
 -- 大厅
 View/GameHall/GameHallPanel.lua
 
 -- 背包
 Logic/Backpack/BackpackLogic.lua
 View/Backpack/BackpackPanel.lua
+
+

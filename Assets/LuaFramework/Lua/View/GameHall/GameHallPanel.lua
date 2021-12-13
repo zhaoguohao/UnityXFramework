@@ -4,6 +4,7 @@ GameHallPanel = GameHallPanel or {}
 GameHallPanel.__index = GameHallPanel
 
 local instance = nil
+local RT = RedpointTree
 
 function GameHallPanel.Show()
     instance = UITool.CreatePanelObj(instance, GameHallPanel, 'GameHallPanel', PANEL_ID.GAME_HALL_PANEL_ID, GlobalObjs.s_gamePanel)
@@ -31,9 +32,30 @@ function GameHallPanel:SetUi(binder)
     UGUITool.SetButton(binder, "backpackBtn", function (btn)
         BackpackPanel.Show()
     end)
+
+    -- 红点系统
+    UGUITool.SetButton(binder, "redpointBtn", function (btn)
+        RedpointPanel.Show()
+    end)
+
+    self.redpointText = binder:GetObj("redpointText")
+    -- 注册红点回调
+    RT.SetCallBack(RT.NodeNames.Root, "Root", function (redpointCnt)
+        self:UpdateRedPoint(redpointCnt)
+    end)
+    self:UpdateRedPoint(RT.GetRedpointCnt(RT.NodeNames.Root))
+
+    
+end
+
+function GameHallPanel:UpdateRedPoint(redpointCnt)
+    self.redpointText.text = tostring(redpointCnt)
+    LuaUtil.SafeActiveObj(self.redpointText.transform.parent, redpointCnt > 0)
 end
 
 function GameHallPanel:OnHide()
     LuaUtil.SafeDestroyObj(self.panelObj)
     instance = nil
+    -- 注销红点回调
+    RT.SetCallBack(RT.NodeNames.Root, "Root", nil)
 end

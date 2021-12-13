@@ -14,7 +14,6 @@ end
 
 function logGreen(str)
     if is_editor then
-        str = str.."</color>"
         local luaStackStr = debug.traceback(str, 0)
         Util.LogGreen(luaStackStr)
     else
@@ -24,7 +23,6 @@ end
 
 function LogYellow(str)
     if is_editor then
-         str = str.."</color>"
         local luaStackStr = debug.traceback(str, 0)
         Util.LogYellow(luaStackStr)
     else
@@ -34,7 +32,6 @@ end
 
 function LogBlue(str)
     if is_editor then
-         str = str.."</color>"
         local luaStackStr = debug.traceback(str, 0)
         Util.LogBlue(luaStackStr)
     else

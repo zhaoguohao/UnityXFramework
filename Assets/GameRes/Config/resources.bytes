@@ -13,4 +13,5 @@
   <item id="12" editorPath="UIPrefabs/Common/TipsDlg.prefab" version="2021/11/10" desc="提示框" />
   <item id="13" editorPath="UIPrefabs/Common/WaitBoard.prefab" version="2021/11/10" desc="请稍等挡板" />
   <item id="14" editorPath="UIPrefabs/Backpack/BackpackPanel.prefab" version="2021/11/10" desc="背包界面" />
+  <item id="15" editorPath="UIPrefabs/Redpoint/RedpointPanel.prefab" version="2021/12/13" desc="红点系统界面" />
 </items>

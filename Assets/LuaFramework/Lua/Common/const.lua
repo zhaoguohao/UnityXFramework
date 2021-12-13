@@ -9,5 +9,7 @@ PANEL_ID =
     GAME_HALL_PANEL_ID = 3,
     -- 背包界面
     BACKPACK_PANEL_ID = 4,
+    -- 红点系统界面
+    REDPOINT_PANEL_ID = 5,
 }
 --endregion
