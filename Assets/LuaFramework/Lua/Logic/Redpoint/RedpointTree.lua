@@ -3,6 +3,7 @@
 RedpointTree = RedpointTree or {}
 local this = RedpointTree
 
+-- 根节点
 this.root = nil
 
 -- 节点名
@@ -20,7 +21,7 @@ RedpointTree.NodeNames = {
 
 function RedpointTree.Init()
     -- 先创建根节点
-    this.root = RedpointNode.New()
+    this.root = RedpointNode.New("Root")
     -- 构建前缀树
     for _, name in pairs(RedpointTree.NodeNames) do
         this.InsertNode(name)
@@ -50,10 +51,10 @@ function RedpointTree.InsertNode(name)
     node.passCnt = node.passCnt + 1 
     local pathList = LuaUtil.SplitString(name, "|")
     for _, path in pairs(pathList) do
-        if nil == node.nexts[path] then
-            node.nexts[path] = RedpointNode.New()
+        if nil == node.children[path] then
+            node.children[path] = RedpointNode.New(path)
         end
-        node = node.nexts[path]
+        node = node.children[path]
         node.passCnt = node.passCnt + 1
     end
     node.endCnt = node.endCnt + 1
@@ -67,10 +68,10 @@ function RedpointTree.SearchNode(name)
     local node = this.root
     local pathList = LuaUtil.SplitString(name, "|")
     for _, path in pairs(pathList) do
-        if nil == node.nexts[path] then
+        if nil == node.children[path] then
             return nil
         end
-        node = node.nexts[path]
+        node = node.children[path]
     end
     if node.endCnt > 0 then
         return node
@@ -87,13 +88,13 @@ function RedpointTree.DeleteNode(name)
     node.passCnt = node.passCnt - 1
     local pathList = LuaUtil.SplitString(name, '.')
     for _, path in pairs(pathList) do
-        local nextNode = node.nexts[path] 
-        nextNode.passCnt = nextNode.passCnt - 1
-        if 0 == nextNode.passCnt then
-            node.nexts[path] = nil
+        local childNode = node.children[path] 
+        childNode.passCnt = childNode.passCnt - 1
+        if 0 == childNode.passCnt then
+            node.children[path] = nil
             return
         end
-        node = nextNode
+        node = childNode
     end
     node.endCnt = node.endCnt - 1
 end
@@ -112,9 +113,9 @@ function RedpointTree.ChangeRedpointCnt(name, delta)
     local node = this.root
     local pathList = LuaUtil.SplitString(name, "|")
     for _, path in pairs(pathList) do
-        local nextNode = node.nexts[path]
-        nextNode.redpointCnt = nextNode.redpointCnt + delta
-        node = nextNode
+        local childNode = node.children[path]
+        childNode.redpointCnt = childNode.redpointCnt + delta
+        node = childNode
         -- 调用回调函数
         for _, cb in pairs(node.updateCb) do
             cb(node.redpointCnt)
@@ -122,7 +123,7 @@ function RedpointTree.ChangeRedpointCnt(name, delta)
     end
 end
 
--- 获取节点的红点数
+-- 查询节点的红点数
 function RedpointTree.GetRedpointCnt(name)
     local node = this.SearchNode(name)
     if nil == node then
@@ -142,9 +143,9 @@ end
 
 -- 递归获取整棵树的路径
 function RedpointTree.GetFullTreePath(parent, pathList)
-    for path, node in pairs(parent.nexts) do
+    for path, node in pairs(parent.children) do
         table.insert(pathList, path)
-        if LuaUtil.TableCount(node.nexts) > 0 then
+        if LuaUtil.TableCount(node.children) > 0 then
             this.GetFullTreePath(node, pathList)
         end
     end

@@ -48,6 +48,7 @@ function GameHallPanel:SetUi(binder)
     
 end
 
+-- 更新红点
 function GameHallPanel:UpdateRedPoint(redpointCnt)
     self.redpointText.text = tostring(redpointCnt)
     LuaUtil.SafeActiveObj(self.redpointText.transform.parent, redpointCnt > 0)

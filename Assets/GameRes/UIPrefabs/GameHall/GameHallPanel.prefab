@@ -299,8 +299,6 @@ MonoBehaviour:
     obj: {fileID: 3190646328964235041}
   - name: redpointBtn
     obj: {fileID: 1170740374806143586}
-  - name: redpointObj
-    obj: {fileID: 2231633638448600168}
   - name: redpointText
     obj: {fileID: 6154726871490356}
 --- !u!1 &1346032198865300369
@@ -641,7 +639,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!224 &1174548104332698780
 RectTransform:
   m_ObjectHideFlags: 0
@@ -1714,7 +1712,7 @@ MonoBehaviour:
       m_Calls: []
   m_FontData:
     m_Font: {fileID: 10102, guid: 0000000000000000e000000000000000, type: 0}
-    m_FontSize: 22
+    m_FontSize: 16
     m_FontStyle: 0
     m_BestFit: 0
     m_MinSize: 2
