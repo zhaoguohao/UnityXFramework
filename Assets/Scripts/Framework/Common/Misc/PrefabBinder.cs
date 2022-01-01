@@ -1,4 +1,6 @@
 ﻿
+using System.Collections.Generic;
+using System.Security.Cryptography.X509Certificates;
 using UnityEngine;
 using System;
 using UObject = UnityEngine.Object;
@@ -14,24 +16,27 @@ public class PrefabBinder : MonoBehaviour
     public class Item
     {
         public string name;
-        public UnityEngine.Object obj;
+        public UObject obj;
 
     }
 
+    private Dictionary<string, UObject> _itemDic =new Dictionary<string, UObject>();
+
     public Item[] items = new Item[0];
+
+    private void Awake() {
+        for (int i = 0, cnt = items.Length; i < cnt; i++)
+        {
+            _itemDic.Add(items[i].name, items[i].obj);
+        }
+        items = null;
+    }
 
     public UObject GetObj(string name)
     {
         if (string.IsNullOrEmpty(name)) return null;
-        for (int i = 0, cnt = items.Length; i < cnt; i++)
-        {
-            Item item = items[i];
-
-            if (item.name.Equals(name))
-            {
-                return item.obj;
-            }
-        }
+        if(_itemDic.ContainsKey(name))
+            return _itemDic[name];
         return null;
     }
 
