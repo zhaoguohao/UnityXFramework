@@ -10,6 +10,9 @@ function Main.Init()
     log("Lua Main.Init")
     -- 红点系统
     RedpointTree.Init()
+
+    -- 树初始化
+    TreeLogic.Init()
     
     -- 输出配置表
     LuaUtil.PrintTable(TestLuaCfg)

@@ -38,6 +38,11 @@ function GameHallPanel:SetUi(binder)
         RedpointPanel.Show()
     end)
 
+    -- 树
+    UGUITool.SetButton(binder, "treeBtn", function (btn)
+        TreePanel.Show()
+    end)
+
     self.redpointText = binder:GetObj("redpointText")
     -- 注册红点回调
     RT.SetCallBack(RT.NodeNames.Root, "Root", function (redpointCnt)

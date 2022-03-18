@@ -11,5 +11,7 @@ PANEL_ID =
     BACKPACK_PANEL_ID = 4,
     -- 红点系统界面
     REDPOINT_PANEL_ID = 5,
+    -- 树界面
+    TREE_PANEL_ID = 6,
 }
 --endregion

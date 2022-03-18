@@ -159,6 +159,7 @@ namespace LuaFramework
             _GT(typeof(UGUITool)),
             _GT(typeof(RectTransform)),
             _GT(typeof(Button)),
+            _GT(typeof(Button.ButtonClickedEvent)),
             _GT(typeof(Text)),
             _GT(typeof(Image)),
             _GT(typeof(RawImage)),

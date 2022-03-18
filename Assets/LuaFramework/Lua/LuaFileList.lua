@@ -43,4 +43,7 @@ View/GameHall/GameHallPanel.lua
 Logic/Backpack/BackpackLogic.lua
 View/Backpack/BackpackPanel.lua
 
-
+-- 树
+Logic/Tree/TreeNode.lua
+Logic/Tree/TreeLogic.lua
+View/Tree/TreePanel.lua

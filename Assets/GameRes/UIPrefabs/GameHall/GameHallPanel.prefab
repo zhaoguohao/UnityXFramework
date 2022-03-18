@@ -301,6 +301,8 @@ MonoBehaviour:
     obj: {fileID: 1170740374806143586}
   - name: redpointText
     obj: {fileID: 6154726871490356}
+  - name: treeBtn
+    obj: {fileID: 3898925640686898759}
 --- !u!1 &1346032198865300369
 GameObject:
   m_ObjectHideFlags: 0
@@ -2280,7 +2282,7 @@ MonoBehaviour:
     m_HorizontalOverflow: 1
     m_VerticalOverflow: 1
     m_LineSpacing: 1
-  m_Text: "\u6A21\u57573"
+  m_Text: "\u6811"
 --- !u!1 &9046969658673701030
 GameObject:
   m_ObjectHideFlags: 0
