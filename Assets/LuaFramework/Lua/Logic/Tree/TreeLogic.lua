@@ -34,6 +34,8 @@ function TreeLogic.Init()
     -- 根节点
     this.root = TreeNode.New("Root")
     this.root = this.MakeTree(data_table, this.root)
+
+    -- 打印树
     local str = ''
     str = this.TreeToString(this.root, str)
     log(str)
@@ -67,18 +69,24 @@ function TreeLogic.MakeTree(tb, parent)
     return parent
 end
 
+-- 把树转为字符串
 function TreeLogic.TreeToString(node, str)
     if nil ~= node.value then
+        local tabspace = ''
+        for i = 1, node.tab do
+            tabspace = tabspace .. '    '
+        end
         if 'table' == type(node.value) then
-            str = str ..  string.format('▼ %s :', node.name)
+            str = str .. string.format('%s▼ %s :\n', tabspace, node.name)
         else
-            str = str .. string.format('● %s : %s', node.name , tostring(node.value))
+            str = str .. string.format('%s● %s : %s\n', tabspace, node.name, tostring(node.value))
         end
     end
 
     if nil ~= node.child then
         for _, child_node in pairs(node.child) do
-            str = str .. this.TreeToString(child_node, str)
+            -- 递归
+            str = this.TreeToString(child_node, str)
         end
     end
     return str
