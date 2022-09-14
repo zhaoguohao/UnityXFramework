@@ -159,6 +159,8 @@ namespace LuaInterface
             UnityEngine_MeshRendererWrap.Register(this);
             UnityEngine_TextureWrap.Register(this);
             UnityEngine_MonoBehaviourWrap.Register(this);
+            UnityEngine_AudioBehaviourWrap.Register(this);
+            UnityEngine_AudioSourceWrap.Register(this);
             EndModule(); //end UnityEngine
 
             EndModule(); //end global

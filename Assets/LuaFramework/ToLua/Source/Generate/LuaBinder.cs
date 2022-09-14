@@ -33,7 +33,6 @@ public static class LuaBinder
 		UnityEngine_TransformWrap.Register(L);
 		UnityEngine_MaterialWrap.Register(L);
 		UnityEngine_CameraWrap.Register(L);
-		UnityEngine_AudioSourceWrap.Register(L);
 		UnityEngine_BehaviourWrap.Register(L);
 		UnityEngine_GameObjectWrap.Register(L);
 		UnityEngine_TrackedReferenceWrap.Register(L);
@@ -64,7 +63,6 @@ public static class LuaBinder
 		UnityEngine_QualitySettingsWrap.Register(L);
 		UnityEngine_RenderSettingsWrap.Register(L);
 		UnityEngine_RectTransformWrap.Register(L);
-		UnityEngine_AudioBehaviourWrap.Register(L);
 		UnityEngine_MonoBehaviourWrap.Register(L);
 		UnityEngine_TextureWrap.Register(L);
 		UnityEngine_CustomYieldInstructionWrap.Register(L);

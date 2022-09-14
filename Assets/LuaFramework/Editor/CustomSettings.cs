@@ -85,7 +85,7 @@ namespace LuaFramework
             // _GT(typeof(Light)),
             _GT(typeof(Rigidbody)),
             _GT(typeof(Camera)),
-            _GT(typeof(AudioSource)),
+            // _GT(typeof(AudioSource)),
             //_GT(typeof(LineRenderer))
             //_GT(typeof(TrailRenderer))
     #endif
