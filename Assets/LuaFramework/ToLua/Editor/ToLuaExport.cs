@@ -1986,7 +1986,7 @@ public static class ToLuaExport
         {
             ParameterInfo param = paramInfos[j];
 
-            if (!param.ParameterType.IsByRef)
+            if (!param.ParameterType.IsByRef || ((param.Attributes & ParameterAttributes.In) != ParameterAttributes.None))
             {
                 sbArgs.Append("arg");
             }

@@ -134,9 +134,11 @@ public class UnityEngine_KeyCodeWrap
 		L.RegVar("LeftControl", get_LeftControl, null);
 		L.RegVar("RightAlt", get_RightAlt, null);
 		L.RegVar("LeftAlt", get_LeftAlt, null);
+		L.RegVar("LeftMeta", get_LeftMeta, null);
 		L.RegVar("LeftCommand", get_LeftCommand, null);
 		L.RegVar("LeftApple", get_LeftApple, null);
 		L.RegVar("LeftWindows", get_LeftWindows, null);
+		L.RegVar("RightMeta", get_RightMeta, null);
 		L.RegVar("RightCommand", get_RightCommand, null);
 		L.RegVar("RightApple", get_RightApple, null);
 		L.RegVar("RightWindows", get_RightWindows, null);
@@ -1227,6 +1229,13 @@ public class UnityEngine_KeyCodeWrap
 	}
 
 	[MonoPInvokeCallbackAttribute(typeof(LuaCSFunction))]
+	static int get_LeftMeta(IntPtr L)
+	{
+		ToLua.Push(L, UnityEngine.KeyCode.LeftMeta);
+		return 1;
+	}
+
+	[MonoPInvokeCallbackAttribute(typeof(LuaCSFunction))]
 	static int get_LeftCommand(IntPtr L)
 	{
 		ToLua.Push(L, UnityEngine.KeyCode.LeftCommand);
@@ -1244,6 +1253,13 @@ public class UnityEngine_KeyCodeWrap
 	static int get_LeftWindows(IntPtr L)
 	{
 		ToLua.Push(L, UnityEngine.KeyCode.LeftWindows);
+		return 1;
+	}
+
+	[MonoPInvokeCallbackAttribute(typeof(LuaCSFunction))]
+	static int get_RightMeta(IntPtr L)
+	{
+		ToLua.Push(L, UnityEngine.KeyCode.RightMeta);
 		return 1;
 	}
 

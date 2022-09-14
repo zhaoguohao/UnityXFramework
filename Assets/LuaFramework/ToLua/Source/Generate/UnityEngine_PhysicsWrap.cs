@@ -52,6 +52,7 @@ public class UnityEngine_PhysicsWrap
 		L.RegVar("defaultSolverIterations", get_defaultSolverIterations, set_defaultSolverIterations);
 		L.RegVar("defaultSolverVelocityIterations", get_defaultSolverVelocityIterations, set_defaultSolverVelocityIterations);
 		L.RegVar("defaultMaxAngularSpeed", get_defaultMaxAngularSpeed, set_defaultMaxAngularSpeed);
+		L.RegVar("improvedPatchFriction", get_improvedPatchFriction, set_improvedPatchFriction);
 		L.RegVar("defaultPhysicsScene", get_defaultPhysicsScene, null);
 		L.RegVar("autoSimulation", get_autoSimulation, set_autoSimulation);
 		L.RegVar("autoSyncTransforms", get_autoSyncTransforms, set_autoSyncTransforms);
@@ -60,6 +61,8 @@ public class UnityEngine_PhysicsWrap
 		L.RegVar("interCollisionStiffness", get_interCollisionStiffness, set_interCollisionStiffness);
 		L.RegVar("interCollisionSettingsToggle", get_interCollisionSettingsToggle, set_interCollisionSettingsToggle);
 		L.RegVar("clothGravity", get_clothGravity, set_clothGravity);
+		L.RegVar("ContactModifyEvent", get_ContactModifyEvent, set_ContactModifyEvent);
+		L.RegVar("ContactModifyEventCCD", get_ContactModifyEventCCD, set_ContactModifyEventCCD);
 		L.EndStaticLibs();
 	}
 
@@ -2213,6 +2216,20 @@ public class UnityEngine_PhysicsWrap
 	}
 
 	[MonoPInvokeCallbackAttribute(typeof(LuaCSFunction))]
+	static int get_improvedPatchFriction(IntPtr L)
+	{
+		try
+		{
+			LuaDLL.lua_pushboolean(L, UnityEngine.Physics.improvedPatchFriction);
+			return 1;
+		}
+		catch(Exception e)
+		{
+			return LuaDLL.toluaL_exception(L, e);
+		}
+	}
+
+	[MonoPInvokeCallbackAttribute(typeof(LuaCSFunction))]
 	static int get_defaultPhysicsScene(IntPtr L)
 	{
 		try
@@ -2322,6 +2339,20 @@ public class UnityEngine_PhysicsWrap
 		{
 			return LuaDLL.toluaL_exception(L, e);
 		}
+	}
+
+	[MonoPInvokeCallbackAttribute(typeof(LuaCSFunction))]
+	static int get_ContactModifyEvent(IntPtr L)
+	{
+		ToLua.Push(L, new EventObject("UnityEngine.Physics.ContactModifyEvent"));
+		return 1;
+	}
+
+	[MonoPInvokeCallbackAttribute(typeof(LuaCSFunction))]
+	static int get_ContactModifyEventCCD(IntPtr L)
+	{
+		ToLua.Push(L, new EventObject("UnityEngine.Physics.ContactModifyEventCCD"));
+		return 1;
 	}
 
 	[MonoPInvokeCallbackAttribute(typeof(LuaCSFunction))]
@@ -2475,6 +2506,21 @@ public class UnityEngine_PhysicsWrap
 	}
 
 	[MonoPInvokeCallbackAttribute(typeof(LuaCSFunction))]
+	static int set_improvedPatchFriction(IntPtr L)
+	{
+		try
+		{
+			bool arg0 = LuaDLL.luaL_checkboolean(L, 2);
+			UnityEngine.Physics.improvedPatchFriction = arg0;
+			return 0;
+		}
+		catch(Exception e)
+		{
+			return LuaDLL.toluaL_exception(L, e);
+		}
+	}
+
+	[MonoPInvokeCallbackAttribute(typeof(LuaCSFunction))]
 	static int set_autoSimulation(IntPtr L)
 	{
 		try
@@ -2571,6 +2617,108 @@ public class UnityEngine_PhysicsWrap
 		{
 			UnityEngine.Vector3 arg0 = ToLua.ToVector3(L, 2);
 			UnityEngine.Physics.clothGravity = arg0;
+			return 0;
+		}
+		catch(Exception e)
+		{
+			return LuaDLL.toluaL_exception(L, e);
+		}
+	}
+
+	[MonoPInvokeCallbackAttribute(typeof(LuaCSFunction))]
+	static int set_ContactModifyEvent(IntPtr L)
+	{
+		try
+		{
+			EventObject arg0 = null;
+
+			if (LuaDLL.lua_isuserdata(L, 2) != 0)
+			{
+				arg0 = (EventObject)ToLua.ToObject(L, 2);
+			}
+			else
+			{
+				return LuaDLL.luaL_throw(L, "The event 'UnityEngine.Physics.ContactModifyEvent' can only appear on the left hand side of += or -= when used outside of the type 'UnityEngine.Physics'");
+			}
+
+			if (arg0.op == EventOp.Add)
+			{
+				System.Action<UnityEngine.PhysicsScene,Unity.Collections.NativeArray<UnityEngine.ModifiableContactPair>> ev = (System.Action<UnityEngine.PhysicsScene,Unity.Collections.NativeArray<UnityEngine.ModifiableContactPair>>)DelegateFactory.CreateDelegate(typeof(System.Action<UnityEngine.PhysicsScene,Unity.Collections.NativeArray<UnityEngine.ModifiableContactPair>>), arg0.func);
+				UnityEngine.Physics.ContactModifyEvent += ev;
+			}
+			else if (arg0.op == EventOp.Sub)
+			{
+				System.Action<UnityEngine.PhysicsScene,Unity.Collections.NativeArray<UnityEngine.ModifiableContactPair>> ev = (System.Action<UnityEngine.PhysicsScene,Unity.Collections.NativeArray<UnityEngine.ModifiableContactPair>>)LuaMisc.GetEventHandler(null, typeof(UnityEngine.Physics), "ContactModifyEvent");
+				Delegate[] ds = ev.GetInvocationList();
+				LuaState state = LuaState.Get(L);
+
+				for (int i = 0; i < ds.Length; i++)
+				{
+					ev = (System.Action<UnityEngine.PhysicsScene,Unity.Collections.NativeArray<UnityEngine.ModifiableContactPair>>)ds[i];
+					LuaDelegate ld = ev.Target as LuaDelegate;
+
+					if (ld != null && ld.func == arg0.func)
+					{
+						UnityEngine.Physics.ContactModifyEvent -= ev;
+						state.DelayDispose(ld.func);
+						break;
+					}
+				}
+
+				arg0.func.Dispose();
+			}
+
+			return 0;
+		}
+		catch(Exception e)
+		{
+			return LuaDLL.toluaL_exception(L, e);
+		}
+	}
+
+	[MonoPInvokeCallbackAttribute(typeof(LuaCSFunction))]
+	static int set_ContactModifyEventCCD(IntPtr L)
+	{
+		try
+		{
+			EventObject arg0 = null;
+
+			if (LuaDLL.lua_isuserdata(L, 2) != 0)
+			{
+				arg0 = (EventObject)ToLua.ToObject(L, 2);
+			}
+			else
+			{
+				return LuaDLL.luaL_throw(L, "The event 'UnityEngine.Physics.ContactModifyEventCCD' can only appear on the left hand side of += or -= when used outside of the type 'UnityEngine.Physics'");
+			}
+
+			if (arg0.op == EventOp.Add)
+			{
+				System.Action<UnityEngine.PhysicsScene,Unity.Collections.NativeArray<UnityEngine.ModifiableContactPair>> ev = (System.Action<UnityEngine.PhysicsScene,Unity.Collections.NativeArray<UnityEngine.ModifiableContactPair>>)DelegateFactory.CreateDelegate(typeof(System.Action<UnityEngine.PhysicsScene,Unity.Collections.NativeArray<UnityEngine.ModifiableContactPair>>), arg0.func);
+				UnityEngine.Physics.ContactModifyEventCCD += ev;
+			}
+			else if (arg0.op == EventOp.Sub)
+			{
+				System.Action<UnityEngine.PhysicsScene,Unity.Collections.NativeArray<UnityEngine.ModifiableContactPair>> ev = (System.Action<UnityEngine.PhysicsScene,Unity.Collections.NativeArray<UnityEngine.ModifiableContactPair>>)LuaMisc.GetEventHandler(null, typeof(UnityEngine.Physics), "ContactModifyEventCCD");
+				Delegate[] ds = ev.GetInvocationList();
+				LuaState state = LuaState.Get(L);
+
+				for (int i = 0; i < ds.Length; i++)
+				{
+					ev = (System.Action<UnityEngine.PhysicsScene,Unity.Collections.NativeArray<UnityEngine.ModifiableContactPair>>)ds[i];
+					LuaDelegate ld = ev.Target as LuaDelegate;
+
+					if (ld != null && ld.func == arg0.func)
+					{
+						UnityEngine.Physics.ContactModifyEventCCD -= ev;
+						state.DelayDispose(ld.func);
+						break;
+					}
+				}
+
+				arg0.func.Dispose();
+			}
+
 			return 0;
 		}
 		catch(Exception e)

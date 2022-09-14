@@ -10,6 +10,8 @@ public class UnityEngine_SkinnedMeshRendererWrap
 		L.RegFunction("GetBlendShapeWeight", GetBlendShapeWeight);
 		L.RegFunction("SetBlendShapeWeight", SetBlendShapeWeight);
 		L.RegFunction("BakeMesh", BakeMesh);
+		L.RegFunction("GetVertexBuffer", GetVertexBuffer);
+		L.RegFunction("GetPreviousVertexBuffer", GetPreviousVertexBuffer);
 		L.RegFunction("New", _CreateUnityEngine_SkinnedMeshRenderer);
 		L.RegFunction("__eq", op_Equality);
 		L.RegFunction("__tostring", ToLua.op_ToString);
@@ -20,7 +22,7 @@ public class UnityEngine_SkinnedMeshRendererWrap
 		L.RegVar("bones", get_bones, set_bones);
 		L.RegVar("sharedMesh", get_sharedMesh, set_sharedMesh);
 		L.RegVar("skinnedMotionVectors", get_skinnedMotionVectors, set_skinnedMotionVectors);
-		L.RegVar("localBounds", get_localBounds, set_localBounds);
+		L.RegVar("vertexBufferTarget", get_vertexBufferTarget, set_vertexBufferTarget);
 		L.EndClass();
 	}
 
@@ -110,6 +112,40 @@ public class UnityEngine_SkinnedMeshRendererWrap
 			{
 				return LuaDLL.luaL_throw(L, "invalid arguments to method: UnityEngine.SkinnedMeshRenderer.BakeMesh");
 			}
+		}
+		catch(Exception e)
+		{
+			return LuaDLL.toluaL_exception(L, e);
+		}
+	}
+
+	[MonoPInvokeCallbackAttribute(typeof(LuaCSFunction))]
+	static int GetVertexBuffer(IntPtr L)
+	{
+		try
+		{
+			ToLua.CheckArgsCount(L, 1);
+			UnityEngine.SkinnedMeshRenderer obj = (UnityEngine.SkinnedMeshRenderer)ToLua.CheckObject(L, 1, typeof(UnityEngine.SkinnedMeshRenderer));
+			UnityEngine.GraphicsBuffer o = obj.GetVertexBuffer();
+			ToLua.PushObject(L, o);
+			return 1;
+		}
+		catch(Exception e)
+		{
+			return LuaDLL.toluaL_exception(L, e);
+		}
+	}
+
+	[MonoPInvokeCallbackAttribute(typeof(LuaCSFunction))]
+	static int GetPreviousVertexBuffer(IntPtr L)
+	{
+		try
+		{
+			ToLua.CheckArgsCount(L, 1);
+			UnityEngine.SkinnedMeshRenderer obj = (UnityEngine.SkinnedMeshRenderer)ToLua.CheckObject(L, 1, typeof(UnityEngine.SkinnedMeshRenderer));
+			UnityEngine.GraphicsBuffer o = obj.GetPreviousVertexBuffer();
+			ToLua.PushObject(L, o);
+			return 1;
 		}
 		catch(Exception e)
 		{
@@ -269,7 +305,7 @@ public class UnityEngine_SkinnedMeshRendererWrap
 	}
 
 	[MonoPInvokeCallbackAttribute(typeof(LuaCSFunction))]
-	static int get_localBounds(IntPtr L)
+	static int get_vertexBufferTarget(IntPtr L)
 	{
 		object o = null;
 
@@ -277,13 +313,13 @@ public class UnityEngine_SkinnedMeshRendererWrap
 		{
 			o = ToLua.ToObject(L, 1);
 			UnityEngine.SkinnedMeshRenderer obj = (UnityEngine.SkinnedMeshRenderer)o;
-			UnityEngine.Bounds ret = obj.localBounds;
+			UnityEngine.GraphicsBuffer.Target ret = obj.vertexBufferTarget;
 			ToLua.Push(L, ret);
 			return 1;
 		}
 		catch(Exception e)
 		{
-			return LuaDLL.toluaL_exception(L, e, o == null ? "attempt to index localBounds on a nil value" : e.Message);
+			return LuaDLL.toluaL_exception(L, e, o == null ? "attempt to index vertexBufferTarget on a nil value" : e.Message);
 		}
 	}
 
@@ -421,7 +457,7 @@ public class UnityEngine_SkinnedMeshRendererWrap
 	}
 
 	[MonoPInvokeCallbackAttribute(typeof(LuaCSFunction))]
-	static int set_localBounds(IntPtr L)
+	static int set_vertexBufferTarget(IntPtr L)
 	{
 		object o = null;
 
@@ -429,13 +465,13 @@ public class UnityEngine_SkinnedMeshRendererWrap
 		{
 			o = ToLua.ToObject(L, 1);
 			UnityEngine.SkinnedMeshRenderer obj = (UnityEngine.SkinnedMeshRenderer)o;
-			UnityEngine.Bounds arg0 = ToLua.ToBounds(L, 2);
-			obj.localBounds = arg0;
+			UnityEngine.GraphicsBuffer.Target arg0 = (UnityEngine.GraphicsBuffer.Target)ToLua.CheckObject(L, 2, typeof(UnityEngine.GraphicsBuffer.Target));
+			obj.vertexBufferTarget = arg0;
 			return 0;
 		}
 		catch(Exception e)
 		{
-			return LuaDLL.toluaL_exception(L, e, o == null ? "attempt to index localBounds on a nil value" : e.Message);
+			return LuaDLL.toluaL_exception(L, e, o == null ? "attempt to index vertexBufferTarget on a nil value" : e.Message);
 		}
 	}
 }

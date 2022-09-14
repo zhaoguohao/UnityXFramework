@@ -634,7 +634,7 @@ public class UnityEngine_RenderSettingsWrap
 	{
 		try
 		{
-			UnityEngine.Cubemap arg0 = (UnityEngine.Cubemap)ToLua.CheckUnityObject(L, 2, typeof(UnityEngine.Cubemap));
+			UnityEngine.Texture arg0 = (UnityEngine.Texture)ToLua.CheckUnityObject(L, 2, typeof(UnityEngine.Texture));
 			UnityEngine.RenderSettings.customReflection = arg0;
 			return 0;
 		}

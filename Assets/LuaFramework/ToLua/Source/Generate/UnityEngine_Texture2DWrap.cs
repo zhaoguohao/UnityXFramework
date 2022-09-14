@@ -23,7 +23,7 @@ public class UnityEngine_Texture2DWrap
 		L.RegFunction("GetPixelBilinear", GetPixelBilinear);
 		L.RegFunction("LoadRawTextureData", LoadRawTextureData);
 		L.RegFunction("Apply", Apply);
-		L.RegFunction("Resize", Resize);
+		L.RegFunction("Reinitialize", Reinitialize);
 		L.RegFunction("ReadPixels", ReadPixels);
 		L.RegFunction("GenerateAtlas", GenerateAtlas);
 		L.RegFunction("SetPixels32", SetPixels32);
@@ -638,7 +638,7 @@ public class UnityEngine_Texture2DWrap
 	}
 
 	[MonoPInvokeCallbackAttribute(typeof(LuaCSFunction))]
-	static int Resize(IntPtr L)
+	static int Reinitialize(IntPtr L)
 	{
 		try
 		{
@@ -649,7 +649,7 @@ public class UnityEngine_Texture2DWrap
 				UnityEngine.Texture2D obj = (UnityEngine.Texture2D)ToLua.ToObject(L, 1);
 				int arg0 = (int)LuaDLL.lua_tonumber(L, 2);
 				int arg1 = (int)LuaDLL.lua_tonumber(L, 3);
-				bool o = obj.Resize(arg0, arg1);
+				bool o = obj.Reinitialize(arg0, arg1);
 				LuaDLL.lua_pushboolean(L, o);
 				return 1;
 			}
@@ -660,7 +660,7 @@ public class UnityEngine_Texture2DWrap
 				int arg1 = (int)LuaDLL.lua_tonumber(L, 3);
 				UnityEngine.TextureFormat arg2 = (UnityEngine.TextureFormat)ToLua.ToObject(L, 4);
 				bool arg3 = LuaDLL.lua_toboolean(L, 5);
-				bool o = obj.Resize(arg0, arg1, arg2, arg3);
+				bool o = obj.Reinitialize(arg0, arg1, arg2, arg3);
 				LuaDLL.lua_pushboolean(L, o);
 				return 1;
 			}
@@ -671,13 +671,13 @@ public class UnityEngine_Texture2DWrap
 				int arg1 = (int)LuaDLL.lua_tonumber(L, 3);
 				UnityEngine.Experimental.Rendering.GraphicsFormat arg2 = (UnityEngine.Experimental.Rendering.GraphicsFormat)ToLua.ToObject(L, 4);
 				bool arg3 = LuaDLL.lua_toboolean(L, 5);
-				bool o = obj.Resize(arg0, arg1, arg2, arg3);
+				bool o = obj.Reinitialize(arg0, arg1, arg2, arg3);
 				LuaDLL.lua_pushboolean(L, o);
 				return 1;
 			}
 			else
 			{
-				return LuaDLL.luaL_throw(L, "invalid arguments to method: UnityEngine.Texture2D.Resize");
+				return LuaDLL.luaL_throw(L, "invalid arguments to method: UnityEngine.Texture2D.Reinitialize");
 			}
 		}
 		catch(Exception e)

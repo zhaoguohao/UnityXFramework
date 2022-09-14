@@ -20,6 +20,7 @@ public class UnityEngine_MaterialWrap
 		L.RegFunction("EnableKeyword", EnableKeyword);
 		L.RegFunction("DisableKeyword", DisableKeyword);
 		L.RegFunction("IsKeywordEnabled", IsKeywordEnabled);
+		L.RegFunction("SetKeyword", SetKeyword);
 		L.RegFunction("SetShaderPassEnabled", SetShaderPassEnabled);
 		L.RegFunction("GetShaderPassEnabled", GetShaderPassEnabled);
 		L.RegFunction("GetPassName", GetPassName);
@@ -69,6 +70,7 @@ public class UnityEngine_MaterialWrap
 		L.RegVar("mainTextureOffset", get_mainTextureOffset, set_mainTextureOffset);
 		L.RegVar("mainTextureScale", get_mainTextureScale, set_mainTextureScale);
 		L.RegVar("renderQueue", get_renderQueue, set_renderQueue);
+		L.RegVar("enabledKeywords", get_enabledKeywords, set_enabledKeywords);
 		L.RegVar("globalIlluminationFlags", get_globalIlluminationFlags, set_globalIlluminationFlags);
 		L.RegVar("doubleSidedGI", get_doubleSidedGI, set_doubleSidedGI);
 		L.RegVar("enableInstancing", get_enableInstancing, set_enableInstancing);
@@ -454,11 +456,26 @@ public class UnityEngine_MaterialWrap
 	{
 		try
 		{
-			ToLua.CheckArgsCount(L, 2);
-			UnityEngine.Material obj = (UnityEngine.Material)ToLua.CheckObject(L, 1, typeof(UnityEngine.Material));
-			string arg0 = ToLua.CheckString(L, 2);
-			obj.EnableKeyword(arg0);
-			return 0;
+			int count = LuaDLL.lua_gettop(L);
+
+			if (count == 2 && TypeChecker.CheckTypes(L, 1, typeof(UnityEngine.Material), typeof(string)))
+			{
+				UnityEngine.Material obj = (UnityEngine.Material)ToLua.ToObject(L, 1);
+				string arg0 = ToLua.ToString(L, 2);
+				obj.EnableKeyword(arg0);
+				return 0;
+			}
+			else if (count == 2 && TypeChecker.CheckTypes(L, 1, typeof(UnityEngine.Material), typeof(UnityEngine.Rendering.LocalKeyword)))
+			{
+				UnityEngine.Material obj = (UnityEngine.Material)ToLua.ToObject(L, 1);
+				UnityEngine.Rendering.LocalKeyword arg0 = (UnityEngine.Rendering.LocalKeyword)ToLua.ToObject(L, 2);
+				obj.EnableKeyword(arg0);
+				return 0;
+			}
+			else
+			{
+				return LuaDLL.luaL_throw(L, "invalid arguments to method: UnityEngine.Material.EnableKeyword");
+			}
 		}
 		catch(Exception e)
 		{
@@ -471,11 +488,26 @@ public class UnityEngine_MaterialWrap
 	{
 		try
 		{
-			ToLua.CheckArgsCount(L, 2);
-			UnityEngine.Material obj = (UnityEngine.Material)ToLua.CheckObject(L, 1, typeof(UnityEngine.Material));
-			string arg0 = ToLua.CheckString(L, 2);
-			obj.DisableKeyword(arg0);
-			return 0;
+			int count = LuaDLL.lua_gettop(L);
+
+			if (count == 2 && TypeChecker.CheckTypes(L, 1, typeof(UnityEngine.Material), typeof(string)))
+			{
+				UnityEngine.Material obj = (UnityEngine.Material)ToLua.ToObject(L, 1);
+				string arg0 = ToLua.ToString(L, 2);
+				obj.DisableKeyword(arg0);
+				return 0;
+			}
+			else if (count == 2 && TypeChecker.CheckTypes(L, 1, typeof(UnityEngine.Material), typeof(UnityEngine.Rendering.LocalKeyword)))
+			{
+				UnityEngine.Material obj = (UnityEngine.Material)ToLua.ToObject(L, 1);
+				UnityEngine.Rendering.LocalKeyword arg0 = (UnityEngine.Rendering.LocalKeyword)ToLua.ToObject(L, 2);
+				obj.DisableKeyword(arg0);
+				return 0;
+			}
+			else
+			{
+				return LuaDLL.luaL_throw(L, "invalid arguments to method: UnityEngine.Material.DisableKeyword");
+			}
 		}
 		catch(Exception e)
 		{
@@ -488,12 +520,46 @@ public class UnityEngine_MaterialWrap
 	{
 		try
 		{
-			ToLua.CheckArgsCount(L, 2);
+			int count = LuaDLL.lua_gettop(L);
+
+			if (count == 2 && TypeChecker.CheckTypes(L, 1, typeof(UnityEngine.Material), typeof(string)))
+			{
+				UnityEngine.Material obj = (UnityEngine.Material)ToLua.ToObject(L, 1);
+				string arg0 = ToLua.ToString(L, 2);
+				bool o = obj.IsKeywordEnabled(arg0);
+				LuaDLL.lua_pushboolean(L, o);
+				return 1;
+			}
+			else if (count == 2 && TypeChecker.CheckTypes(L, 1, typeof(UnityEngine.Material), typeof(UnityEngine.Rendering.LocalKeyword)))
+			{
+				UnityEngine.Material obj = (UnityEngine.Material)ToLua.ToObject(L, 1);
+				UnityEngine.Rendering.LocalKeyword arg0 = (UnityEngine.Rendering.LocalKeyword)ToLua.ToObject(L, 2);
+				bool o = obj.IsKeywordEnabled(arg0);
+				LuaDLL.lua_pushboolean(L, o);
+				return 1;
+			}
+			else
+			{
+				return LuaDLL.luaL_throw(L, "invalid arguments to method: UnityEngine.Material.IsKeywordEnabled");
+			}
+		}
+		catch(Exception e)
+		{
+			return LuaDLL.toluaL_exception(L, e);
+		}
+	}
+
+	[MonoPInvokeCallbackAttribute(typeof(LuaCSFunction))]
+	static int SetKeyword(IntPtr L)
+	{
+		try
+		{
+			ToLua.CheckArgsCount(L, 3);
 			UnityEngine.Material obj = (UnityEngine.Material)ToLua.CheckObject(L, 1, typeof(UnityEngine.Material));
-			string arg0 = ToLua.CheckString(L, 2);
-			bool o = obj.IsKeywordEnabled(arg0);
-			LuaDLL.lua_pushboolean(L, o);
-			return 1;
+			UnityEngine.Rendering.LocalKeyword arg0 = (UnityEngine.Rendering.LocalKeyword)ToLua.CheckObject(L, 2, typeof(UnityEngine.Rendering.LocalKeyword));
+			bool arg1 = LuaDLL.luaL_checkboolean(L, 3);
+			obj.SetKeyword(arg0, arg1);
+			return 0;
 		}
 		catch(Exception e)
 		{
@@ -2034,6 +2100,25 @@ public class UnityEngine_MaterialWrap
 	}
 
 	[MonoPInvokeCallbackAttribute(typeof(LuaCSFunction))]
+	static int get_enabledKeywords(IntPtr L)
+	{
+		object o = null;
+
+		try
+		{
+			o = ToLua.ToObject(L, 1);
+			UnityEngine.Material obj = (UnityEngine.Material)o;
+			UnityEngine.Rendering.LocalKeyword[] ret = obj.enabledKeywords;
+			ToLua.Push(L, ret);
+			return 1;
+		}
+		catch(Exception e)
+		{
+			return LuaDLL.toluaL_exception(L, e, o == null ? "attempt to index enabledKeywords on a nil value" : e.Message);
+		}
+	}
+
+	[MonoPInvokeCallbackAttribute(typeof(LuaCSFunction))]
 	static int get_globalIlluminationFlags(IntPtr L)
 	{
 		object o = null;
@@ -2239,6 +2324,25 @@ public class UnityEngine_MaterialWrap
 		catch(Exception e)
 		{
 			return LuaDLL.toluaL_exception(L, e, o == null ? "attempt to index renderQueue on a nil value" : e.Message);
+		}
+	}
+
+	[MonoPInvokeCallbackAttribute(typeof(LuaCSFunction))]
+	static int set_enabledKeywords(IntPtr L)
+	{
+		object o = null;
+
+		try
+		{
+			o = ToLua.ToObject(L, 1);
+			UnityEngine.Material obj = (UnityEngine.Material)o;
+			UnityEngine.Rendering.LocalKeyword[] arg0 = ToLua.CheckObjectArray<UnityEngine.Rendering.LocalKeyword>(L, 2);
+			obj.enabledKeywords = arg0;
+			return 0;
+		}
+		catch(Exception e)
+		{
+			return LuaDLL.toluaL_exception(L, e, o == null ? "attempt to index enabledKeywords on a nil value" : e.Message);
 		}
 	}
 

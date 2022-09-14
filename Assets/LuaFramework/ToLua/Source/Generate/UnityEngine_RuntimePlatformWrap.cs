@@ -29,6 +29,13 @@ public class UnityEngine_RuntimePlatformWrap
 		L.RegVar("GameCoreXboxSeries", get_GameCoreXboxSeries, null);
 		L.RegVar("GameCoreXboxOne", get_GameCoreXboxOne, null);
 		L.RegVar("PS5", get_PS5, null);
+		L.RegVar("EmbeddedLinuxArm64", get_EmbeddedLinuxArm64, null);
+		L.RegVar("EmbeddedLinuxArm32", get_EmbeddedLinuxArm32, null);
+		L.RegVar("EmbeddedLinuxX64", get_EmbeddedLinuxX64, null);
+		L.RegVar("EmbeddedLinuxX86", get_EmbeddedLinuxX86, null);
+		L.RegVar("LinuxServer", get_LinuxServer, null);
+		L.RegVar("WindowsServer", get_WindowsServer, null);
+		L.RegVar("OSXServer", get_OSXServer, null);
 		L.RegFunction("IntToEnum", IntToEnum);
 		L.EndEnum();
 	}
@@ -184,6 +191,55 @@ public class UnityEngine_RuntimePlatformWrap
 	static int get_PS5(IntPtr L)
 	{
 		ToLua.Push(L, UnityEngine.RuntimePlatform.PS5);
+		return 1;
+	}
+
+	[MonoPInvokeCallbackAttribute(typeof(LuaCSFunction))]
+	static int get_EmbeddedLinuxArm64(IntPtr L)
+	{
+		ToLua.Push(L, UnityEngine.RuntimePlatform.EmbeddedLinuxArm64);
+		return 1;
+	}
+
+	[MonoPInvokeCallbackAttribute(typeof(LuaCSFunction))]
+	static int get_EmbeddedLinuxArm32(IntPtr L)
+	{
+		ToLua.Push(L, UnityEngine.RuntimePlatform.EmbeddedLinuxArm32);
+		return 1;
+	}
+
+	[MonoPInvokeCallbackAttribute(typeof(LuaCSFunction))]
+	static int get_EmbeddedLinuxX64(IntPtr L)
+	{
+		ToLua.Push(L, UnityEngine.RuntimePlatform.EmbeddedLinuxX64);
+		return 1;
+	}
+
+	[MonoPInvokeCallbackAttribute(typeof(LuaCSFunction))]
+	static int get_EmbeddedLinuxX86(IntPtr L)
+	{
+		ToLua.Push(L, UnityEngine.RuntimePlatform.EmbeddedLinuxX86);
+		return 1;
+	}
+
+	[MonoPInvokeCallbackAttribute(typeof(LuaCSFunction))]
+	static int get_LinuxServer(IntPtr L)
+	{
+		ToLua.Push(L, UnityEngine.RuntimePlatform.LinuxServer);
+		return 1;
+	}
+
+	[MonoPInvokeCallbackAttribute(typeof(LuaCSFunction))]
+	static int get_WindowsServer(IntPtr L)
+	{
+		ToLua.Push(L, UnityEngine.RuntimePlatform.WindowsServer);
+		return 1;
+	}
+
+	[MonoPInvokeCallbackAttribute(typeof(LuaCSFunction))]
+	static int get_OSXServer(IntPtr L)
+	{
+		ToLua.Push(L, UnityEngine.RuntimePlatform.OSXServer);
 		return 1;
 	}
 

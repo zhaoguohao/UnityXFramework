@@ -13,6 +13,7 @@ public class UnityEngine_QualitySettingsWrap
 		L.RegFunction("SetLODSettings", SetLODSettings);
 		L.RegFunction("GetRenderPipelineAssetAt", GetRenderPipelineAssetAt);
 		L.RegFunction("GetQualityLevel", GetQualityLevel);
+		L.RegFunction("GetQualitySettings", GetQualitySettings);
 		L.RegFunction("__eq", op_Equality);
 		L.RegVar("pixelLightCount", get_pixelLightCount, set_pixelLightCount);
 		L.RegVar("shadows", get_shadows, set_shadows);
@@ -186,6 +187,22 @@ public class UnityEngine_QualitySettingsWrap
 			ToLua.CheckArgsCount(L, 0);
 			int o = UnityEngine.QualitySettings.GetQualityLevel();
 			LuaDLL.lua_pushinteger(L, o);
+			return 1;
+		}
+		catch(Exception e)
+		{
+			return LuaDLL.toluaL_exception(L, e);
+		}
+	}
+
+	[MonoPInvokeCallbackAttribute(typeof(LuaCSFunction))]
+	static int GetQualitySettings(IntPtr L)
+	{
+		try
+		{
+			ToLua.CheckArgsCount(L, 0);
+			UnityEngine.Object o = UnityEngine.QualitySettings.GetQualitySettings();
+			ToLua.Push(L, o);
 			return 1;
 		}
 		catch(Exception e)

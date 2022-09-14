@@ -122,6 +122,7 @@ public class UnityEngine_CameraWrap
 		L.RegVar("stereoActiveEye", get_stereoActiveEye, null);
 		L.RegVar("allCamerasCount", get_allCamerasCount, null);
 		L.RegVar("allCameras", get_allCameras, null);
+		L.RegVar("sceneViewFilterMode", get_sceneViewFilterMode, null);
 		L.RegVar("commandBufferCount", get_commandBufferCount, null);
 		L.RegFunction("CameraCallback", UnityEngine_Camera_CameraCallback);
 		L.EndClass();
@@ -2366,6 +2367,25 @@ public class UnityEngine_CameraWrap
 		catch(Exception e)
 		{
 			return LuaDLL.toluaL_exception(L, e);
+		}
+	}
+
+	[MonoPInvokeCallbackAttribute(typeof(LuaCSFunction))]
+	static int get_sceneViewFilterMode(IntPtr L)
+	{
+		object o = null;
+
+		try
+		{
+			o = ToLua.ToObject(L, 1);
+			UnityEngine.Camera obj = (UnityEngine.Camera)o;
+			UnityEngine.Camera.SceneViewFilterMode ret = obj.sceneViewFilterMode;
+			ToLua.Push(L, ret);
+			return 1;
+		}
+		catch(Exception e)
+		{
+			return LuaDLL.toluaL_exception(L, e, o == null ? "attempt to index sceneViewFilterMode on a nil value" : e.Message);
 		}
 	}
 

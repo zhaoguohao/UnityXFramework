@@ -8,6 +8,8 @@ public class UnityEngine_ScreenWrap
 	{
 		L.BeginStaticLibs("Screen");
 		L.RegFunction("SetResolution", SetResolution);
+		L.RegFunction("GetDisplayLayout", GetDisplayLayout);
+		L.RegFunction("MoveMainWindowTo", MoveMainWindowTo);
 		L.RegVar("width", get_width, null);
 		L.RegVar("height", get_height, null);
 		L.RegVar("dpi", get_dpi, null);
@@ -24,6 +26,8 @@ public class UnityEngine_ScreenWrap
 		L.RegVar("orientation", get_orientation, set_orientation);
 		L.RegVar("sleepTimeout", get_sleepTimeout, set_sleepTimeout);
 		L.RegVar("brightness", get_brightness, set_brightness);
+		L.RegVar("mainWindowPosition", get_mainWindowPosition, null);
+		L.RegVar("mainWindowDisplayInfo", get_mainWindowDisplayInfo, null);
 		L.EndStaticLibs();
 	}
 
@@ -72,6 +76,40 @@ public class UnityEngine_ScreenWrap
 			{
 				return LuaDLL.luaL_throw(L, "invalid arguments to method: UnityEngine.Screen.SetResolution");
 			}
+		}
+		catch(Exception e)
+		{
+			return LuaDLL.toluaL_exception(L, e);
+		}
+	}
+
+	[MonoPInvokeCallbackAttribute(typeof(LuaCSFunction))]
+	static int GetDisplayLayout(IntPtr L)
+	{
+		try
+		{
+			ToLua.CheckArgsCount(L, 1);
+			System.Collections.Generic.List<UnityEngine.DisplayInfo> arg0 = (System.Collections.Generic.List<UnityEngine.DisplayInfo>)ToLua.CheckObject(L, 1, typeof(System.Collections.Generic.List<UnityEngine.DisplayInfo>));
+			UnityEngine.Screen.GetDisplayLayout(arg0);
+			return 0;
+		}
+		catch(Exception e)
+		{
+			return LuaDLL.toluaL_exception(L, e);
+		}
+	}
+
+	[MonoPInvokeCallbackAttribute(typeof(LuaCSFunction))]
+	static int MoveMainWindowTo(IntPtr L)
+	{
+		try
+		{
+			ToLua.CheckArgsCount(L, 2);
+			UnityEngine.DisplayInfo arg0 = (UnityEngine.DisplayInfo)ToLua.CheckObject(L, 1, typeof(UnityEngine.DisplayInfo));
+			UnityEngine.Vector2Int arg1 = (UnityEngine.Vector2Int)ToLua.CheckObject(L, 2, typeof(UnityEngine.Vector2Int));
+			UnityEngine.AsyncOperation o = UnityEngine.Screen.MoveMainWindowTo(arg0, arg1);
+			ToLua.PushObject(L, o);
+			return 1;
 		}
 		catch(Exception e)
 		{
@@ -295,6 +333,34 @@ public class UnityEngine_ScreenWrap
 		try
 		{
 			LuaDLL.lua_pushnumber(L, UnityEngine.Screen.brightness);
+			return 1;
+		}
+		catch(Exception e)
+		{
+			return LuaDLL.toluaL_exception(L, e);
+		}
+	}
+
+	[MonoPInvokeCallbackAttribute(typeof(LuaCSFunction))]
+	static int get_mainWindowPosition(IntPtr L)
+	{
+		try
+		{
+			ToLua.PushValue(L, UnityEngine.Screen.mainWindowPosition);
+			return 1;
+		}
+		catch(Exception e)
+		{
+			return LuaDLL.toluaL_exception(L, e);
+		}
+	}
+
+	[MonoPInvokeCallbackAttribute(typeof(LuaCSFunction))]
+	static int get_mainWindowDisplayInfo(IntPtr L)
+	{
+		try
+		{
+			ToLua.PushValue(L, UnityEngine.Screen.mainWindowDisplayInfo);
 			return 1;
 		}
 		catch(Exception e)
