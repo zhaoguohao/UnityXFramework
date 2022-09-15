@@ -105,7 +105,7 @@ public class UnityUtil
     public static System.DateTime ConverToDateTime(double gmt)
     {
         System.DateTime time = System.DateTime.MinValue;
-        System.DateTime startTime = TimeZone.CurrentTimeZone.ToLocalTime(new System.DateTime(1970, 1, 1));
+        DateTime startTime = TimeZoneInfo.ConvertTimeFromUtc(new DateTime(1970, 1, 1), TimeZoneInfo.Local);
         time = startTime.AddSeconds(gmt);
 
         return time;
@@ -117,7 +117,7 @@ public class UnityUtil
     public static double DateTimeConvertToUTC(System.DateTime time)
     {
         double intResult = 0;
-        System.DateTime startTime = TimeZone.CurrentTimeZone.ToLocalTime(new System.DateTime(1970, 1, 1));
+        DateTime startTime = TimeZoneInfo.ConvertTimeFromUtc(new DateTime(1970, 1, 1), TimeZoneInfo.Local);
         intResult = (time - startTime).TotalSeconds;
         return intResult;
     }

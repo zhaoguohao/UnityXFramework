@@ -48,7 +48,7 @@ public class PrefabBinder : MonoBehaviour
         }
         catch (Exception e)
         {
-            Debug.LogError("PrefabBinder GetObj name = " + name);
+            Debug.LogErrorFormat("PrefabBinder GetObj name = {0}, Exception = {1}", name, e);
             return default(T);
         }
     }
