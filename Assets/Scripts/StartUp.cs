@@ -25,13 +25,38 @@ public class StartUp : MonoBehaviour
         //启动lua框架//
         LuaFramework.AppFacade.Instance.StartUp(() =>
         {
-            LuaCall.CallFunc("Main.Init");
-            LuaCall.CallFunc("Main.Start");
+#if UNITY_EDITOR
+            ConnectEmmyLua();
+#endif
+            // LuaCall.CallFunc("Main.Init");
+            // LuaCall.CallFunc("Main.Start");
 
             // 监听关闭游戏事件
             AppQuitDefend.Init();
         });
     }
+
+#if UNITY_EDITOR
+    private void ConnectEmmyLua()
+    {
+        // 连接EmmyLua
+        string script =
+            @"  function ConnectEmmyLua()                        
+                    pcall(function()
+                            package.cpath = package.cpath .. ';' .. UnityEngine.Application.dataPath .. '/../Tools/Emmylua/emmy_core.dll'
+                            local dbg = require('emmy_core')
+                            dbg.tcpConnect('localhost', 9966)
+                          end)
+                end
+                EmmyLuaCon = {}
+                EmmyLuaCon.luaFunc = ConnectEmmyLua
+            ";
+
+        var luaState = LuaManager.instance.GetState();
+        luaState.DoString(script, "StartUp.cs");
+        LuaCall.CallFunc("EmmyLuaCon.luaFunc");
+    }
+#endif
 
     /// <summary>
     /// 热更新之前初始化一些模块

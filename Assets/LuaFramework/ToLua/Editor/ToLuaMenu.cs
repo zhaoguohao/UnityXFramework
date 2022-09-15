@@ -39,6 +39,8 @@ using Debugger = LuaInterface.Debugger;
 using System.Threading;
 using LuaFramework;
 
+#pragma warning disable 0618
+
 [InitializeOnLoad]
 public static class ToLuaMenu
 {

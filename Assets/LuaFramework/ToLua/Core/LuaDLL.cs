@@ -674,7 +674,7 @@ namespace LuaInterface
         public static IntPtr lua_findGlobalTable(IntPtr L, string fname, int szhint)
         {
             throw (new NotImplementedException("lua_findGlobalTable not imp in 5.3.3...."));
-            return IntPtr.Zero;
+            // return IntPtr.Zero;
         }
 #else
         public static IntPtr lua_findGlobalTable(IntPtr L, string fname, int szhint)

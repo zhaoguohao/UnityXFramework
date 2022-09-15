@@ -25,7 +25,7 @@ namespace LuaFramework
             }
         }
 
-        private bool m_isStartUp = false;
+        // private bool m_isStartUp = false;
         private string m_shareKey;
         private string m_shareData;
 
@@ -39,7 +39,7 @@ namespace LuaFramework
                 return;
             }
 
-            m_isStartUp = true;
+            // m_isStartUp = true;
 
             LuaInterface.LuaFileUtils.Instance.Init();
             NetworkManager.GetInstance();

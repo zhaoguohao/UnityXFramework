@@ -130,6 +130,7 @@ public class Downloader
             }
             catch (System.Exception e)
             {
+                Debug.LogError(e.ToString());
                 // 下载出错
                 state = DownloadState.DataProcessingError;
                 Dispose();

@@ -8,6 +8,8 @@ using Holoville.HOTween;
 using Holoville.HOTween.Plugins.Core;
 using UnityEngine.UI;
 
+#pragma warning disable 0618
+
 namespace LuaFramework
 {
     public static class CustomSettings

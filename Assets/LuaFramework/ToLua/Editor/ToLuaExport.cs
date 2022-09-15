@@ -2528,7 +2528,7 @@ public static class ToLuaExport
                 }
                 catch (System.Exception e)
                 {
-
+                    Debug.LogError(e.ToString());
                 }
 
             }

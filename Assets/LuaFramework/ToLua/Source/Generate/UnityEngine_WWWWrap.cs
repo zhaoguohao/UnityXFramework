@@ -2,6 +2,8 @@
 using System;
 using LuaInterface;
 
+#pragma warning disable 0618
+
 public class UnityEngine_WWWWrap
 {
 	public static void Register(LuaState L)
