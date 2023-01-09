@@ -1,11 +1,40 @@
 ﻿<?xml version="1.0" encoding="UTF-8"?>
 <trees>
-  <tree path="Assets" title="Assets 的描述" guid="00000000000000001000000000000000" />
-  <tree path="" title="Editor 的描述" guid="d85ce84360812874393719d56a7ef0f3" />
-  <tree path="Assets/Editor/TreeInfoTip/TreeInfoTipAddText.cs" title="测试一下" guid="3fe059e0c210a1541bcfaa14eb004a89" />
-  <tree path="" title="Sample scene" guid="9fc0d4010bbf28b4594072e72b8655ab" />
-  <tree path="" title="TreeInfoTip" guid="e01719ea662750a44b5ad2715108ba8d" />
-  <tree path="Assets/Editor/TreeInfoTip/README.md" title="README" guid="a3616fafdc6a28c498618a5a76f8522e" />
-  <tree path="" title="Scenes" guid="6ea315d0fd7389c41b19996891e99ae3" />
-  <tree path="" title="DirectoryV2 1" guid="a71977ba6bbab2b4caa8cb24d4e0c88e" />
+  <tree path="Assets/Scripts/3rd/LitJson" title="JSON库" guid="eac58aff25a6ecb41a8030cd20bea029" isShow="True" />
+  <tree path="Assets/Scripts/Framework" title="框架代码" guid="08108daaaa4e9e643ad839be24e894de" isShow="True" />
+  <tree path="Assets/Scripts/Framework/Animation" title="动画相关" guid="eac0a1ce853dfdd46837808a16ec3aaf" isShow="True" />
+  <tree path="Assets/Scripts/Framework/Audio" title="音效相关" guid="ab8c4233fa6441e47b0a8a7c5e3594aa" isShow="True" />
+  <tree path="Assets/Scripts/Framework/Common" title="一些全局、工具脚本" guid="0b024ff83b5e6814480a8aaf76b076d3" isShow="True" />
+  <tree path="Assets/Scripts/Framework/Debug" title="调试相关" guid="17b6cdac680fa8b42a453ec6365f894f" isShow="True" />
+  <tree path="Assets/Scripts/Framework/Encrypt" title="加密" guid="e1f891a38c75f31438d7fb9b261a5793" isShow="True" />
+  <tree path="Assets/Scripts/Framework/Event" title="事件" guid="1ac43d8eadda02f45a716d17cc421c0c" isShow="True" />
+  <tree path="Assets/Scripts/Framework/I18N" title="国际化语言封装" guid="63e0fe46f12cf1248aa2ecef27ef382d" isShow="True" />
+  <tree path="Assets/Scripts/Framework/Network" title="网络封装" guid="471d402d7a1799645b23f4de92a80eb0" isShow="True" />
+  <tree path="Assets/Scripts/Framework/Panel" title="界面管理封装" guid="f67dba45cacffa14e9e1778ce46bfbb1" isShow="True" />
+  <tree path="Assets/Scripts/Framework/Particle" title="粒子特效封装" guid="d4ce9ea6ab2962049b2f345f533d1479" isShow="True" />
+  <tree path="Assets/Scripts/Framework/Sprite" title="精灵与图集封装" guid="bf5111999c0880842b4b128724c83f23" isShow="True" />
+  <tree path="Assets/Scripts/Framework/Resource" title="资源加载封装" guid="fb9cdc5fc8b1037498d28271748a20fb" isShow="True" />
+  <tree path="Assets/Scripts/Framework/sproto" title="sproto的C#实现" guid="5fd56e346574af545be2f82d6c9233f1" isShow="True" />
+  <tree path="Assets/Scripts/Framework/SprotoDef" title="sproto协议定义" guid="f88e8936f552060428326478851441f4" isShow="True" />
+  <tree path="Assets/Scripts/Framework/Timer" title="定时器" guid="3677634de400dcf419e12e12f4a39021" isShow="True" />
+  <tree path="Assets/Scripts/Framework/UGUIExpand" title="UGUI拓展" guid="05a89726db7a50c4aaf38803e20c160f" isShow="True" />
+  <tree path="Assets/Scripts/Framework/Version" title="版本管理" guid="db3da2aab0fdb9048bdffb3789d934ba" isShow="True" />
+  <tree path="Assets/Scripts/3rd" title="第三方库代码" guid="00775d28d453aa84ab6f2defed3b1976" isShow="True" />
+  <tree path="Assets/Scripts/Logic" title="游戏逻辑代码" guid="3f2b8b5acd013c642ad660ff8dcdf667" isShow="True" />
+  <tree path="Assets/Scripts/Logic/HotUpdate" title="热更新" guid="9c13268759e12d84095c6d7ea0b42b69" isShow="True" />
+  <tree path="Assets/Scripts/View" title="游戏界面代码" guid="6110a6bfe24507f4ca61a8ea3f0e0200" isShow="True" />
+  <tree path="Assets/Scripts/StartUp.cs" title="入口脚本" guid="bb724b112e614714e8325878d0dac362" isShow="True" />
+  <tree path="Assets/Scripts/Framework/Debug/GameLogger.cs" title="写日志" guid="c5cc99e8d18969e40883a8cff9a21e84" isShow="True" />
+  <tree path="Assets/Scripts/Framework/Encrypt/AESEncrypt.cs" title="AES加密解密" guid="5b0c8d724069a1a45829f56cce3d562c" isShow="True" />
+  <tree path="Assets/Scripts/Framework/Common/Misc/UnityExtension.cs" title="Unity拓展器" guid="a7bca6192fd63704fb14eb02e943e62c" isShow="True" />
+  <tree path="Assets/Scripts/Logic/HotUpdate/Downloader.cs" title="下载器" guid="87d9ec499cc5fc34284e1f86eb4e4303" isShow="True" />
+  <tree path="Assets/Scripts/Logic/HotUpdate/HotUpdater.cs" title="热更新逻辑" guid="155296f82db7ad149b859c12b1f725d3" isShow="True" />
+  <tree path="Assets/Scripts/Framework/Resource/ResourceManager.cs" title="资源管理器" guid="d4268ed4f2ac47748980cb5ed4785806" isShow="True" />
+  <tree path="Assets/Scripts/Framework/Panel/BasePanel.cs" title="界面基类，生命周期调度" guid="cb9693c41cb43864fb0de78fa35e0508" isShow="True" />
+  <tree path="Assets/Scripts/Framework/Panel/PanelMgr.cs" title="界面管理器" guid="c27c51d4320cac74897de76921a87a2d" isShow="True" />
+  <tree path="Assets/Scripts/Framework/Version/VersionMgr.cs" title="版本管理器" guid="b7f3650ce4d1b324aa7d6e579b62d827" isShow="True" />
+  <tree path="Assets/Scripts/Framework/Common/Misc/PrefabBinder.cs" title="预制Obj绑定器" guid="acd3f39482acb1f4db75f9d522711e68" isShow="True" />
+  <tree path="Assets/Scripts/Framework/Animation/AnimationEventTrigger.cs" title="动画触发器,监听动画关键帧事件" guid="9380ca5f550c2e34b931bbbd14ddba21" isShow="True" />
+  <tree path="Assets/Scripts/View/HotUpdate/HotUpdatePanel.cs" title="热更新界面" guid="00685f29877655b4c9b86be8058baeeb" isShow="True" />
+  <tree path="Assets/GameRes" title="熟肉资源" guid="51aafd12ff335134c8e207283767c2f0" isShow="True" />
 </trees>
