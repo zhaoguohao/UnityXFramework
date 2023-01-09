@@ -48,7 +48,7 @@ namespace TreeInfoTip
                 }
                 _directoryV2Path = value;
                 EditorPrefs.SetString(_directoryV2SaveKey, _directoryV2Path);
-                _guid2Title = null;
+                _guid2TipInfo = null;
             }
         }
         #endregion
@@ -56,32 +56,34 @@ namespace TreeInfoTip
         
         public bool IsOpen = true;  //是否开启TreeInfoTip
         
-        private Dictionary<string, string> _guid2Title;
-        public Dictionary<string, string> Guid2Title
+        private Dictionary<string, TipInfo> _guid2TipInfo;
+        public Dictionary<string, TipInfo> Guid2TipInfo
         {
             get
             {
-                if (_guid2Title == null) 
-                    CreateGuid2Title();
-                return _guid2Title;
+                if (_guid2TipInfo == null) 
+                    CreateGuid2TipInfo();
+                return _guid2TipInfo;
             }
         }
 
         private readonly string PATH = "path";
         private readonly string TITLE = "title";
         private readonly string GUID = "guid";
+        private readonly string IS_SHOW = "isShow";
 
-        public bool AddToGuid2Title(string guid, string title, string path)
+        public bool AddToGuid2TipInfo(string path, string title, string guid, bool isShow)
         {
-            if (_guid2Title.ContainsKey(guid))
+            TipInfo info = new TipInfo(path, title, guid, isShow);
+            if (_guid2TipInfo.ContainsKey(guid))
             {
-                _guid2Title[guid] = title;
-                UpdateDirectoryV2(guid, title, path);
+                _guid2TipInfo[guid] = info;
+                UpdateDirectoryV2(info);
             }
             else
             {
-                _guid2Title.Add(guid, title);
-                AddDirectoryV2(guid, title, path);
+                _guid2TipInfo.Add(guid, info);
+                AddDirectoryV2(info);
             }
 
             return true;
@@ -89,14 +91,23 @@ namespace TreeInfoTip
 
         public string GetTitleByGuid(string guid)
         {
-            if (Guid2Title.TryGetValue(guid, out string title))
+            if (Guid2TipInfo.TryGetValue(guid, out TipInfo info))
             {
-                return title;
+                return info.title;
             }
             return String.Empty;
         }
 
-        private bool AddDirectoryV2(string guid, string title, string path)
+        public bool GetIsShowByGuid(string guid)
+        {
+            if (Guid2TipInfo.TryGetValue(guid, out TipInfo info))
+            {
+                return info.isShow;
+            }
+            return true;
+        }
+
+        private bool AddDirectoryV2(TipInfo info)
         {
             string xmlPath = DirectoryV2Path;
             var xmlDoc = new XmlDocument();
@@ -105,9 +116,10 @@ namespace TreeInfoTip
             var root = xmlDoc.DocumentElement;
             
             var element = xmlDoc.CreateElement("tree");
-            element.SetAttribute(PATH, path);
-            element.SetAttribute(TITLE, title);
-            element.SetAttribute(GUID, guid);
+            element.SetAttribute(PATH, info.path);
+            element.SetAttribute(TITLE, info.title);
+            element.SetAttribute(GUID, info.guid);
+            element.SetAttribute(IS_SHOW, info.isShow.ToString());
             root.AppendChild(element);
             // TODO:将指定的节点紧接着插入指定的引用节点之后
             // root.InsertAfter(element, element);
@@ -119,7 +131,7 @@ namespace TreeInfoTip
         }
         
         //替换
-        private bool UpdateDirectoryV2(string guid, string title, string path)
+        private bool UpdateDirectoryV2(TipInfo info)
         {
             string xmlPath = DirectoryV2Path;
             var xmlDoc = new XmlDocument();
@@ -134,10 +146,11 @@ namespace TreeInfoTip
                     if (element == null)
                         continue;
 
-                    if (element.GetAttribute(GUID) == guid)
+                    if (element.GetAttribute(GUID) == info.guid)
                     {
-                        element.SetAttribute(PATH, path);
-                        element.SetAttribute(TITLE, title);
+                        element.SetAttribute(PATH, info.path);
+                        element.SetAttribute(TITLE, info.title);
+                        element.SetAttribute(IS_SHOW, info.isShow.ToString());
                         break;
                     }
                 }
@@ -148,7 +161,7 @@ namespace TreeInfoTip
         }
         
         //创建
-        private void CreateGuid2Title()
+        private void CreateGuid2TipInfo()
         {
             string xmlPath = DirectoryV2Path;
             var xmlDoc = new XmlDocument();
@@ -158,18 +171,20 @@ namespace TreeInfoTip
             var treeNodes = xmlDoc.SelectNodes("trees/tree");
             if (treeNodes != null)
             {
-                _guid2Title = new Dictionary<string, string>(treeNodes.Count);
+                _guid2TipInfo = new Dictionary<string, TipInfo>(treeNodes.Count);
                 foreach (XmlNode node in treeNodes)
                 {
                     var element = node as XmlElement;
                     if (element == null)
                         continue;
 
-                    string guid = element.GetAttribute(GUID);
-                    string title = element.GetAttribute(TITLE);
-                    _guid2Title.Add(guid, title);
-
                     string path = element.GetAttribute(PATH);
+                    string title = element.GetAttribute(TITLE);
+                    string guid = element.GetAttribute(GUID);
+                    bool isShow = Convert.ToBoolean(element.GetAttribute(IS_SHOW));
+                    TipInfo info = new TipInfo(path, title, guid, isShow);
+                    _guid2TipInfo.Add(guid, info);
+
                     string guid2Path = AssetDatabase.GUIDToAssetPath(guid);
                     if (path != guid2Path)
                     {

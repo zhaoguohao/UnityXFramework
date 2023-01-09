@@ -36,5 +36,5 @@
   <tree path="Assets/Scripts/Framework/Common/Misc/PrefabBinder.cs" title="预制Obj绑定器" guid="acd3f39482acb1f4db75f9d522711e68" isShow="True" />
   <tree path="Assets/Scripts/Framework/Animation/AnimationEventTrigger.cs" title="动画触发器,监听动画关键帧事件" guid="9380ca5f550c2e34b931bbbd14ddba21" isShow="True" />
   <tree path="Assets/Scripts/View/HotUpdate/HotUpdatePanel.cs" title="热更新界面" guid="00685f29877655b4c9b86be8058baeeb" isShow="True" />
-  <tree path="Assets/GameRes" title="熟肉资源" guid="51aafd12ff335134c8e207283767c2f0" isShow="True" />
+  <tree path="Assets/GameRes" title="熟肉资源" guid="51aafd12ff335134c8e207283767c2f0" isShow="False" />
 </trees>

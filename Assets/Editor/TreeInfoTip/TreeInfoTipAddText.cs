@@ -12,6 +12,7 @@ using UnityEditor;
 using UnityEngine;
 using Object = UnityEngine.Object;
 
+
 namespace TreeInfoTip
 {
     public class TreeInfoTipAddText : EditorWindow
@@ -32,6 +33,7 @@ namespace TreeInfoTip
         private string _showTipStr;
         private string _inputStr;
         private string _guid;
+        private bool _isShow = true;
         private void OnFocus()
         {
             Object selectFile = Selection.GetFiltered(typeof(Object), SelectionMode.Assets)[0];
@@ -39,6 +41,7 @@ namespace TreeInfoTip
             _guid = AssetDatabase.AssetPathToGUID(_selectFilePath);
             _showTipStr = $"Input Your {_selectFilePath} Description";
             _inputStr = TreeInfoTipManager.Instance.GetTitleByGuid(_guid);
+            _isShow = TreeInfoTipManager.Instance.GetIsShowByGuid(_guid);
         }
 
         private void OnGUI()
@@ -47,9 +50,10 @@ namespace TreeInfoTip
             _inputStr = GUILayout.TextField(_inputStr);
             
             GUILayout.BeginHorizontal();
+            _isShow = GUILayout.Toggle(_isShow, "是否显示");
             if (GUILayout.Button("确定"))
             {
-                TreeInfoTipManager.Instance.AddToGuid2Title(_guid, _inputStr, _selectFilePath);
+                TreeInfoTipManager.Instance.AddToGuid2TipInfo(_selectFilePath, _inputStr, _guid, _isShow);
             }
             if (GUILayout.Button("取消"))
             {

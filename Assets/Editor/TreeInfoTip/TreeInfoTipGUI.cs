@@ -29,9 +29,11 @@ namespace TreeInfoTip
         
         private static void HandleOnGUI(string guid, Rect selectionRect)
         {
-            var guid2Title = TreeInfoTipManager.Instance.Guid2Title;
-            if (guid2Title.TryGetValue(guid, out string message))
+            var guid2Title = TreeInfoTipManager.Instance.Guid2TipInfo;
+            if (guid2Title.TryGetValue(guid, out var info))
             {
+                if (!info.isShow) return;
+                
                 var path = AssetDatabase.GUIDToAssetPath(guid);
                 if (0 >= path.Length)
                     return;
@@ -66,13 +68,13 @@ namespace TreeInfoTip
                 }
 
                 _style.normal.textColor = _textColor;
-                var extSize = _style.CalcSize(new GUIContent(message));
+                var extSize = _style.CalcSize(new GUIContent(info.title));
                 var nameSize = _style.CalcSize(new GUIContent(nameRaw));
                 selectionRect.x += nameSize.x + (IsSingleColumnView ? 15 : 18) + _column;
                 selectionRect.width = nameSize.x + 1 + extSize.x;
             
                 var offsetRect = new Rect(selectionRect.position, selectionRect.size);
-                EditorGUI.LabelField(offsetRect, message, _style);
+                EditorGUI.LabelField(offsetRect, info.title, _style);
             }
         }
         
