@@ -7,6 +7,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "UnityEngine.UI.Tests", "Uni
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "LuaFramework", "LuaFramework.csproj", "{fc378aab-4891-bb3a-ef3d-246d1349da66}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "TreeInfoTip", "TreeInfoTip.csproj", "{db9f363f-9dde-1fe6-7b3c-ee7133d137dc}"
+EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Assembly-CSharp-Editor", "Assembly-CSharp-Editor.csproj", "{e5d54671-6768-3321-cc6e-9f3f7b60ff16}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "UnityEditor.UI.EditorTests", "UnityEditor.UI.EditorTests.csproj", "{7abf8c82-7ae3-4696-66ad-5c5772c1ac0a}"
@@ -28,6 +30,8 @@ Global
 		{595179a2-5ee3-91a4-7486-1976b81fd3c9}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{fc378aab-4891-bb3a-ef3d-246d1349da66}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
 		{fc378aab-4891-bb3a-ef3d-246d1349da66}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{db9f363f-9dde-1fe6-7b3c-ee7133d137dc}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{db9f363f-9dde-1fe6-7b3c-ee7133d137dc}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{e5d54671-6768-3321-cc6e-9f3f7b60ff16}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
 		{e5d54671-6768-3321-cc6e-9f3f7b60ff16}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{7abf8c82-7ae3-4696-66ad-5c5772c1ac0a}.Debug|Any CPU.ActiveCfg = Debug|Any CPU

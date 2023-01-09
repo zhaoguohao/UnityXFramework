@@ -1,0 +1,11 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<trees>
+  <tree path="Assets" title="Assets 的描述" guid="00000000000000001000000000000000" />
+  <tree path="" title="Editor 的描述" guid="d85ce84360812874393719d56a7ef0f3" />
+  <tree path="Assets/Editor/TreeInfoTip/TreeInfoTipAddText.cs" title="测试一下" guid="3fe059e0c210a1541bcfaa14eb004a89" />
+  <tree path="" title="Sample scene" guid="9fc0d4010bbf28b4594072e72b8655ab" />
+  <tree path="" title="TreeInfoTip" guid="e01719ea662750a44b5ad2715108ba8d" />
+  <tree path="Assets/Editor/TreeInfoTip/README.md" title="README" guid="a3616fafdc6a28c498618a5a76f8522e" />
+  <tree path="" title="Scenes" guid="6ea315d0fd7389c41b19996891e99ae3" />
+  <tree path="" title="DirectoryV2 1" guid="a71977ba6bbab2b4caa8cb24d4e0c88e" />
+</trees>
